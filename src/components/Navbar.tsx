@@ -77,7 +77,7 @@ export default function Navbar() {
               src="https://cdn-icons-png.freepik.com/512/452/452538.png"
               className="h-8 w-auto"
             />
-            <span className="ml-2 text-gray-900 font-semibold text-[20px]">My Website</span>
+            <span className="ml-2 text-gray-900 font-semibold text-[20px]">SA Project</span>
             </a>
         </div>
         <div className="flex lg:hidden">
