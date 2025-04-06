@@ -74,7 +74,7 @@ export default function Navbar() {
             <span className="sr-only">My Website</span>
             <img
               alt=""
-              src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600"
+              src="https://cdn-icons-png.freepik.com/512/452/452538.png"
               className="h-8 w-auto"
             />
             <span className="ml-2 text-gray-900 font-semibold text-[20px]">My Website</span>
