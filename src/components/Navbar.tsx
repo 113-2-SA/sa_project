@@ -71,7 +71,7 @@ export default function Navbar() {
       <nav aria-label="Global" className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8">
         <div className="flex lg:flex-1">
             <a href="/" className="-m-1.5 p-1.5 flex items-center">
-            <span className="sr-only">My Website</span>
+            <span className="sr-only">SA Project</span>
             <img
               alt=""
               src="https://cdn-icons-png.freepik.com/512/452/452538.png"
