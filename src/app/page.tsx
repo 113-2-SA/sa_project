@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Navbar from "../components/Navbar";
 import { useRouter } from "next/navigation";//useRouter不能在自己的server執行，"use client"將資料丟到客戶端執行
+import Chat from '../components/Chat';
 
 export default function Home() {
   const [isClient, setIsClient] = useState(false);
@@ -29,6 +30,7 @@ export default function Home() {
         <div className="text-center">
           <h1 className="text-4xl font-bold mb-4">Welcome to My Website</h1>
           <p className="text-lg mb-8">This is a simple example of a Next.js page.</p>
+          <Chat />
         </div>
       </div>
     </div>
