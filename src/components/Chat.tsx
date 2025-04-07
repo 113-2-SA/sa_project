@@ -23,7 +23,6 @@ const Chat = () => {
         ))}
       </div>
       <input
-        className='space-x-2'
         placeholder="Type your question..."
         type="text"
         value={message}
