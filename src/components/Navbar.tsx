@@ -209,7 +209,7 @@ export default function Navbar() {
                  
                 </a> */}
 
-                <Login />Log in
+                <Login />登入
 
               </div>
             </div>
