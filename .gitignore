@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# 忽略 Firebase 服務帳戶金鑰
+src/firebaseServiceAccountKey.json
