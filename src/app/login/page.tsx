@@ -1,45 +1,70 @@
 'use client';
 
-import { useState } from 'react';
+import { useState ,useEffect} from 'react';
 import { useRouter } from 'next/navigation';
 import { collection, getDocs, getFirestore } from "firebase/firestore"; 
-
-import app from "@/_firebase/Config"
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from '@/_firebase/Config';
+import {app} from "@/_firebase/Config"
 // import app from "/src/_firebase/Config"
 const db = getFirestore(app);
 const querySnapshot = await getDocs(collection(db, "users"));
 
 const Login = () => {
-  const [username, setUsername] = useState('');
+  const [email, setemail] = useState('');
   const [password, setPassword] = useState('');
-  const router = useRouter();
+
 
   querySnapshot.forEach((doc) => {
     console.log(`${doc.id} => ${doc.data()}`);
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  //帳號登入
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Logging in with:', { username, password });
-    router.push('/profile'); // Redirect to profile page after successful login
+    try {
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      console.log('Logged in successfully:', userCredential.user);
+      router.push('/profile'); // Redirect to profile page after successful login
+    } catch (error) {
+      console.error('Error logging in:', error);
+      alert('Invalid email or password. Please try again.');
+    }
   };
+
+ 
+  const [isClient, setIsClient] = useState(false);
+  const router = useRouter();//指定變數router為useRouter()
+  useEffect(() => {
+      setIsClient(true); // 當組件已經載入到客戶端後，設置為 true
+    }, []);
+  
+    const Clicksign = () => {
+      console.log("Button clicked");
+      router.push("/signup");//觸發handleClick時，導向/signup
+    }
+    
+
+    
 
 
   // function Login() {
   return (
+    
+
     <div className="flex min-h-screen items-center justify-center bg-gray-100">
       <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
         <h2 className="text-2xl font-bold text-gray-900 text-center mb-6">Login</h2>
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
-            <label htmlFor="username" className="block text-sm font-medium text-gray-700">
-              Username
+            <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+              email
             </label>
             <input
-              type="text"
-              id="username"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              type="email"
+              id="email"
+              value={email}
+              onChange={(e) => setemail(e.target.value)}
               required
               className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
             />
@@ -66,9 +91,9 @@ const Login = () => {
         </form>
         <p className="mt-4 text-sm text-center text-gray-600">
           Don't have an account?{' '}
-          <a href="/signup" className="font-medium text-indigo-600 hover:text-indigo-500">
+          <button className="button" onClick={Clicksign}>
             Sign up
-          </a>
+          </button>
         </p>
       </div>
     </div>
