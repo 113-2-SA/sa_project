@@ -61,7 +61,7 @@ export default function Navbar() {
     console.log("Button clicked");
     router.push("/profile");//觸發handleClick時，導向/profile
   }
-
+  
 
   if (!isClient) {
     return null; // 當未載入至客戶端時不渲染內容
