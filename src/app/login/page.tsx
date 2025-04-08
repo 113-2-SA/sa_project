@@ -2,11 +2,21 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { collection, getDocs, getFirestore } from "firebase/firestore"; 
+
+import app from "@/_firebase/Config"
+// import app from "/src/_firebase/Config"
+const db = getFirestore(app);
+const querySnapshot = await getDocs(collection(db, "users"));
 
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const router = useRouter();
+
+  querySnapshot.forEach((doc) => {
+    console.log(`${doc.id} => ${doc.data()}`);
+  });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -14,6 +24,8 @@ const Login = () => {
     router.push('/profile'); // Redirect to profile page after successful login
   };
 
+
+  // function Login() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-gray-100">
       <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
@@ -62,5 +74,4 @@ const Login = () => {
     </div>
   );
 };
-
 export default Login;
