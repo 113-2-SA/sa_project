@@ -14,11 +14,11 @@ const Chat = () => {
 
   return (
     <div>
-      <div className="chat-window"
+      <div
+        className="chat-window mx-auto"
         style={{
-          width: '100%',
-          maxWidth: '800px',
-          height: '70vh',
+          width: '85%',
+          height: '50vh', // 調整高度以適應畫面
           overflowY: 'auto',
           border: '1px solid #ccc',
           borderRadius: '8px',
@@ -28,9 +28,10 @@ const Chat = () => {
           justifyContent: 'flex-start',
           alignItems: 'stretch',
           backgroundColor: '#f8f9fa',
-          margin: '0 auto',
-          boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
-        }}>
+          margin: '10px auto', // 減少與標題的間距
+          boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+        }}
+      >
         {/* 顯示聊天記錄 */}
         {chatHistory.map((msg, idx) => (
           <div key={idx} className={msg.user === 'me' ? 'user-msg' : 'other-msg'}>
@@ -38,16 +39,17 @@ const Chat = () => {
           </div>
         ))}
       </div>
-      <div style={{
-        display: 'flex',
-        gap: '10px',
-        marginTop: '20px',
-        width: '100%',
-        maxWidth: '800px',
-        margin: '20px auto',
-        alignItems: 'center', // 確保輸入框與按鈕垂直置中
-        position: 'relative' // 為提示字提供定位基準
-      }}>
+      <div
+        style={{
+          display: 'flex',
+          gap: '10px',
+          marginTop: '10px', // 減少輸入框與聊天記錄框的間距
+          width: '85%',
+          maxWidth: '800px',
+          margin: '0 auto', // 水平置中
+          alignItems: 'center',
+        }}
+      >
         <input
           placeholder="Type your question..."
           type="text"
@@ -59,15 +61,13 @@ const Chat = () => {
             borderRadius: '8px',
             border: '1px solid #ccc',
             fontSize: '16px',
-            marginTop: '20px' // 確保不與提示字重疊
           }}
         />
-        <button 
-          className='button' 
+        <button
+          className="button"
           onClick={handleSendMessage}
           style={{
             padding: '12px 24px',
-            marginTop: '20px' // 與輸入框保持一致
           }}
         >
           送出
