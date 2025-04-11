@@ -11,6 +11,7 @@
   "dependencies": {
     "@headlessui/react": "^2.2.1",
     "@heroicons/react": "^2.2.0",
+    "@sanity/client": "^6.28.4",
     "firebase": "^11.6.0",
     "firebase-admin": "^13.2.0",
     "next": "15.2.4",
@@ -30,5 +31,18 @@
     "postcss": "^8.5.3",
     "tailwindcss": "^4.1.3",
     "typescript": "^5"
-  }
+  },
+  "description": "This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/113-2-SA/sa_project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/113-2-SA/sa_project/issues"
+  },
+  "homepage": "https://github.com/113-2-SA/sa_project#readme"
 }
