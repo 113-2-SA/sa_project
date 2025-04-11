@@ -25,7 +25,7 @@ export default function Home() {
 
   return (
     <div>
-      <Navbar />
+      
       <div className="flex justify-center items-center h-screen bg-gray-100">
         <div className="text-center">
         <h3 className="text-4xl font-bold mb-2" style={{ height: '3vh', lineHeight: '1.5' }}>Welcome to My Website</h3><br/>
