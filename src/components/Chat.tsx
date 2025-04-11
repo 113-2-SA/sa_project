@@ -26,7 +26,8 @@ const Chat = () => {
       <div
         className="chat-window mx-auto"
         style={{
-          width: '85%',
+          width: '100%', // 將寬度改為占螢幕的 100%
+          maxWidth: '800px', // 設定最大寬度以保持美觀
           height: '50vh', // 調整高度以適應畫面
           overflowY: 'auto',
           border: '1px solid #ccc',
@@ -58,7 +59,7 @@ const Chat = () => {
           display: 'flex',
           gap: '10px',
           marginTop: '10px', // 減少輸入框與聊天記錄框的間距
-          width: '85%',
+          width: '100%', // 輸入框與按鈕的寬度也改為 90%
           maxWidth: '800px',
           margin: '0 auto', // 水平置中
           alignItems: 'center',
