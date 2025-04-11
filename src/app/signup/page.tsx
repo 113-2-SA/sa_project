@@ -1,11 +1,8 @@
-// src/components/Register.tsx
-'use client';//切換至課戶端執行
+'use client'; // 切換至客戶端執行
 
-import React,{ useState } from 'react';
-// import { createUserWithEmailAndPassword } from 'firebase/auth';
+import React, { useState } from 'react';
 import { auth } from '@/_firebase/Config'; // 確保這裡的路徑正確
 import { createUserWithEmailAndPassword } from "firebase/auth";
-
 
 const Register = () => {
   const [email, setEmail] = useState('');
@@ -14,14 +11,10 @@ const Register = () => {
   const [successMessage, setSuccessMessage] = useState('');
   const [loading, setLoading] = useState(false);
 
-
   const Signup = async (e: React.FormEvent) => {
-    e.preventDefault();  // 阻止表單的預設提交行為
-    // setLoading(true);
+    e.preventDefault(); // 阻止表單的預設提交行為
     setErrorMessage('');
     setSuccessMessage('');
-
-    // const auth = auth();  // 確保每次使用時都會調用 getAuth()
 
     try {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
@@ -29,7 +22,6 @@ const Register = () => {
       setSuccessMessage(`帳號已創建成功，歡迎 ${user.email}`);
       console.log("註冊成功", user);
     } catch (error: any) {
-      // 根據 Firebase 的錯誤碼顯示錯誤訊息
       switch (error.code) {
         case 'auth/email-already-in-use':
           setErrorMessage('此電子郵件已被註冊');
@@ -48,36 +40,52 @@ const Register = () => {
     }
   };
 
-
   return (
-    <div>
-      <h2>註冊帳號</h2>
-      <form>
-        <div>
-          <label>電子郵件</label>
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </div>
-        <div>
-          <label>密碼</label>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </div>
-        <button disabled={loading} onClick={Signup}>
-          {loading ? '註冊中...' : '註冊'}
-        </button>
-      </form>
-
-      {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
-      {successMessage && <p style={{ color: 'green' }}>{successMessage}</p>}
+    <div className="flex min-h-screen items-center justify-center bg-gray-100">
+      <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
+        <h2 className="text-2xl font-bold text-gray-900 text-center mb-6">註冊帳號</h2>
+        <form onSubmit={Signup} className="space-y-6">
+          <div>
+            <label htmlFor="email" className="block text-sm font-medium text-gray-700 text-center">
+              電子郵件
+            </label>
+            <div className="flex justify-center">
+              <input
+                type="email"
+                id="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+              />
+            </div>
+          </div>
+          <div>
+            <label htmlFor="password" className="block text-sm font-medium text-gray-700 text-center">
+              密碼
+            </label>
+            <div className="flex justify-center">
+              <input
+                type="password"
+                id="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+              />
+            </div>
+          </div>
+          <button
+            type="submit"
+            disabled={loading}
+            className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+          >
+            {loading ? '註冊中...' : '註冊'}
+          </button>
+        </form>
+        {errorMessage && <p className="mt-4 text-sm text-center text-red-600">{errorMessage}</p>}
+        {successMessage && <p className="mt-4 text-sm text-center text-green-600">{successMessage}</p>}
+      </div>
     </div>
   );
 };

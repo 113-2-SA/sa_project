@@ -2,13 +2,17 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { collection, getDocs, getFirestore } from "firebase/firestore";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from '@/_firebase/Config';
-import { app } from "@/_firebase/Config"
+import Link from 'next/link'; // 新增引入 Link 元件
+import { collection, getDocs, getFirestore } from "firebase/firestore"; 
+import { signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { auth , app } from '@/_firebase/Config';
+import { Button } from "@/components/ui/button"
+
 // import app from "/src/_firebase/Config"
 const db = getFirestore(app);
 const querySnapshot = await getDocs(collection(db, "users"));
+
+const provider = new GoogleAuthProvider();
 
 const Login = () => {
   const [email, setemail] = useState('');
@@ -32,7 +36,17 @@ const Login = () => {
     }
   };
 
-
+  const handleGoogleLogin = async () => {
+    try {
+      const result = await signInWithPopup(auth, provider);
+      const user = result.user;
+      console.log("登入成功！", user.displayName, user.email);
+      // 可跳轉頁面或儲存 user.uid 當 chatId
+    } catch (error) {
+      console.error("Google 登入失敗：", error);
+    }
+  };
+ 
   const [isClient, setIsClient] = useState(false);
   const router = useRouter();//指定變數router為useRouter()
   useEffect(() => {
@@ -95,9 +109,19 @@ const Login = () => {
         </form>
         <p className="mt-4 text-sm text-center text-gray-600">
           沒有帳號?{' '}
-          <button className="button" onClick={Clicksign}>
-            註冊
-          </button>
+          <Link href="/signup" className="font-medium text-indigo-600 hover:text-indigo-500">
+            <Button variant="outline" onClick={Clicksign}>Sign up</Button>
+          </Link>
+        </p>
+        <p className="mt-4 text-md text-center text-gray-600">
+          <b>其他登入方式</b><br />
+           
+              <button
+                onClick={handleGoogleLogin}
+                className="bg-red-500 text-white px-6 py-2 rounded hover:bg-red-600 button"
+              >
+                使用 Google 登入
+              </button>
         </p>
       </div>
     </div>
