@@ -3,12 +3,13 @@
 import { useState ,useEffect} from 'react';
 import { useRouter } from 'next/navigation';
 import { collection, getDocs, getFirestore } from "firebase/firestore"; 
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from '@/_firebase/Config';
-import {app} from "@/_firebase/Config"
+import { signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { auth , app } from '@/_firebase/Config';
 // import app from "/src/_firebase/Config"
 const db = getFirestore(app);
 const querySnapshot = await getDocs(collection(db, "users"));
+
+const provider = new GoogleAuthProvider();
 
 const Login = () => {
   const [email, setemail] = useState('');
@@ -32,6 +33,16 @@ const Login = () => {
     }
   };
 
+  const handleGoogleLogin = async () => {
+    try {
+      const result = await signInWithPopup(auth, provider);
+      const user = result.user;
+      console.log("登入成功！", user.displayName, user.email);
+      // 可跳轉頁面或儲存 user.uid 當 chatId
+    } catch (error) {
+      console.error("Google 登入失敗：", error);
+    }
+  };
  
   const [isClient, setIsClient] = useState(false);
   const router = useRouter();//指定變數router為useRouter()
@@ -98,6 +109,16 @@ const Login = () => {
           <button className="button" onClick={Clicksign}>
             Sign up
           </button>
+        </p>
+        <p className="mt-4 text-sm text-center text-gray-600">
+          其他登入方式
+           
+              <button
+                onClick={handleGoogleLogin}
+                className="bg-red-500 text-white px-6 py-2 rounded hover:bg-red-600"
+              >
+                使用 Google 登入
+              </button>
         </p>
       </div>
     </div>
