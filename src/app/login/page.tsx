@@ -5,6 +5,8 @@ import { useRouter } from 'next/navigation';
 import { collection, getDocs, getFirestore } from "firebase/firestore"; 
 import { signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { auth , app } from '@/_firebase/Config';
+import { Button } from "@/components/ui/button"
+
 // import app from "/src/_firebase/Config"
 const db = getFirestore(app);
 const querySnapshot = await getDocs(collection(db, "users"));
@@ -106,16 +108,15 @@ const Login = () => {
         </form>
         <p className="mt-4 text-sm text-center text-gray-600">
           沒有帳號?{' '}
-          <button className="button" onClick={Clicksign}>
-            Sign up
-          </button>
+          
+          <Button variant="outline" onClick={Clicksign}>Sign up</Button>
         </p>
-        <p className="mt-4 text-sm text-center text-gray-600">
-          其他登入方式
+        <p className="mt-4 text-md text-center text-gray-600">
+          <b>其他登入方式</b><br />
            
               <button
                 onClick={handleGoogleLogin}
-                className="bg-red-500 text-white px-6 py-2 rounded hover:bg-red-600"
+                className="bg-red-500 text-white px-6 py-2 rounded hover:bg-red-600 button"
               >
                 使用 Google 登入
               </button>
