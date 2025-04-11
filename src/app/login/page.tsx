@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link'; // 新增引入 Link 元件
 import { collection, getDocs, getFirestore } from "firebase/firestore"; 
 import { signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { auth , app } from '@/_firebase/Config';
@@ -108,8 +109,9 @@ const Login = () => {
         </form>
         <p className="mt-4 text-sm text-center text-gray-600">
           沒有帳號?{' '}
-          
-          <Button variant="outline" onClick={Clicksign}>Sign up</Button>
+          <Link href="/signup" className="font-medium text-indigo-600 hover:text-indigo-500">
+            <Button variant="outline" onClick={Clicksign}>Sign up</Button>
+          </Link>
         </p>
         <p className="mt-4 text-md text-center text-gray-600">
           <b>其他登入方式</b><br />
