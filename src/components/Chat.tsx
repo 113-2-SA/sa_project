@@ -6,9 +6,18 @@ const Chat = () => {
   const [chatHistory, setChatHistory] = useState<{ user: string; text: string }[]>([]);
 
   const handleSendMessage = () => {
+    if (message.trim() === '') return;
+
     // 發送訊息後，將訊息加入聊天記錄
     const newMessage = { user: 'me', text: message };
     setChatHistory([...chatHistory, newMessage]);
+
+    // 模擬回復訊息
+    setTimeout(() => {
+      const replyMessage = { user: 'bot', text: '這是回復的訊息' };
+      setChatHistory((prev) => [...prev, replyMessage]);
+    }, 1000);
+
     setMessage('');
   };
 
@@ -34,7 +43,12 @@ const Chat = () => {
       >
         {/* 顯示聊天記錄 */}
         {chatHistory.map((msg, idx) => (
-          <div key={idx} className={msg.user === 'me' ? 'user-msg' : 'other-msg'}>
+          <div
+            key={idx}
+            className={`p-2 my-1 rounded-lg max-w-[70%] ${
+              msg.user === 'me' ? 'self-end bg-blue-100 text-right' : 'self-start bg-gray-200 text-left'
+            }`}
+          >
             <p>{msg.text}</p>
           </div>
         ))}
