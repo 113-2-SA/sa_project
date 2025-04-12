@@ -32,6 +32,7 @@ import {
 import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid'
 import { useRouter } from "next/navigation";
 import Login from '@/app/login/page'
+import HeaderSticker from '@/components/profile';
 
 const products = [
   { name: 'ChatGPT', description: 'Get a better understanding of your traffic', href: '#', icon: ChartPieIcon },
@@ -67,6 +68,8 @@ export default function Navbar() {
     return null; // 當未載入至客戶端時不渲染內容
   }
 
+
+  
   return (
     <header className="bg-white fixed top-0 left-0 w-full z-50">
       <nav aria-label="Global" className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8">
@@ -144,9 +147,7 @@ export default function Navbar() {
 
         </PopoverGroup>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-            <h3><a href="/login" className="text-sm/6 font-semibold text-gray-900">
-            登入 <span aria-hidden="true">&rarr;</span>
-          </a></h3>
+        <HeaderSticker />
         </div>
       </nav>
 
@@ -201,14 +202,8 @@ export default function Navbar() {
                 
               </div>
               <div className="py-6">
-              <a
-                href="/login"
-                className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
-              >
-                Log in
                 
-              </a>
-
+              <HeaderSticker />
               </div>
             </div>
           </div>
