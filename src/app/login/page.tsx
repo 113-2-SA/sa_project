@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link'; // 新增引入 Link 元件
 import { collection, getDocs, getFirestore } from "firebase/firestore"; 
-import { signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, signOut } from "firebase/auth";
 import { auth , app } from '@/_firebase/Config';
 import { Button } from "@/components/ui/button"
 
@@ -123,6 +123,25 @@ const Login = () => {
                 使用 Google 登入
               </button>
         </p>
+        <Button
+          variant="outline"
+          className="w-full mt-4"
+          onClick={() => {
+            if (confirm("確定要登出嗎？")) {
+              signOut(auth)
+          .then(() => {
+            console.log("Logout successful!");
+            alert("登出成功！");
+            router.push("/"); // 登出後導向首頁
+          })
+          .catch((error) => {
+            console.error("Logout fail：", error);
+          });
+            }
+          }}
+        >
+          Logout
+        </Button>
       </div>
     </div>
   );

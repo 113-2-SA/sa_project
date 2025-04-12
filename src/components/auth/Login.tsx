@@ -36,11 +36,11 @@ signInWithEmailAndPassword(auth, email, password)
 
 };
 
-export async function logout() {
-  try {
-    await signOut(auth);
-    console.log("使用者已登出");
-  } catch (error) {
-    console.error("登出失敗：", error);
-  }
-}
+
+signOut(auth).then(() => {
+  // Sign-out successful.
+}).catch((error) => {
+  // An error happened.
+});
+export { signOut };
+
