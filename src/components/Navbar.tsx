@@ -35,13 +35,13 @@ import Login from '@/app/login/page'
 import HeaderSticker from '@/components/profile';
 
 const products = [
-  { name: 'ChatGPT', description: 'Get a better understanding of your traffic', href: '#', icon: ChartPieIcon },
+  { name: 'QROK ', description: 'Get a better understanding of your traffic', href: '/', icon: ChartPieIcon },
   { name: 'Deepseek', description: 'Speak directly to your customers', href: '#', icon: CursorArrowRaysIcon },
   { name: 'Claude', description: 'Your customers’ data will be safe and secure', href: '#', icon: FingerPrintIcon },
 ]
 const callsToAction = [
-  { name: 'Watch demo', href: '#', icon: PlayCircleIcon },
-  { name: 'Contact sales', href: '#', icon: PhoneIcon },
+  { name: '前往系網', href: '#', icon: PlayCircleIcon },
+  { name: '聯絡系上', href: '#', icon: PhoneIcon },
 ]
 
 export default function Navbar() {
@@ -139,9 +139,9 @@ export default function Navbar() {
             </PopoverPanel>
           </Popover>
 
-          <button className="text-sm/6 font-semibold text-gray-900 shape-ex1" onClick={ClickTest}>Go to Test</button>
+          <button className="text-sm/6 font-semibold text-gray-900 shape-ex1" onClick={ClickTest}>系上提問社群</button>
 
-          <button className="text-sm/6 font-semibold text-gray-900 shape-ex1" onClick={ClickProfile}>Go to Profile</button>
+          <button className="text-sm/6 font-semibold text-gray-900 shape-ex1" onClick={ClickProfile}>課表</button>
 
           <button className="text-sm/6 font-semibold text-gray-900 shape-ex1" onClick={ClickProfile}>Go to Profile</button>
 
@@ -177,7 +177,7 @@ export default function Navbar() {
               <div className="space-y-2 py-6">
                 <Disclosure as="div" className="-mx-3">
                   <DisclosureButton className="group flex w-full items-center justify-between rounded-lg py-2 pr-3.5 pl-3 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">
-                    Product
+                    <span>BOT models</span>
                     <ChevronDownIcon aria-hidden="true" className="size-5 flex-none group-data-open:rotate-180" />
                   </DisclosureButton>
                   <DisclosurePanel className="mt-2 space-y-2">
@@ -194,9 +194,9 @@ export default function Navbar() {
                   </DisclosurePanel>
                 </Disclosure>
                
-                <button className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50" onClick={ClickTest}>Go to Test</button>
+                <button className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50" onClick={ClickTest}>系上提問社群</button>
 
-                <button className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50" onClick={ClickProfile}>Go to Profile</button>
+                <button className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50" onClick={ClickProfile}>課表</button>
 
                 <button className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50" onClick={ClickProfile}>Go to Profile</button>
                 
