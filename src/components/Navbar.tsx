@@ -97,7 +97,7 @@ export default function Navbar() {
         <PopoverGroup className="hidden lg:flex lg:gap-x-12">
           <Popover className="relative shape-ex1">
             <PopoverButton className="flex items-center gap-x-1 text-sm/6 font-semibold text-gray-900">
-              BOT models
+              模型
               <ChevronDownIcon aria-hidden="true" className="size-5 flex-none text-gray-400" />
             </PopoverButton>
 
