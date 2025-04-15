@@ -1,33 +1,56 @@
 // Chat 組件 - 實現即時對話功能
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import fs from 'fs';
+import path from 'path';
 
 // 定義訊息介面
 interface Message {
-  user: string; // 使用者類型 ('me' 或 'bot')
-  text: string; // 訊息內容
+  user: 'me' | 'bot';
+  text: string;
 }
 
-// 系統提示詞，定義 AI 助手的行為規則
-const SYSTEM_PROMPT = `你是一個專業的助手，請遵循以下規則：
-1. 使用繁體中文回答
-2. 回答要簡潔明瞭
-3. 保持友善和專業的態度
-4. 如果不確定的事情，要誠實說明
-5. 適時使用emoji表情符號增加親和力`;
+// 系統提示詞模板
+const SYSTEM_PROMPT_TEMPLATE = (professorData: string) => `你是一個專門回答關於輔仁大學資訊管理學系教師資訊的助手。
+你可以回答關於教師的以下問題：
+1. 教師的基本資訊（姓名、職稱）
+2. 教師的專長領域
+3. 教師的聯絡方式（電話、email）
+4. 教師的辦公室位置
+
+請根據以下教師資料回答問題：
+
+${professorData}
+
+請用中文回答問題，保持專業和友善的態度。如果問題超出上述資料範圍，請誠實告知無法回答。`;
 
 const Chat = () => {
   // 狀態管理
   const [message, setMessage] = useState(''); // 當前輸入的訊息
   const [chatHistory, setChatHistory] = useState<Message[]>([]); // 對話歷史記錄
   const [isLoading, setIsLoading] = useState(false); // 載入狀態
+  const [professorData, setProfessorData] = useState('');
+
+  // 在組件載入時獲取教師資料
+  useEffect(() => {
+    const fetchProfessorData = async () => {
+      try {
+        const response = await fetch('/api/professors');
+        const data = await response.json();
+        setProfessorData(data.data);
+      } catch (error) {
+        console.error('Error fetching professor data:', error);
+      }
+    };
+
+    fetchProfessorData();
+  }, []);
 
   // 處理發送訊息的函數
   const handleSendMessage = async () => {
-    if (message.trim() === '') return; // 如果訊息為空則不處理
+    if (!message.trim() || !professorData) return;
 
-    // 將用戶訊息加入對話歷史
-    const newMessage = { user: 'me', text: message };
-    setChatHistory([...chatHistory, newMessage]);
+    // 添加用戶訊息到對話歷史
+    setChatHistory((prev) => [...prev, { user: 'me', text: message }]);
     setIsLoading(true);
 
     try {
@@ -37,7 +60,7 @@ const Chat = () => {
       const messages = [
         {
           role: 'system',
-          content: SYSTEM_PROMPT
+          content: SYSTEM_PROMPT_TEMPLATE(professorData)
         },
         // 將之前的對話歷史轉換為 API 所需格式
         ...chatHistory.map(msg => ({
