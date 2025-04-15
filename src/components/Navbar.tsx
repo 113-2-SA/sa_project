@@ -35,7 +35,7 @@ import Login from '@/app/login/page'
 import HeaderSticker from '@/components/profile';
 
 const products = [
-  { name: 'QROK ', description: 'Get a better understanding of your traffic', href: '/', icon: ChartPieIcon },
+  { name: 'Groq ', description: 'Get a better understanding of your traffic', href: '/', icon: ChartPieIcon },
   { name: 'Deepseek', description: 'Speak directly to your customers', href: '#', icon: CursorArrowRaysIcon },
   { name: 'Claude', description: 'Your customers’ data will be safe and secure', href: '#', icon: FingerPrintIcon },
 ]
