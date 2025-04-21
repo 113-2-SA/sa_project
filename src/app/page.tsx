@@ -25,9 +25,9 @@ export default function Home() {
   return (
     <div>
       
-      <div className="flex justify-center items-center h-screen bg-gray-100">
+      <div className="flex justify-center items-center h-screen bg-gray-100" style={{ marginTop: '-50px', minHeight: '100vh' }}>
         <div className="text-center">
-        <h3 className="text-4xl font-bold mb-2" style={{ height: '3vh', lineHeight: '1.5' }}>Welcome to My Website</h3><br/>
+        <h3 className="text-4xl font-bold mb-2" style={{ height: '5vh', lineHeight: '1.5' }}>Welcome to My Website</h3><br/>
         <p className="text-lg mb-4" style={{  lineHeight: '1.4' }}>This is a simple example of a Next.js page.<br />資管系FAQ 請輸入提問</p>
           <Chat />
         </div>
