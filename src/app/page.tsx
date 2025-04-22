@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";//useRouter不能在自己的server執行，"use client"將資料丟到客戶端執行
 import Chat from '../components/Chat';
 
+
 export default function Home() {
   const [isClient, setIsClient] = useState(false);
   const router = useRouter();//指定變數router為useRouter()
@@ -25,7 +26,7 @@ export default function Home() {
   return (
     <div>
       
-      <div className="flex justify-center items-center h-screen bg-gray-100" style={{ marginTop: '-50px', minHeight: '100vh' }}>
+      <div className="flex justify-center items-center h-screen bg-gray-100" style={{ marginTop: '-50px', minHeight: '100vh'  }}>
         <div className="text-center">
         <h3 className="text-4xl font-bold mb-2" style={{ height: '5vh', lineHeight: '1.5' }}>Welcome to My Website</h3><br/>
         <p className="text-lg mb-4" style={{  lineHeight: '1.4' }}>This is a simple example of a Next.js page.<br />資管系FAQ 請輸入提問</p>

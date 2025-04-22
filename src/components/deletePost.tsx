@@ -1,4 +1,6 @@
+'use client'
 import React from 'react';
+import { useRouter } from 'next/navigation';
 import { db, auth } from '@/_firebase/Config';
 import { doc, deleteDoc } from 'firebase/firestore';
 import { Button } from "@/components/ui/button";
@@ -9,6 +11,8 @@ interface DeletePostProps {
 }
 
 const DeletePost: React.FC<DeletePostProps> = ({ postId, userId }) => {
+  const router = useRouter();
+
   const handleDelete = async () => {
     try {
       // Validate inputs
@@ -32,19 +36,21 @@ const DeletePost: React.FC<DeletePostProps> = ({ postId, userId }) => {
       // 刪除文檔
       const postDocRef = doc(db, 'posts', postId);
       await deleteDoc(postDocRef);
-      window.location.reload(); // Refresh the page after deletion
+      
+      router.refresh();
       alert('貼文已刪除');
     } catch (error) {
-      console.error('Error deleting document: ', error);
+      console.error('Error deleting document:', error);
       alert('刪除失敗');
     }
   };
 
-  // 只有當前登入用戶是貼文作者時才顯示刪除按鈕
   return auth.currentUser?.uid === userId ? (
-    <Button variant='outline' className='hover:bg-rose-100 ' 
+    <Button 
+      variant='outline' 
+      className='hover:bg-rose-100'
       onClick={handleDelete}
-      >
+    >
       刪除貼文
     </Button>
   ) : null;
