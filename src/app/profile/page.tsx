@@ -117,7 +117,7 @@ export default function Profile() {
       {loading ? (
         <p>載入中...</p>
       ) : posts.length === 0 ? (
-        <p className="text-gray-500">您尚未發布任何貼文。</p>
+        <p className="text-gray-500 text-center">您尚未發布任何貼文。</p>
       ) : (
         posts.map((post) => (
           <div
