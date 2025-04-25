@@ -1,36 +1,93 @@
-'use client';//切換至課戶端執行
+'use client';
 
 import { useState, useEffect } from "react";
-import Image from "next/image";
-import { useRouter } from "next/navigation";//useRouter不能在自己的server執行，"use client"將資料丟到客戶端執行
+import { useRouter } from "next/navigation";
 import Chat from '../components/Chat';
+import { auth } from "../_firebase/Config";
+import { User } from "firebase/auth";
 
+const Sidebar = ({ user, chatHistory }: { user: User | null; chatHistory: string[] }) => {
+  return (
+    <div className="w-64 bg-white h-screen shadow-lg flex flex-col justify-between">
+      {/* 歷史對話區域 */}
+      <div className="p-6">
+        <h3 className="text-lg font-bold text-gray-800 mb-4">歷史對話</h3>
+        <ul className="space-y-2">
+          {chatHistory.length > 0 ? (
+            chatHistory.map((title, idx) => (
+              <li
+                key={idx}
+                className="text-sm text-gray-700 bg-gray-100 p-2 rounded shadow hover:bg-gray-200"
+              >
+                {title}
+              </li>
+            ))
+          ) : (
+            <p className="text-sm text-gray-600">尚無歷史對話</p>
+          )}
+        </ul>
+      </div>
+
+      {/* 帳號資訊區域 */}
+      <div className="p-6 border-t border-gray-200">
+        <h3 className="text-lg font-bold text-gray-800 mb-2">帳號資訊</h3>
+        {user ? (
+          <div>
+            <div className="flex items-center mb-2">
+              <img
+                className="inline-block size-10 rounded-full ring-2 ring-white mr-2"
+                src={user.photoURL || "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?..."}
+                alt={user.displayName || "User"}
+              />
+              <div>
+                <p className="text-sm font-medium text-gray-800">{user.displayName || "使用者"}</p>
+                <p className="text-xs text-gray-500">{user.email || "未提供"}</p>
+              </div>
+            </div>
+          </div>
+        ) : (
+          <p className="text-sm text-gray-600">尚未登入</p>
+        )}
+      </div>
+    </div>
+  );
+};
 
 export default function Home() {
   const [isClient, setIsClient] = useState(false);
-  const router = useRouter();//指定變數router為useRouter()
+  const [user, setUser] = useState<User | null>(null);
+  const [chatHistory, setChatHistory] = useState<string[]>(["對話 1", "對話 2", "對話 3"]); // 模擬歷史對話
+  const router = useRouter();
 
   useEffect(() => {
-    setIsClient(true); // 當組件已經載入到客戶端後，設置為 true
+    setIsClient(true);
+    
+    // 監聽 Firebase 認證狀態變化
+    const unsubscribe = auth.onAuthStateChanged((currentUser) => {
+      setUser(currentUser);
+    });
+
+    // 清理訂閱
+    return () => unsubscribe();
   }, []);
 
-  const handleClick = () => {
-    console.log("Button clicked");
-    router.push("/test");//觸發handleClick時，導向/test
-  }
-
   if (!isClient) {
-    return null; // 當未載入至客戶端時不渲染內容
+    return null;
   }
 
   return (
-    <div>
-      
-      <div className="flex justify-center items-center h-screen bg-gray-100" style={{ marginTop: '-50px', minHeight: '100vh'  }}>
-        <div className="text-center">
-        <h3 className="text-4xl font-bold mb-2" style={{ height: '5vh', lineHeight: '1.5' }}>Welcome to My Website</h3><br/>
-        <p className="text-lg mb-4" style={{  lineHeight: '1.4' }}>This is a simple example of a Next.js page.<br />資管系FAQ 請輸入提問</p>
-          <Chat />
+    <div className="flex">
+      {/* 側邊欄 */}
+      <Sidebar user={user} chatHistory={chatHistory} />
+
+      {/* 主內容 */}
+      <div className="flex-1">
+        <div className="flex justify-center items-center h-screen bg-gray-100">
+          <div className="text-center">
+            <h3 className="text-4xl font-bold mb-2">Welcome to My Website</h3>
+            <p className="text-lg mb-4">資管系FAQ 請輸入提問</p>
+            <Chat />
+          </div>
         </div>
       </div>
     </div>
