@@ -6,7 +6,6 @@ import { signOut, User } from "firebase/auth";
 import { useRouter } from "next/navigation";
 import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { Button } from "@/components/ui/button";
-import router from "next/router";
 import {
   DropdownMenu,
   DropdownMenuTrigger,
@@ -20,6 +19,7 @@ const provider = new GoogleAuthProvider();
 
 export default function HeaderSticker() {
   const [user, setUser] = useState<User | null>(null);
+  const router = useRouter();
 
     // 確保只在 client side 執行
     useEffect(() => {
