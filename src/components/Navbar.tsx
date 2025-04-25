@@ -33,6 +33,7 @@ import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/
 import { useRouter } from "next/navigation";
 import Login from '@/app/login/page'
 import HeaderSticker from '@/components/profile';
+import { ModeToggle } from './ui/modetoggle'
 
 const products = [
   { name: 'Groq ', description: 'Get a better understanding of your traffic', href: '/', icon: ChartPieIcon },
@@ -84,6 +85,7 @@ export default function Navbar() {
             <span className="ml-2 text-gray-900 font-semibold text-[20px]">SA Project</span>
             </a>
         </div>
+        
         <div className="flex lg:hidden">
           <button
             type="button"
@@ -144,6 +146,8 @@ export default function Navbar() {
           <button className="text-sm/6 font-semibold text-gray-900 shape-ex1" onClick={ClickProfile}>課表</button>
 
           <button className="text-sm/6 font-semibold text-gray-900 shape-ex1" onClick={ClickProfile}>Go to Profile</button>
+
+          <ModeToggle/>
 
         </PopoverGroup>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
