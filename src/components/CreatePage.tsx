@@ -90,21 +90,24 @@ export default function CreatePost() {
 
                     <form onSubmit={handleSubmit}>
                       <input className='outline-sky-500 w-full'
+                        required={true}
                         type="text"
                         placeholder="標題"
                         value={title}
                         onChange={(e) => setTitle(e.target.value)}
                       />
                       <textarea className='mt-2 border-2 border-solid rounded-lg  border-gray-500 outline-sky-500 w-full h-20'
+                        required={true}
                         placeholder="內容"
                         value={content}
                         onChange={(e) => setContent(e.target.value)}
                       />
 
 
-                      <div className='flex flex-col items-start gap-2 my-2'>
+                      <div className='flex flex-col items-start gap-2 my-2'  >
                         <label className="text-sm font-semibold text-sky-600 flex items-center whitespace-nowrap">
                           <input className='mr-2'
+                         required={true}
                             type="radio"
                             name="tags"
                             value="#課業"

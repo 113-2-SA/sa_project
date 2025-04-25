@@ -8,6 +8,19 @@
 
 'use client'
 
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog"
+
+
 import { useState, useEffect } from 'react'
 import {
   Dialog,
@@ -40,8 +53,15 @@ const products = [
   { name: 'Claude', description: 'Your customers’ data will be safe and secure', href: '#', icon: FingerPrintIcon },
 ]
 const callsToAction = [
-  { name: '前往系網', href: '#', icon: PlayCircleIcon },
-  { name: '聯絡系上', href: '#', icon: PhoneIcon },
+  { name: '前往系網', href: 'https://www.im.fju.edu.tw/', icon: PlayCircleIcon },
+  { 
+    name: '聯絡系上', 
+    onClick: () => alert(`大學部秘書TEL：+886-2-2905-2666
+                          碩士班秘書TEL：+886-2-2905-2940
+                          碩職班秘書TEL：+886-2-2905-2626
+                          FAX：+886-2-2905-2182`), 
+    icon: PhoneIcon 
+  },
 ]
 
 export default function Navbar() {
@@ -143,7 +163,7 @@ export default function Navbar() {
 
           <button className="text-sm/6 font-semibold text-gray-900 shape-ex1" onClick={ClickProfile}>課表</button>
 
-          <button className="text-sm/6 font-semibold text-gray-900 shape-ex1" onClick={ClickProfile}>Go to Profile</button>
+          <button className="text-sm/6 font-semibold text-gray-900 shape-ex1" onClick={ClickProfile}>我的貼文</button>
 
         </PopoverGroup>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
@@ -198,7 +218,7 @@ export default function Navbar() {
 
                 <button className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50" onClick={ClickProfile}>課表</button>
 
-                <button className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50" onClick={ClickProfile}>Go to Profile</button>
+                <button className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50" onClick={ClickProfile}>我的貼文</button>
                 
               </div>
               <div className="py-6">

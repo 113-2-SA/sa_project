@@ -1,9 +1,22 @@
 'use client'
-import React from 'react';
+import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { db, auth } from '@/_firebase/Config';
 import { doc, deleteDoc } from 'firebase/firestore';
 import { Button } from "@/components/ui/button";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog"
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
+
 
 interface DeletePostProps {
   postId: string;
@@ -12,6 +25,7 @@ interface DeletePostProps {
 
 const DeletePost: React.FC<DeletePostProps> = ({ postId, userId }) => {
   const router = useRouter();
+  const [isOpen, setIsOpen] = useState(false);
 
   const handleDelete = async () => {
     try {
@@ -38,21 +52,49 @@ const DeletePost: React.FC<DeletePostProps> = ({ postId, userId }) => {
       await deleteDoc(postDocRef);
       
       router.refresh();
-      alert('貼文已刪除');
+      <Alert>
+        <AlertTitle>刪除成功</AlertTitle>
+        <AlertDescription>貼文已成功刪除。</AlertDescription>
+      </Alert>;
+      alert('刪除成功');
     } catch (error) {
       console.error('Error deleting document:', error);
       alert('刪除失敗');
     }
   };
 
+
+
   return auth.currentUser?.uid === userId ? (
-    <Button 
-      variant='outline' 
-      className='hover:bg-rose-100'
-      onClick={handleDelete}
-    >
-      刪除貼文
-    </Button>
+    // <Button 
+    //   variant='outline' 
+    //   className='hover:bg-rose-100'
+    //   onClick={handleDelete}
+    // >
+    //   刪除貼文
+    // </Button>
+
+<AlertDialog>
+<AlertDialogTrigger asChild>
+  <Button variant="outline" className='hover:bg-rose-300'>刪除貼文</Button>
+</AlertDialogTrigger>
+<AlertDialogContent>
+    <AlertDialogHeader>
+      <AlertDialogTitle>確定要刪除貼文?</AlertDialogTitle>
+      <AlertDialogDescription>
+      按下確認後將永久刪除貼文，無法復原。
+      </AlertDialogDescription>
+    </AlertDialogHeader>
+    <AlertDialogFooter>
+      <AlertDialogCancel className='hover:bg-lime-100'>取消</AlertDialogCancel>
+      <AlertDialogAction 
+      className='border-color-black hover:bg-rose-300'
+      onClick={handleDelete}>刪除</AlertDialogAction>
+    </AlertDialogFooter>
+  </AlertDialogContent>
+</AlertDialog>
+ 
+ 
   ) : null;
 };
 
