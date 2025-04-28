@@ -29,6 +29,7 @@ import {
   ArrowPathIcon,
   Bars3Icon,
   ChartPieIcon,
+  ChatBubbleOvalLeftEllipsisIcon,
   CursorArrowRaysIcon,
   FingerPrintIcon,
   SquaresPlusIcon,
@@ -41,9 +42,9 @@ import HeaderSticker from '@/components/profile';
 import { ModeToggle } from './ui/modetoggle'
 
 const products = [
-  { name: 'Groq ', description: 'Get a better understanding of your traffic', href: '/', icon: ChartPieIcon },
-  { name: 'Deepseek', description: 'Speak directly to your customers', href: '#', icon: CursorArrowRaysIcon },
-  { name: 'Claude', description: 'Your customers data will be safe and secure', href: '#', icon: FingerPrintIcon },
+  { name: 'FAQ ', description: '資管系常見問題詢問...', href: '/', icon: ChatBubbleOvalLeftEllipsisIcon },
+  { name: 'JUST CHAT', description: '花點時間和小熊軟糖聊聊嗎?', href: '#', icon: CursorArrowRaysIcon },
+  // { name: 'Claude', description: 'Your customers data will be safe and secure', href: '#', icon: FingerPrintIcon },
 ]
 const callsToAction = [
   { name: '前往系網', href: 'https://www.im.fju.edu.tw/', icon: PlayCircleIcon },
@@ -157,7 +158,7 @@ export default function Navbar() {
 
           <button className="text-sm/6 font-semibold text-gray-900 shape-ex1" onClick={ClickTest}>系上提問社群</button>
 
-          <button className="text-sm/6 font-semibold text-gray-900 shape-ex1" onClick={ClickProfile}>課表</button>
+          {/* <button className="text-sm/6 font-semibold text-gray-900 shape-ex1" onClick={ClickProfile}>課表</button> */}
 
           <button className="text-sm/6 font-semibold text-gray-900 shape-ex1" onClick={ClickProfile}>我的貼文</button>
 
@@ -214,7 +215,7 @@ export default function Navbar() {
 
                 <button className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50" onClick={ClickTest}>系上提問社群</button>
 
-                <button className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50" onClick={ClickProfile}>課表</button>
+                {/*   <button className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50" onClick={ClickProfile}>課表</button> */}
 
                 <button className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50" onClick={ClickProfile}>我的貼文</button>
 

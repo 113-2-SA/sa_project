@@ -4,6 +4,7 @@ import { db } from '@/_firebase/Config';
 import { collection, getDocs, query, orderBy } from 'firebase/firestore';
 import DeletePost from "@/components/deletePost";
 import Commend from '@/components/commend';
+import { Button } from '@/components/ui/button';
 
 // 添加 Comment 類型定義
 type Comment = {
@@ -21,7 +22,7 @@ type Post = {
   content: string;
   tags: string[];
   userId: string;
-  createdAt: string;
+  createdAt: import('firebase/firestore').Timestamp;
   comments?: Comment[];
 };
 
@@ -85,18 +86,14 @@ export default function Test() {
     // 依據排序類型進行排序
     return filteredPosts.sort((a, b) => {
       if (sortType === 'newest') {
-        // 最新發布排序
-        return sortOrder === 'asc' 
-          ? new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()
-          : new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
+        return b.createdAt.toDate().getTime() - a.createdAt.toDate().getTime(); // / 依據創建時間排序 獲取a.createAt和b.createAt的時間差 越大越新越前面
+          
       }
       const compareValue = sortOrder === 'asc' ? 1 : -1;
       if (sortType === 'title') {
         return a.title.localeCompare(b.title) * compareValue;
       } else if (sortType === 'content') {
         return a.content.localeCompare(b.content) * compareValue;
-      } else if (sortType === 'tags') {
-        return a.tags.join(',').localeCompare(b.tags.join(',')) * compareValue;
       }
       return 0; // 如果沒有匹配的排序類型，則不進行排序
     });
@@ -130,6 +127,7 @@ export default function Test() {
 
   return (
     <>
+    <div className='relative size-24' />
       <h2 className='text-2xl text-center font-bold my-4'>已發布的貼文</h2>
       <div className="flex justify-center gap-4 mb-4">
         {/* 標籤篩選下拉選單 */}
@@ -151,7 +149,7 @@ export default function Test() {
             sortType === 'newest' ? 'bg-blue-500 text-white' : 'bg-gray-200'
           }`}
         >
-          最新發布 {sortType === 'newest'}
+          最新發布 {sortType === 'newest' }
         </button>
 
         <button
