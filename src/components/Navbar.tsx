@@ -92,7 +92,7 @@ export default function Navbar() {
 
 
   return (
-    <header className="bg-white sticky top-0 left-0 w-full z-50 shadow-lg shadow-sky-200/30" style={{ marginBottom: 0 }}>
+    <header className="bg-white fixed top-0 left-0 w-full z-50 shadow-lg shadow-sky-200/30">
       <nav aria-label="Global" className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8">
         <div className="flex lg:flex-1">
           <a href="/" className="-m-1.5 p-1.5 flex items-center">

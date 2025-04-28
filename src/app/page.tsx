@@ -8,21 +8,21 @@ import { User } from "firebase/auth";
 
 const Sidebar = ({ user, chatHistory, startNewChat }: { user: User | null; chatHistory: string[]; startNewChat?: () => void }) => {
   return (
-    <div className="w-64 bg-white h-screen shadow-lg flex flex-col justify-between">
+    <div className="w-64 bg-white h-full shadow-lg flex flex-col justify-between">
       {/* 歷史對話區域 */}
       {user ? (
-        <div className="p-6">
-        <div className="flex justify-between items-center mb-4">
-          <h3 className="text-lg font-bold text-gray-800">歷史對話</h3>
+        <div className="p-6 flex-1 overflow-y-auto">
+          <div className="flex justify-between items-center mb-4">
+            <h3 className="text-lg font-bold text-gray-800">歷史對話</h3>
 
-          {/* 新對話按鈕 */}
-          <button
-            onClick={startNewChat}
-            className="text-lg font-bold text-gray-600 hover:text-black transition"
-          >
-            新對話
-          </button>
-        </div>
+            {/* 新對話按鈕 */}
+            <button
+              onClick={startNewChat}
+              className="text-lg font-bold text-gray-600 hover:text-black transition"
+            >
+              新對話
+            </button>
+          </div>
           
           <ul className="space-y-2">
             {chatHistory.length > 0 ? (
@@ -107,13 +107,13 @@ export default function Home() {
   }
 
   return (
-    <div className="flex">
+    <div className="flex h-screen pt-[72px]">
       {/* 側邊欄 */}
       <Sidebar user={user} chatHistory={chatHistory} startNewChat={startNewChat}/>
 
       {/* 主內容 */}
-      <div className="flex-1">
-        <div className="flex justify-center items-center h-screen bg-gray-100">
+      <div className="flex-1 h-full">
+        <div className="flex justify-center items-center h-full bg-gray-100">
           <div className="text-center">
             <h3 className="text-4xl font-bold mb-2">Welcome to My Website</h3>
             <p className="text-lg mb-4">資管系FAQ 請輸入提問</p>
