@@ -138,7 +138,10 @@ const Chat = () => {
         style={{
           width: '100%',
           maxWidth: '800px',
-          overflowY: 'auto',
+          maxHeight: '400px',
+          /*overflowY: 'auto',*/
+          overflowY: 'scroll',
+          overflowX: 'hidden',
           border: '1px solid #ccc',
           borderRadius: '8px',
           padding: '20px',
@@ -147,7 +150,7 @@ const Chat = () => {
           justifyContent: 'flex-start',
           alignItems: 'stretch',
           backgroundColor: '#f8f9fa',
-          margin: '10px auto',
+          margin: '20px auto',
           boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
         }}
       >

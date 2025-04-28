@@ -8,20 +8,12 @@ import { User } from "firebase/auth";
 
 const Sidebar = ({ user, chatHistory, startNewChat }: { user: User | null; chatHistory: string[]; startNewChat?: () => void }) => {
   return (
-    <div className="w-64 bg-white h-full shadow-lg flex flex-col justify-between">
+    <div className="w-64 bg-white h-full shadow-lg flex flex-col">
       {/* 歷史對話區域 */}
       {user ? (
         <div className="p-6 flex-1 overflow-y-auto">
           <div className="flex justify-between items-center mb-4">
-            <h3 className="text-lg font-bold text-gray-800">歷史對話</h3>
-
-            {/* 新對話按鈕 */}
-            <button
-              onClick={startNewChat}
-              className="text-lg font-bold text-gray-600 hover:text-black transition"
-            >
-              新對話
-            </button>
+            <h3 className="text-lg font-bold text-gray-800 pt-2">歷史對話</h3>
           </div>
           
           <ul className="space-y-2">
@@ -44,6 +36,16 @@ const Sidebar = ({ user, chatHistory, startNewChat }: { user: User | null; chatH
           <p className="text-sm text-gray-600">請先登入以查看歷史對話紀錄</p>
         </div>
       )}
+
+      {/* 新對話按鈕 - 固定在底部 */}
+      <div className="p-4 border-t border-gray-200 bg-white">
+        <button
+          onClick={startNewChat}
+          className="w-full px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition"
+        >
+          新對話
+        </button>
+      </div>
 
       {/* 帳號資訊區域 */}
       <div className="p-6 border-t border-gray-200">
@@ -81,15 +83,6 @@ export default function Home() {
     setCurrentChat([]); // 清空歷史對話，這是可選的，根據需求來決定 鍵在哪裡??
   };
   
-
-   {/* 新對話按鈕 */}
-   <button
-   onClick={startNewChat}
-   className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition"
- >
-   新對話
- </button>
-  
   useEffect(() => {
     setIsClient(true);
     
@@ -107,17 +100,18 @@ export default function Home() {
   }
 
   return (
-    <div className="flex h-screen pt-[72px]">
+    <div className="flex h-screen pt-[72px] bg-gray-100">
       {/* 側邊欄 */}
       <Sidebar user={user} chatHistory={chatHistory} startNewChat={startNewChat}/>
 
       {/* 主內容 */}
       <div className="flex-1 h-full">
-        <div className="flex justify-center items-center h-full bg-gray-100">
-          <div className="text-center">
-            <h3 className="text-4xl font-bold mb-2">Welcome to My Website</h3>
-            <p className="text-lg mb-4">資管系FAQ 請輸入提問</p>
-            
+        <div className="flex flex-col h-full">
+          <div className="text-center pt-11 pb-0">
+            <h3 className="text-4xl font-bold mb-3">Welcome to My Website</h3>
+            <p className="text-lg mb-3">資管系FAQ 請輸入提問</p>
+          </div>
+          <div className="flex-1 overflow-hidden">
             <Chat />
           </div>
         </div>

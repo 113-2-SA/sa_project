@@ -1,11 +1,3 @@
-// export default function Navbar() {
-//     return (
-//     <div>
-//       <button>nav</button>
-//     </div>
-//     )
-//   }
-
 'use client'
 
 import {
@@ -117,10 +109,12 @@ export default function Navbar() {
           </button>
         </div>
         <PopoverGroup className="hidden lg:flex lg:gap-x-12">
-          <Popover className="relative shape-ex1">
-            <PopoverButton className="flex items-center text-sm font-semibold text-gray-900 shape-ex1">
-              模型
-              <ChevronDownIcon aria-hidden="true" className="ml-1 h-5 w-5 text-gray-400" />
+          <Popover className="relative">
+            <PopoverButton className="text-sm/6 font-semibold text-gray-900 shape-ex1 px-2 py-1.5">
+              <span className="flex items-center gap-1">
+                模型
+                <ChevronDownIcon aria-hidden="true" className="h-4 w-4 text-gray-400" />
+              </span>
             </PopoverButton>
 
             <PopoverPanel
@@ -131,18 +125,18 @@ export default function Navbar() {
                 {products.map((item) => (
                   <div
                     key={item.name}
-                    className="group relative flex flex-col rounded-lg p-4 text-sm/6 hover:bg-gray-50"
+                    className="group relative flex items-center gap-4 rounded-lg p-4 text-sm/6 hover:bg-gray-50"
                   >
-                    <div className="flex items-center gap-x-4">
-                      <div className="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                        <item.icon aria-hidden="true" className="size-6 text-gray-600 group-hover:text-indigo-600" />
-                      </div>
+                    <div className="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
+                      <item.icon aria-hidden="true" className="size-6 text-gray-600 group-hover:text-indigo-600" />
+                    </div>
+                    <div>
                       <a href={item.href} className="block font-semibold text-gray-900">
                         {item.name}
                         <span className="absolute inset-0" />
                       </a>
+                      <p className="mt-1 text-gray-600">{item.description}</p>
                     </div>
-                    <p className="mt-2 text-gray-600">{item.description}</p>
                   </div>
                 ))}
               </div>
