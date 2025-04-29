@@ -48,19 +48,14 @@ const products = [
 ]
 const callsToAction = [
   { name: '前往系網', href: 'https://www.im.fju.edu.tw/', icon: PlayCircleIcon },
-  {
-    name: '聯絡系上',
-    onClick: () => alert(`大學部秘書TEL：+886-2-2905-2666
-                          碩士班秘書TEL：+886-2-2905-2940
-                          碩職班秘書TEL：+886-2-2905-2626
-                          FAX：+886-2-2905-2182`),
-    icon: PhoneIcon
-  },
-]
+  { name: '聯絡系上', id: 'contact', icon: PhoneIcon }, // 改成 id
+];
+
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [isClient, setIsClient] = useState(false);
+  const [contactDialogOpen, setContactDialogOpen] = useState(false);
   const router = useRouter();//指定變數router為useRouter()
 
   useEffect(() => {
@@ -142,17 +137,31 @@ export default function Navbar() {
                 ))}
               </div>
               <div className="grid grid-cols-2 divide-x divide-gray-900/5 bg-gray-50">
-                {callsToAction.map((item) => (
-                  <a
-                    key={item.name}
-                    href={item.href}
-                    className="flex items-center justify-center gap-x-2.5 p-3 text-sm/6 font-semibold text-gray-900 hover:bg-gray-100"
-                  >
-                    <item.icon aria-hidden="true" className="size-5 flex-none text-gray-400" />
-                    {item.name}
-                  </a>
-                ))}
-              </div>
+                  {callsToAction.map((item) => (
+                    item.href ? (
+                      <a
+                        key={item.name}
+                        href={item.href}
+                        className="flex items-center justify-center gap-x-2.5 p-3 text-sm font-semibold text-gray-900 hover:bg-gray-100"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <item.icon aria-hidden="true" className="size-5 flex-none text-gray-400" />
+                        {item.name}
+                      </a>
+                    ) : (
+                      <button
+                        key={item.name}
+                        onClick={() => setContactDialogOpen(true)}
+                        className="flex w-full items-center justify-center gap-x-2.5 p-3 text-sm font-semibold text-gray-900 hover:bg-gray-100"
+                      >
+                        <item.icon aria-hidden="true" className="size-5 flex-none text-gray-400" />
+                        {item.name}
+                      </button>
+                    )
+                  ))}
+                </div>
+
             </PopoverPanel>
           </Popover>
 
@@ -228,6 +237,23 @@ export default function Navbar() {
           </div>
         </DialogPanel>
       </Dialog>
+      <AlertDialog open={contactDialogOpen} onOpenChange={setContactDialogOpen}>
+      <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>聯絡系上資訊</AlertDialogTitle>
+            <AlertDialogDescription>
+              大學部秘書 TEL：+886-2-2905-2666<br />
+              碩士班秘書 TEL：+886-2-2905-2940<br />
+              碩職班秘書 TEL：+886-2-2905-2626<br />
+              FAX：+886-2-2905-2182
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>關閉</AlertDialogCancel>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>    
+
 
     </header>
   )
