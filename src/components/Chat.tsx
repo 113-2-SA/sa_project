@@ -1,7 +1,10 @@
 // Chat 組件 - 支援教授資料 + Posts資料 + RAG檢索聊天
 import { useState, useEffect } from 'react';
+import fs from 'fs';
+import path from 'path';
+import { auth } from '@/_firebase/Config';
+import { collection, addDoc, serverTimestamp, doc, updateDoc, getDoc } from 'firebase/firestore';
 import { db } from '@/_firebase/Config';
-import { collection, getDocs } from 'firebase/firestore';
 
 interface Message {
   user: 'me' | 'bot';
@@ -15,12 +18,77 @@ interface PostItem {
   comments: { content: string }[];
 }
 
-const Chat = () => {
-  const [message, setMessage] = useState('');
-  const [chatHistory, setChatHistory] = useState<Message[]>([]);
+// const Chat = () => {
+//   const [message, setMessage] = useState('');
+//   const [chatHistory, setChatHistory] = useState<Message[]>([]);
+//   const [professorData, setProfessorData] = useState('');
+//   const [postsData, setPostsData] = useState<PostItem[]>([]);
+//   const [isLoading, setIsLoading] = useState(false);
+// }
+// 系統提示詞模板
+const SYSTEM_PROMPT_TEMPLATE = (professorData: string) => `你是一個專門回答關於輔仁大學資訊管理學系教師資訊的助手。
+你可以回答關於教師的以下問題：
+1. 教師的基本資訊（姓名、職稱）
+2. 教師的專長領域
+3. 教師的聯絡方式（電話、email）
+4. 教師的辦公室位置
+
+
+請根據以下教師資料回答問題：
+
+${professorData}
+
+中文部分只能使用繁體中文回答問題，保持專業和友善的態度。如果問題超出上述資料範圍，請誠實告知無法回答。`;
+
+interface ChatProps {
+  selectedChatId: string | null;
+  onNewChat?: (chatId: string) => void;  // 新增回調函數
+  onClearChat?: () => void;  // 新增清空對話的回調函數
+}
+
+const Chat = ({ selectedChatId, onNewChat, onClearChat }: ChatProps) => {
+  // 狀態管理
+  const [message, setMessage] = useState(''); // 當前輸入的訊息
+  const [chatHistory, setChatHistory] = useState<Message[]>([]); // 對話歷史記錄
+  const [isLoading, setIsLoading] = useState(false); // 載入狀態
   const [professorData, setProfessorData] = useState('');
+  const [currentChatId, setCurrentChatId] = useState<string | null>(selectedChatId);
   const [postsData, setPostsData] = useState<PostItem[]>([]);
-  const [isLoading, setIsLoading] = useState(false);
+  
+
+  // 當 selectedChatId 改變時更新 currentChatId 和載入對話內容
+  useEffect(() => {
+    setCurrentChatId(selectedChatId);
+    
+    const loadChatHistory = async () => {
+      if (selectedChatId) {
+        try {
+          const chatDoc = doc(db, 'chats', selectedChatId);
+          const chatSnapshot = await getDoc(chatDoc);
+          
+          if (chatSnapshot.exists()) {
+            const chatData = chatSnapshot.data();
+            const messages = chatData.messages.map((msg: any) => ({
+              user: msg.user,
+              text: msg.text
+            }));
+            setChatHistory(messages);
+          }
+        } catch (error) {
+          console.error('Error loading chat history:', error);
+        }
+      } else {
+        // 如果是新對話，清空歷史記錄
+        setChatHistory([]);
+        setMessage('');
+        if (onClearChat) {
+          onClearChat();
+        }
+      }
+    };
+
+    loadChatHistory();
+  }, [selectedChatId, onClearChat]);
 
   // 抓取教授資料
   useEffect(() => {
@@ -112,6 +180,104 @@ const Chat = () => {
       const botResponse = data.choices[0].message.content;
       setChatHistory((prev) => [...prev, { user: 'bot', text: botResponse }]);
 
+      
+      // 更新 Firebase 中的對話，添加機器人回應
+      try {
+        const user = auth.currentUser;
+        if (user) {
+          let topic = '';
+          let isTimeBasedTopic = false;
+
+          // 如果是新對話或現有對話的主題是基於時間的，才進行問題判定
+          if (!currentChatId) {
+            // 判斷對話主題
+            const topicPrompt = `請分析以下對話中使用者是否問了明確的問題，若有，請用簡短的詞語描述該問題，並不加其他詞語(不可以用如「明確問題:」的格式回答)，完全只回答該問題的提問內容（例如：畢業學分是多少、老師聯絡方式、某間教室使用規則等）。如果對話沒有明確的問題或無法分析，請回答 "no_topic"。
+
+            對話內容：${message}
+
+            請用繁體中文回答，如果使用者沒有問明確的問題，請只回答 "no_topic"。`;
+            
+            const topicResponse = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+              method: 'POST',
+              headers: {
+                'Authorization': `Bearer ${process.env.NEXT_PUBLIC_GROQ_API_KEY}`,
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+              },
+              body: JSON.stringify({
+                model: "llama-3.1-8b-instant",
+                messages: [{ role: 'user', content: topicPrompt }],
+                temperature: 0.3,
+                max_tokens: 10,
+              }),
+            });
+
+            const topicData = await topicResponse.json();
+            topic = topicData.choices[0].message.content.trim();
+
+            // 如果沒有明確主題，使用當前時間作為主題
+            if (topic === "no_topic") {
+              const now = new Date();
+              const month = String(now.getMonth() + 1).padStart(2, '0');
+              const day = String(now.getDate()).padStart(2, '0');
+              const hour = String(now.getHours()).padStart(2, '0');
+              const minute = String(now.getMinutes()).padStart(2, '0');
+              topic = `${month}/${day} ${hour}:${minute}`;
+              isTimeBasedTopic = true;
+            }
+          } else {
+            // 如果是現有對話，獲取當前主題和 isTimeBasedTopic 狀態
+            const chatDoc = doc(db, 'chats', currentChatId);
+            const chatSnapshot = await getDoc(chatDoc);
+            if (chatSnapshot.exists()) {
+              const chatData = chatSnapshot.data();
+              topic = chatData.topic;
+              isTimeBasedTopic = chatData.isTimeBasedTopic;
+            }
+          }
+
+          const chatRef = collection(db, 'chats');
+          const chatData = {
+            userEmail: user.email,
+            messages: chatHistory.concat([
+              { user: 'me', text: message },
+              { user: 'bot', text: botResponse }
+            ]),
+            timestamp: serverTimestamp(),
+            lastMessage: message,
+            lastResponse: botResponse,
+            lastMessageTime: new Date().toISOString(),
+            topic: topic,
+            isTimeBasedTopic: isTimeBasedTopic,
+            chatId: currentChatId || '' // 新增：儲存對話 ID
+          };
+
+          if (currentChatId) {
+            // 更新現有對話
+            const chatDoc = doc(db, 'chats', currentChatId);
+            await updateDoc(chatDoc, chatData);
+            console.log('對話已更新到 Firebase');
+          } else {
+            // 新增對話
+            const newChatRef = await addDoc(chatRef, chatData);
+            const newChatId = newChatRef.id;
+            setCurrentChatId(newChatId); // 儲存新對話的 ID
+            
+            // 更新新建立的對話，加入其 ID
+            const newChatDoc = doc(db, 'chats', newChatId);
+            await updateDoc(newChatDoc, { chatId: newChatId });
+            console.log('新對話已保存到 Firebase');
+            
+            // 通知父組件有新對話產生
+            if (onNewChat) {
+              onNewChat(newChatId);
+            }
+          }
+        }
+      } catch (error) {
+        console.error('保存完整對話到 Firebase 時發生錯誤:', error);
+      }
+
     } catch (error: any) {
       console.error('Detailed error:', error);
       setChatHistory((prev) => [...prev, { user: 'bot', text: `Error: ${error?.message || 'Unknown error'}` }]);
@@ -121,6 +287,8 @@ const Chat = () => {
     }
   };
 
+
+  // 處理鍵盤事件 - Enter 發送訊息
   const handleKeyPress = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault();
