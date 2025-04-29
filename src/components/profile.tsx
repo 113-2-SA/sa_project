@@ -53,7 +53,7 @@ export default function HeaderSticker() {
               user?.photoURL ??
               "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?..."
             }
-            alt={user?.displayName ?? "User"}
+            alt={user?.displayName ?? "User"}id="avatar"
           />
         </button>
       </DropdownMenuTrigger>

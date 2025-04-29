@@ -1,3 +1,6 @@
+// This API route handles GET requests to fetch professor data from a text file.
+//這個檔案的作用是作為一個 API 路由，將 training_data.txt 的資料提供給 Chat 
+
 import { NextApiRequest, NextApiResponse } from 'next';
 import fs from 'fs';
 import path from 'path';
@@ -11,7 +14,7 @@ export default function handler(
   }
 
   try {
-    const dataPath = path.join(process.cwd(), 'data', 'training_data.txt');
+    const dataPath = path.join(process.cwd(), 'data', 'professors.json');
     const professorData = fs.readFileSync(dataPath, 'utf-8');
     
     return res.status(200).json({ data: professorData });
