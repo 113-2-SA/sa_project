@@ -26,19 +26,6 @@ interface PostItem {
 //   const [isLoading, setIsLoading] = useState(false);
 // }
 // 系統提示詞模板
-const SYSTEM_PROMPT_TEMPLATE = (professorData: string) => `你是一個專門回答關於輔仁大學資訊管理學系教師資訊的助手。
-你可以回答關於教師的以下問題：
-1. 教師的基本資訊（姓名、職稱）
-2. 教師的專長領域
-3. 教師的聯絡方式（電話、email）
-4. 教師的辦公室位置
-
-
-請根據以下教師資料回答問題：
-
-${professorData}
-
-中文部分只能使用繁體中文回答問題，保持專業和友善的態度。如果問題超出上述資料範圍，請誠實告知無法回答。`;
 
 interface ChatProps {
   selectedChatId: string | null;
