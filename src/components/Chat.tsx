@@ -1,4 +1,5 @@
 // Chat 組件 - 實現即時對話功能
+<<<<<<< Updated upstream
 import { useState, useEffect } from 'react';
 import fs from 'fs';
 import path from 'path';
@@ -22,6 +23,32 @@ const SYSTEM_PROMPT_TEMPLATE = (professorData: string) => `你是一個專門回
 ${professorData}
 
 請用中文回答問題，保持專業和友善的態度。如果問題超出上述資料範圍，請誠實告知無法回答。`;
+=======
+import React, { useState } from 'react';
+import { searchSimilarVectors } from '../utils/pinecone';
+
+// 定義訊息介面
+interface Message {
+  user: string;// 使用者類型 ('me' 或 'bot')
+  text: string; // 訊息內容
+
+}
+
+// 定義搜尋結果介面
+interface SearchResult {
+  score?: number;
+  content?: string;
+}
+
+// 系統提示詞，定義 AI 助手的行為規則
+const SYSTEM_PROMPT = `你是一個專業的助手，請遵循以下規則：
+1. 使用繁體中文回答
+2. 回答要簡潔明瞭
+3. 保持友善和專業的態度
+4. 如果不確定的事情，要誠實說明
+5. 適時使用emoji表情符號增加親和力
+6. 使用提供的相關資訊來回答問題，如果找不到相關資訊，請說明`;
+>>>>>>> Stashed changes
 
 const Chat = () => {
   // 狀態管理
@@ -54,9 +81,14 @@ const Chat = () => {
     setIsLoading(true);
 
     try {
-      console.log('Sending request to Groq API...');
-      
-      // 準備完整的對話歷史記錄，包含系統提示詞
+      // 搜尋相關資訊
+      const similarDocs = await searchSimilarVectors(message);
+      const relevantContext = similarDocs
+        .filter((doc: SearchResult) => doc.score && doc.score > 0.7) // 只使用相似度高於 0.7 的結果
+        .map((doc: SearchResult) => doc.content)
+        .join('\n');
+
+      // 準備完整的對話歷史記錄
       const messages = [
         {
           role: 'system',
@@ -78,7 +110,7 @@ const Chat = () => {
       const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
         method: 'POST',
         headers: {
-          'Authorization': `Bearer ${process.env.NEXT_PUBLIC_GROQ_API_KEY}`,
+          'Authorization': `Bearer ${process.env['NEXT_PUBLIC_GROQ_API_KEY'] || ''}`,
           'Content-Type': 'application/json',
           'Accept': 'application/json',
         },
@@ -112,7 +144,7 @@ const Chat = () => {
       console.error('Detailed error:', error);
       setChatHistory((prev) => [
         ...prev,
-        { user: 'bot', text: `Error: ${error?.message || 'Unknown error occurred'}. Please try again.` },
+        { user: 'bot', text: `錯誤：${error?.message || '發生未知錯誤'}。請稍後再試。` },
       ]);
     } finally {
       // 重設狀態
