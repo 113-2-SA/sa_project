@@ -129,6 +129,18 @@ const Chat = () => {
     }
   };
 
+  async function askQuestion(input: string) {
+    const response = await fetch('/api/ask', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ query: input }),
+    });
+  
+    const data = await response.json();
+    console.log(data.answer);
+  }
+  
+
   // 渲染聊天界面
   return (
     <div className="flex flex-col h-[calc(100vh-200px)]">
