@@ -44,14 +44,32 @@ export default function Profile() {
 
       try {
         const postsQuery = query(
-          collection(db, 'posts'),
-          where('userId', '==', user.uid)
+          collection(db, 'posts'), //連接資料庫db找到posts這個集合(collection)
+          where('userId', '==', user.uid) //篩選出=用戶的uid=user.uid的貼文
         );
-        const querySnapshot = await getDocs(postsQuery);
-        const userPosts = querySnapshot.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data(),
-        })) as Post[];
+        const querySnapshot = await getDocs(postsQuery); //獲取資料庫的資料 非同步函式
+        const userPosts = await Promise.all(
+          querySnapshot.docs.map(async (doc) => {
+            const postData = { id: doc.id, ...doc.data() } as Post;
+
+            // 抓取每篇貼文的回覆
+            const commentsQuery = query(
+              collection(db, 'posts', doc.id, 'comments')
+            );
+            const commentsSnapshot = await getDocs(commentsQuery);
+            const comments = commentsSnapshot.docs.map((commentDoc) => {
+              const commentData = commentDoc.data(); // 獲取回覆的資料
+              return {
+                id: commentDoc.id,
+                content: commentData.content ?? '',
+                userName: commentData.userName ?? 'Unknown User',
+                createdAt: commentData.createdAt ?? new Date(),
+              };
+            });
+
+            return { ...postData, comments };
+          })
+        );
 
         setPosts(userPosts);
       } catch (error) {

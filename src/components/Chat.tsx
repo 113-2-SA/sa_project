@@ -163,15 +163,17 @@ const Chat = () => {
 
   // 渲染聊天界面
   return (
-    <div>
+    <div className="flex flex-col h-[calc(100vh-200px)]">
       {/* 聊天視窗 */}
       <div
-        className="chat-window mx-auto"
+        className="chat-window mx-auto flex-1"
         style={{
           width: '100%',
           maxWidth: '800px',
-          height: '50vh',
-          overflowY: 'auto',
+          maxHeight: '400px',
+          /*overflowY: 'auto',*/
+          overflowY: 'scroll',
+          overflowX: 'hidden',
           border: '1px solid #ccc',
           borderRadius: '8px',
           padding: '20px',
@@ -180,7 +182,7 @@ const Chat = () => {
           justifyContent: 'flex-start',
           alignItems: 'stretch',
           backgroundColor: '#f8f9fa',
-          margin: '10px auto',
+          margin: '20px auto',
           boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
         }}
       >

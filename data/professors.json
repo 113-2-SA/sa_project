@@ -1,11 +1,11 @@
 [
   {
-    "name": "董",
-    "title": "惟鳳 教授兼系主任",
-    "expertise": [],
-    "phone": "",
-    "email": "",
-    "office": ""
+    "name": "董惟鳳",
+    "title": "教授兼系主任",
+    "expertise": ["服務科學","設計思考","用戶體驗","機器人應用"],
+    "phone": "(02) 2905-2717",
+    "email": "076144@mail.fju.edu.tw",
+    "office": "利瑪竇大樓LM307-1"
   },
   {
     "name": "呂",

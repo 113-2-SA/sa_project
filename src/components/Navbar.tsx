@@ -1,12 +1,17 @@
-// export default function Navbar() {
-//     return (
-//     <div>
-//       <button>nav</button>
-//     </div>
-//     )
-//   }
-
 'use client'
+
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog"
+
 
 import { useState, useEffect } from 'react'
 import {
@@ -24,6 +29,7 @@ import {
   ArrowPathIcon,
   Bars3Icon,
   ChartPieIcon,
+  ChatBubbleOvalLeftEllipsisIcon,
   CursorArrowRaysIcon,
   FingerPrintIcon,
   SquaresPlusIcon,
@@ -33,20 +39,23 @@ import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/
 import { useRouter } from "next/navigation";
 import Login from '@/app/login/page'
 import HeaderSticker from '@/components/profile';
+import { ModeToggle } from './ui/modetoggle'
 
 const products = [
-  { name: 'Groq ', description: 'Get a better understanding of your traffic', href: '/', icon: ChartPieIcon },
-  { name: 'Deepseek', description: 'Speak directly to your customers', href: '#', icon: CursorArrowRaysIcon },
-  { name: 'Claude', description: 'Your customers’ data will be safe and secure', href: '#', icon: FingerPrintIcon },
+  { name: 'FAQ ', description: '資管系常見問題詢問...', href: '/', icon: ChatBubbleOvalLeftEllipsisIcon },
+  { name: 'JUST CHAT', description: '花點時間和小熊軟糖聊聊嗎?', href: '#', icon: CursorArrowRaysIcon },
+  // { name: 'Claude', description: 'Your customers data will be safe and secure', href: '#', icon: FingerPrintIcon },
 ]
 const callsToAction = [
-  { name: '前往系網', href: '#', icon: PlayCircleIcon },
-  { name: '聯絡系上', href: '#', icon: PhoneIcon },
-]
+  { name: '前往系網', href: 'https://www.im.fju.edu.tw/', icon: PlayCircleIcon },
+  { name: '聯絡系上', id: 'contact', icon: PhoneIcon }, // 改成 id
+];
+
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [isClient, setIsClient] = useState(false);
+  const [contactDialogOpen, setContactDialogOpen] = useState(false);
   const router = useRouter();//指定變數router為useRouter()
 
   useEffect(() => {
@@ -62,19 +71,19 @@ export default function Navbar() {
     console.log("Button clicked");
     router.push("/profile");//觸發handleClick時，導向/profile
   }
-  
+
 
   if (!isClient) {
     return null; // 當未載入至客戶端時不渲染內容
   }
 
 
-  
+
   return (
-    <header className="bg-white sticky top-0 left-0 w-full z-50 shadow-lg shadow-sky-200/30" style={{ marginBottom: 0 }}>
+    <header className="bg-white fixed top-0 left-0 w-full z-50 shadow-lg shadow-sky-200/30">
       <nav aria-label="Global" className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8">
         <div className="flex lg:flex-1">
-            <a href="/" className="-m-1.5 p-1.5 flex items-center">
+          <a href="/" className="-m-1.5 p-1.5 flex items-center">
             <span className="sr-only">SA Project</span>
             <img
               alt=""
@@ -82,8 +91,9 @@ export default function Navbar() {
               className="h-8 w-auto"
             />
             <span className="ml-2 text-gray-900 font-semibold text-[20px]">SA Project</span>
-            </a>
+          </a>
         </div>
+
         <div className="flex lg:hidden">
           <button
             type="button"
@@ -95,10 +105,12 @@ export default function Navbar() {
           </button>
         </div>
         <PopoverGroup className="hidden lg:flex lg:gap-x-12">
-          <Popover className="relative shape-ex1">
-            <PopoverButton className="flex items-center gap-x-1 text-sm/6 font-semibold text-gray-900">
-              模型
-              <ChevronDownIcon aria-hidden="true" className="size-5 flex-none text-gray-400" />
+          <Popover className="relative">
+            <PopoverButton className="text-sm/6 font-semibold text-gray-900 shape-ex1 px-2 py-1.5">
+              <span className="flex items-center gap-1">
+                模型
+                <ChevronDownIcon aria-hidden="true" className="h-4 w-4 text-gray-400" />
+              </span>
             </PopoverButton>
 
             <PopoverPanel
@@ -109,12 +121,12 @@ export default function Navbar() {
                 {products.map((item) => (
                   <div
                     key={item.name}
-                    className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-gray-50"
+                    className="group relative flex items-center gap-4 rounded-lg p-4 text-sm/6 hover:bg-gray-50"
                   >
                     <div className="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
                       <item.icon aria-hidden="true" className="size-6 text-gray-600 group-hover:text-indigo-600" />
                     </div>
-                    <div className="flex-auto">
+                    <div>
                       <a href={item.href} className="block font-semibold text-gray-900">
                         {item.name}
                         <span className="absolute inset-0" />
@@ -125,29 +137,45 @@ export default function Navbar() {
                 ))}
               </div>
               <div className="grid grid-cols-2 divide-x divide-gray-900/5 bg-gray-50">
-                {callsToAction.map((item) => (
-                  <a
-                    key={item.name}
-                    href={item.href}
-                    className="flex items-center justify-center gap-x-2.5 p-3 text-sm/6 font-semibold text-gray-900 hover:bg-gray-100"
-                  >
-                    <item.icon aria-hidden="true" className="size-5 flex-none text-gray-400" />
-                    {item.name}
-                  </a>
-                ))}
-              </div>
+                  {callsToAction.map((item) => (
+                    item.href ? (
+                      <a
+                        key={item.name}
+                        href={item.href}
+                        className="flex items-center justify-center gap-x-2.5 p-3 text-sm font-semibold text-gray-900 hover:bg-gray-100"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <item.icon aria-hidden="true" className="size-5 flex-none text-gray-400" />
+                        {item.name}
+                      </a>
+                    ) : (
+                      <button
+                        key={item.name}
+                        onClick={() => setContactDialogOpen(true)}
+                        className="flex w-full items-center justify-center gap-x-2.5 p-3 text-sm font-semibold text-gray-900 hover:bg-gray-100"
+                      >
+                        <item.icon aria-hidden="true" className="size-5 flex-none text-gray-400" />
+                        {item.name}
+                      </button>
+                    )
+                  ))}
+                </div>
+
             </PopoverPanel>
           </Popover>
 
           <button className="text-sm/6 font-semibold text-gray-900 shape-ex1" onClick={ClickTest}>系上提問社群</button>
 
-          <button className="text-sm/6 font-semibold text-gray-900 shape-ex1" onClick={ClickProfile}>課表</button>
+          {/* <button className="text-sm/6 font-semibold text-gray-900 shape-ex1" onClick={ClickProfile}>課表</button> */}
 
-          <button className="text-sm/6 font-semibold text-gray-900 shape-ex1" onClick={ClickProfile}>Go to Profile</button>
+          <button className="text-sm/6 font-semibold text-gray-900 shape-ex1" onClick={ClickProfile}>我的貼文</button>
+
+          <ModeToggle />
 
         </PopoverGroup>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-        <HeaderSticker />
+          <HeaderSticker />
         </div>
       </nav>
 
@@ -193,23 +221,40 @@ export default function Navbar() {
                     ))}
                   </DisclosurePanel>
                 </Disclosure>
-               
+
                 <button className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50" onClick={ClickTest}>系上提問社群</button>
 
-                <button className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50" onClick={ClickProfile}>課表</button>
+                {/*   <button className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50" onClick={ClickProfile}>課表</button> */}
 
-                <button className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50" onClick={ClickProfile}>Go to Profile</button>
-                
+                <button className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50" onClick={ClickProfile}>我的貼文</button>
+
               </div>
               <div className="py-6">
-                
-              <HeaderSticker />
+
+                <HeaderSticker />
               </div>
             </div>
           </div>
         </DialogPanel>
       </Dialog>
-      
+      <AlertDialog open={contactDialogOpen} onOpenChange={setContactDialogOpen}>
+      <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>聯絡系上資訊</AlertDialogTitle>
+            <AlertDialogDescription>
+              大學部秘書 TEL：+886-2-2905-2666<br />
+              碩士班秘書 TEL：+886-2-2905-2940<br />
+              碩職班秘書 TEL：+886-2-2905-2626<br />
+              FAX：+886-2-2905-2182
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>關閉</AlertDialogCancel>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>    
+
+
     </header>
   )
 }
