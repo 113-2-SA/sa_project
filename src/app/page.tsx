@@ -80,7 +80,7 @@ export default function Home() {
   const router = useRouter();
   // 新對話按鈕處理邏輯
   const startNewChat = () => {
-    setCurrentChat([]); // 清空歷史對話，這是可選的，根據需求來決定 鍵在哪裡??
+    setCurrentChat([]); // 清空歷史對話，這是可選的，根據需求來決定 
   };
   
   useEffect(() => {
