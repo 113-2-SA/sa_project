@@ -90,7 +90,7 @@ export default function Navbar() {
               src="https://cdn-icons-png.freepik.com/512/452/452538.png"
               className="h-8 w-auto"
             />
-            <span className="ml-2 text-gray-900 font-semibold text-[20px]">SA Project</span>
+            <span className="ml-2 font-semibold text-[25px] bg-gradient-to-r from-pink-500 to-violet-500 bg-clip-text font-extrabold text-transparent">SA Project</span>
           </a>
         </div>
 
