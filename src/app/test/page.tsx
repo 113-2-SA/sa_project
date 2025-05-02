@@ -6,6 +6,18 @@ import DeletePost from "@/components/deletePost";
 import Commend from '@/components/commend';
 import { Button } from '@/components/ui/button';
 
+import {
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerDescription,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from "@/components/ui/drawer"
+import { ChevronDownIcon } from '@heroicons/react/24/solid';
+
 // 添加 Comment 類型定義
 type Comment = {
   id: string;
@@ -181,24 +193,47 @@ export default function Test() {
               <h1><strong>{post.title}</strong></h1>
               <p>{post.content}</p>
               <p>標籤：{post.tags.join(', ')}</p>
+              <p>發布時間：{new Date(post.createdAt?.toDate()).toLocaleString()}</p>
               
               {/* 顯示回覆區塊 */}
-              <div className="mt-4 border-t pt-4">
-                <h3 className="text-lg font-semibold mb-2">回覆 ({post.comments?.length || 0})</h3>
-                <div className="space-y-2">
-                  {post.comments?.map((comment) => (
-                    <div key={comment.id} className="bg-gray-50 p-3 rounded">
-                      <div className="flex justify-between items-center mb-1">
-                        <span className="font-medium">{comment.userName}</span>
-                        <span className="text-sm text-gray-500">
-                          {new Date(comment.createdAt?.toDate()).toLocaleString()}
-                        </span>
-                      </div>
-                      <p>{comment.content}</p>
+
+<div className="mt-4 border-t pt-4">
+              <Drawer>
+                <DrawerTrigger className="flex items-center gap-1">
+                  回覆總覽 ({post.comments?.length || 0})
+                  <ChevronDownIcon aria-hidden="true" className="h-4 w-4 text-black-400" />
+                </DrawerTrigger>
+                <DrawerContent className='px-10 pb-10 mt:-3px'>
+                  <DrawerHeader>
+                  <div className=" mx-auto h-2 w-[100px] rounded-full bg-gray-100"></div>
+                    <DrawerTitle className='text-center text-xl pt-2'>所有回覆</DrawerTitle>
+                  </DrawerHeader>
+                  
+                    <h3 className="text-lg font-semibold mb-2">回覆 ({post.comments?.length || 0})</h3>
+                    <div className="space-y-2">
+                      {post.comments?.map((comment) => (
+                        <div key={comment.id} className="bg-gray-50 p-3 rounded">
+                          <div className="flex justify-between items-center mb-1">
+                            <span className="font-medium">{comment.userName}</span>
+                            <span className="text-sm text-gray-500">
+                              {new Date(comment.createdAt?.toDate()).toLocaleString()}
+                            </span>
+                          </div>
+                          <p>{comment.content}</p>
+                        </div>
+                      ))}
                     </div>
-                  ))}
-                </div>
-              </div>
+                  
+                  <DrawerFooter>
+                    <DrawerClose asChild>
+                      <Button variant="outline">Cancel</Button>
+                    </DrawerClose>
+                  </DrawerFooter>
+                </DrawerContent>
+              </Drawer>
+
+
+</div>
               {/* {post.id && post.userId && (
                 <DeletePost postId={post.id} userId={post.userId} />
               )} */}

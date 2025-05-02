@@ -52,7 +52,7 @@ const Commend: React.FC<CommendProps> = ({ postId }) => {
                 onClick={handleReplyClick}
                 className="text-blue-500 hover:text-blue-700"
             >
-                回覆
+                撰寫回覆
             </button>
             
             {isReplying && (
