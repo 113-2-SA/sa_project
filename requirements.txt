@@ -1,0 +1,4 @@
+cohere
+pinecone
+tqdm
+python-dotenv

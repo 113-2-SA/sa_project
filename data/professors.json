@@ -2,137 +2,212 @@
   {
     "name": "董惟鳳",
     "title": "教授兼系主任",
-    "expertise": ["服務科學","設計思考","用戶體驗","機器人應用"],
+    "expertise": ["服務科學", "設計思考", "用戶體驗", "機器人應用"],
     "phone": "(02) 2905-2717",
     "email": "076144@mail.fju.edu.tw",
-    "office": "利瑪竇大樓LM307-1"
+    "office": "利瑪竇大樓LM307-1",
+    "course": ["創新與設計思考","資訊管理講座(英)","資訊系統專題","服務科學","產業實習"]
   },
   {
-    "name": "呂",
-    "title": "奇傑 學術特聘教授",
-    "expertise": [],
-    "phone": "",
-    "email": "",
-    "office": ""
+    "name": "呂奇傑",
+    "title": "學術特聘教授",
+    "expertise": ["資料探勘", "機器學習", "時間序列資料分析", "醫療資訊", "品質管理"],
+    "phone": "(02) 2905-2973",
+    "email": "059099@mail.fju.edu.tw",
+    "office": "羅耀拉大樓SL269-1",
+    "course": ["深度學習概論與應用(實)(網)","資訊系統專題","機器學習與商業分析","人工智慧","深度學習導論與應用","研究方法","商學研究專題","機器學習","多變量分析"]
   },
   {
-    "name": "廖",
-    "title": "建翔 教授兼副教務長",
-    "expertise": [],
-    "phone": "",
-    "email": "",
-    "office": ""
+    "name": "廖建翔",
+    "title": "教授兼副教務長",
+    "expertise": ["社會網絡", "資訊計量學", "電子商務", "網路服務","研究方法"],
+    "phone": "(02) 2905-2622",
+    "email": "052122@mail.fju.edu.tw",
+    "office": "羅耀拉大樓SL269",
+    "course": ["資訊系統專題","WEB程式設計","電子商務總論"]
   },
   {
-    "name": "葉",
-    "title": "承達 教授兼商管學程主任",
-    "expertise": [],
-    "phone": "",
-    "email": "",
-    "office": ""
+    "name": "葉承達",
+    "title": "教授兼商管學程主任",
+    "expertise": ["網路可靠度分析", "元啟發式演算法", "系統最佳化", "服務品質分析"],
+    "phone": "(02) 2905-2975",
+    "email": "145712@mail.fju.edu.tw",
+    "office": "羅耀拉大樓SL270-1",
+    "course": ["資訊系統專題","作業流程設計","微積分(網)"]
   },
   {
-    "name": "黃",
-    "title": "曜輝 教授",
-    "expertise": [],
-    "phone": "",
-    "email": "",
-    "office": ""
+    "name": "黃曜輝",
+    "title": "教授",
+    "expertise": ["決策支援方法"],
+    "phone": "(02) 2905-2620",
+    "email": "140485@mail.fju.edu.tw",
+    "office": "羅耀拉大樓SL240-1",
+    "course": ["資訊系統專題","統計學"]
   },
   {
-    "name": "許",
-    "title": "嘉霖 教授",
-    "expertise": [],
-    "phone": "",
-    "email": "",
-    "office": ""
+    "name": "許嘉霖",
+    "title": "教授",
+    "expertise": ["電子商務", "網路行銷", "遊戲化行銷", "服務業行銷", "消費者心理與行為"],
+    "phone": "(02) 2905-2908",
+    "email": "157287@mail.fju.edu.tw",
+    "office": "羅耀拉大樓SL241",
+    "course": ["資訊系統專題","電子商務(英)","經濟學","行銷管理"]
   },
   {
-    "name": "胡",
-    "title": "俊之 副教授",
-    "expertise": [],
-    "phone": "",
-    "email": "",
-    "office": ""
+    "name": "胡俊之",
+    "title": "副教授",
+    "expertise": ["分散式系統", "電腦繪圖", "演算法"],
+    "phone": "(02) 2905-2903",
+    "email": "126385@mail.fju.edu.tw",
+    "office": "羅耀拉大樓SL241-1",
+    "course": ["資訊系統專題","進階程式設計","資訊安全","作業系統"]
   },
   {
-    "name": "張",
-    "title": "銀益 副教授",
-    "expertise": [],
-    "phone": "",
-    "email": "",
-    "office": ""
+    "name": "張銀益",
+    "title": "副教授",
+    "expertise": ["商業自動化", "電子採購與物流運籌", "電子商務與行動商務","行動通訊與網路管理"],
+    "phone": "(02) 2905-2972",
+    "email": "042833@mail.fju.edu.tw",
+    "office": "羅耀拉大樓SL229",
+    "course": ["資訊系統專題","商業自動化","管理資訊系統","網路行銷專題","網路管理","電子採購與物流專題"]
   },
   {
-    "name": "吳",
-    "title": "濟聰 助理教授",
-    "expertise": [],
-    "phone": "",
-    "email": "",
-    "office": ""
+    "name": "吳濟聰",
+    "title": "助理教授",
+    "expertise": ["資訊系統開發方法論", "生成式人工智慧應用"],
+    "phone": "(02) 2905-3938",
+    "email": "053792@mail.fju.edu.tw",
+    "office": "羅耀拉大樓SL209-1",
+    "course": ["資訊系統專題","web前端設計","系統分析與設計","敏捷式軟體開發","使用者經驗設計","進階Web程式設計"]
   },
   {
-    "name": "林",
-    "title": "湘霖 助理教授",
-    "expertise": [],
-    "phone": "",
-    "email": "",
-    "office": ""
+    "name": "林湘霖",
+    "title": "助理教授",
+    "expertise": ["決策科學", "資料探勘", "多變量分析", "企業資源規劃", "消費者行為", "數位學習", "區塊鏈應用"],
+    "phone": "(02) 2905-2976",
+    "email": "146414@mail.fju.edu.tw",
+    "office": "羅耀拉大樓SL206-1"
   },
   {
-    "name": "黃",
-    "title": "智榮 助理教授",
-    "expertise": [],
-    "phone": "",
-    "email": "",
-    "office": ""
+    "name": "黃智榮",
+    "title": "助理教授",
+    "expertise": ["資訊管理", "追溯系统", "在線反饋信息", "社交媒體","消費者行為"],
+    "phone": "(02) 2905-2625",
+    "email": "154231@mail.fju.edu.tw",
+    "office": "羅耀拉大樓SL242"
   },
   {
-    "name": "林",
-    "title": "雅文 助理教授",
-    "expertise": [],
-    "phone": "",
-    "email": "",
-    "office": ""
+    "name": "林雅文",
+    "title": "助理教授",
+    "expertise": ["網路經濟", "專案管理", "空間資訊科學"],
+    "phone": "(02) 2905-2667",
+    "email": "154327@mail.fju.edu.tw"
   },
   {
-    "name": "林",
-    "title": "青峰 助理教授",
-    "expertise": [],
-    "phone": "",
-    "email": "",
-    "office": ""
+    "name": "林青峰",
+    "title": "助理教授",
+    "expertise": ["情感分析", "巨量資料分析","資料挖掘及知識萃取技術","程式開發與專案管理", "機器學習"],
+    "phone": "(02) 2905-2629",
+    "email": "155360@mail.fju.edu.tw",
+    "office": "羅耀拉大樓SL220"
   },
   {
-    "name": "鄭",
-    "title": "美娟 助理教授",
-    "expertise": [],
-    "phone": "",
-    "email": "",
-    "office": ""
+    "name": "鄭美娟",
+    "title": "助理教授",
+    "expertise": ["供應鏈管理", "最佳化", "數據分析", "行銷管理", "專案管理"],
+    "phone": "(02) 2905-2742",
+    "email": "155379@mail.fju.edu.tw",
+    "office": "羅耀拉大樓SL237"
   },
   {
-    "name": "石",
-    "title": "佳惠 助理教授",
-    "expertise": [],
-    "phone": "",
-    "email": "",
-    "office": ""
+    "name": "石佳惠",
+    "title": "助理教授",
+    "expertise": ["大數據分析", "視覺化分析","AI應用"],
+    "phone": "(02) 2905-2676",
+    "email": "159931@mail.fju.edu.tw",
+    "office": "羅耀拉大樓SL267"
   },
   {
-    "name": "王",
-    "title": "冠云 助理教授",
-    "expertise": [],
-    "phone": "",
-    "email": "",
-    "office": ""
+    "name": "王冠云",
+    "title": "助理教授",
+    "expertise": ["教育科技", "AI應用","人機互動","計算語言學","數位轉型","電腦視覺"],
+    "phone": "(02) 2905-2181",
+    "email": "162944@mail.fju.edu.tw",
+    "office": "羅耀拉大樓SL239"
   },
   {
-    "name": "歐",
-    "title": "思鼎 助理教授",
-    "expertise": [],
-    "phone": "",
-    "email": "",
-    "office": ""
-  }
+    "name": "歐思鼎",
+    "title": "助理教授",
+    "expertise": ["AI哲學", "計算與資訊哲學","邏輯與數學哲學","人生哲學","倫理學","企業倫理","神經哲學"],
+    "phone": "(02) 2905-2135",
+    "email": "156567@mail.fju.edu.tw",
+    "office": "聖言樓SF521"
+  },
+  {
+    "name": "邱瑞科",
+    "title": "教授",
+    "expertise": ["商業智慧與資料倉儲", "人工智慧與專家系統", "雲端供應鏈服務與管理", "醫療與健康資訊"],
+    "email": "rkchiu@mail.fju.edu.tw"
+  },
+  {
+    "name": "蔡明志",
+    "title": "副教授",
+    "expertise": ["智慧型手機應用系統開發", "大數據分析與人工智慧"],
+    "email": "mjtsai168@gmail.com"
+  },
+  {
+    "name": "鄒濟民",
+    "title": "助理教授",
+    "expertise": ["系統分析與設計", "資料庫", "企業資源規劃", "供應鏈管理", "資料倉儲", "資料探勘"],
+    "email": "jtsou0823@yahoo.com.tw"
+  },
+  {
+    "name": "徐銘傑",
+    "title": "助理教授",
+    "expertise": ["財務管理"],
+    "email": "157287@mail.fju.edu.tw"
+  },
+  [
+    {
+      "name": "羅淑貞",
+      "title": "碩士班祕書",
+      "phone": "(02) 2905-2940",
+      "email": "013763@mail.fju.edu.tw",
+      "office": "LM306",
+      "responsibilities": ["資管系碩士班課務、學務等行政業務", "學術研究相關行政業務"]
+    },
+    {
+      "name": "黃圩君",
+      "title": "大學部祕書",
+      "phone": "(02) 2905-2666",
+      "email": "050164@mail.fju.edu.tw",
+      "office": "LM306",
+      "responsibilities": ["資管系大學部課務、學務等行政業務", "電子商務學程行政業務", "系網頁資料更新與維護"]
+    },
+    {
+      "name": "徐智慧",
+      "title": "碩士在職專班祕書",
+      "phone": "(02) 2905-2626",
+      "email": "055969@mail.fju.edu.tw",
+      "office": "LM306",
+      "responsibilities": ["在職專班課務、學務等行政業務", "產業實習", "籌辦活動(系上自強活動、EMBA各項活動…)"]
+    },
+    {
+      "name": "林育潔",
+      "title": "助教",
+      "phone": "(02) 2905-2652",
+      "email": "057545@mail.fju.edu.tw",
+      "office": "LM306",
+      "responsibilities": ["機房相關網路設備之建置管理與維護", "雲端服務趨勢學程行政業務", "虛擬主機之申請、建置與管理", "軟硬體設備規劃、採購、管理", "教室講桌、投影設備維護", "專題研究室管理", "各項系務、活動支援"]
+    },
+    {
+      "name": "王玫鈞",
+      "title": "助教",
+      "phone": "(02) 2905-6351",
+      "email": "153689@mail.fju.edu.tw",
+      "office": "LM306",
+      "responsibilities": ["專題事務", "程式語言機測統籌管理與規劃", "系機房、研究生研究室管理", "教室環境及各設備管理及鑰匙借用", "安排期中期末考時間", "協助老師職涯講座活動、核銷", "系務、活動支援"]
+    }
+  ]
+  
 ]

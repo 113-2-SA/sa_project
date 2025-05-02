@@ -5,8 +5,32 @@ import { useRouter } from "next/navigation";
 import Chat from '../components/Chat';
 import { auth } from "../_firebase/Config";
 import { User } from "firebase/auth";
+import { collection, query, where, getDocs, doc, getDoc, deleteDoc } from 'firebase/firestore';
+import { db } from '@/_firebase/Config';
+import { Trash2 } from 'lucide-react';
 
-const Sidebar = ({ user, chatHistory, startNewChat }: { user: User | null; chatHistory: string[]; startNewChat?: () => void }) => {
+const Sidebar = ({ user, chatHistory, onChatClick, onDeleteChat }: { 
+  user: User | null; 
+  chatHistory: {id: string, topic: string}[]; 
+  onChatClick: (chatId: string) => void;
+  onDeleteChat: () => void;
+}) => {
+  // 處理刪除對話
+  const handleDeleteChat = async (chatId: string, e: React.MouseEvent) => {
+    e.stopPropagation(); // 阻止事件冒泡，避免觸發對話點擊事件
+    
+    if (window.confirm('確定要刪除這個對話嗎？')) {
+      try {
+        await deleteDoc(doc(db, 'chats', chatId));
+        onDeleteChat(); // 通知父組件刷新對話列表
+        onChatClick(''); // 清空當前選中的對話
+      } catch (error) {
+        console.error('Error deleting chat:', error);
+        alert('刪除對話失敗');
+      }
+    }
+  };
+
   return (
     <div className="w-64 bg-white h-full shadow-lg flex flex-col">
       {/* 歷史對話區域 */}
@@ -18,12 +42,20 @@ const Sidebar = ({ user, chatHistory, startNewChat }: { user: User | null; chatH
           
           <ul className="space-y-2">
             {chatHistory.length > 0 ? (
-              chatHistory.map((title, idx) => (
+              chatHistory.map((chat) => (
                 <li
-                  key={idx}
-                  className="text-sm text-gray-700 bg-gray-100 p-2 rounded shadow hover:bg-gray-200"
+                  key={chat.id}
+                  className="text-sm text-gray-700 bg-gray-100 p-2 rounded shadow hover:bg-gray-200 cursor-pointer flex justify-between items-center group"
+                  onClick={() => onChatClick(chat.id)}
                 >
-                  {title}
+                  <span className="flex-1 truncate">{chat.topic}</span>
+                  <button
+                    onClick={(e) => handleDeleteChat(chat.id, e)}
+                    className="opacity-0 group-hover:opacity-100 transition-opacity p-1 hover:bg-red-100 rounded"
+                    title="Delete chat"
+                  >
+                    <Trash2 className="h-4 w-4 text-red-500" />
+                  </button>
                 </li>
               ))
             ) : (
@@ -40,7 +72,7 @@ const Sidebar = ({ user, chatHistory, startNewChat }: { user: User | null; chatH
       {/* 新對話按鈕 - 固定在底部 */}
       <div className="p-4 border-t border-gray-200 bg-white">
         <button
-          onClick={startNewChat}
+          onClick={() => onChatClick('')}
           className="w-full px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition"
         >
           新對話
@@ -75,12 +107,63 @@ const Sidebar = ({ user, chatHistory, startNewChat }: { user: User | null; chatH
 export default function Home() {
   const [isClient, setIsClient] = useState(false);
   const [user, setUser] = useState<User | null>(null);
-  const [chatHistory, setChatHistory] = useState<string[]>(["對話 1", "對話 2", "對話 3"]); // 模擬歷史對話
-  const [currentChat, setCurrentChat] = useState<string[]>([]);  // 當前對話（用來顯示在右邊的對話框）
+  const [chatHistory, setChatHistory] = useState<{id: string, topic: string}[]>([]);
+  const [selectedChatId, setSelectedChatId] = useState<string | null>(null);
   const router = useRouter();
-  // 新對話按鈕處理邏輯
-  const startNewChat = () => {
-    setCurrentChat([]); // 清空歷史對話，這是可選的，根據需求來決定 
+
+  // 獲取用戶對話歷史
+  const fetchUserChats = async () => {
+    if (user) {
+      try {
+        const chatsRef = collection(db, 'chats');
+        const q = query(chatsRef, where('userEmail', '==', user.email));
+        const querySnapshot = await getDocs(q);
+        
+        const chats = querySnapshot.docs.map(doc => ({
+          id: doc.id,
+          topic: doc.data().topic || '無主題',
+          lastMessageTime: doc.data().lastMessageTime || ''  // 獲取 lastMessageTime
+        }));
+        
+        // 按照 lastMessageTime 降序排序
+        chats.sort((a, b) => {
+          if (!a.lastMessageTime || !b.lastMessageTime) return 0;
+          return b.lastMessageTime.localeCompare(a.lastMessageTime);
+        });
+        
+        // 移除 lastMessageTime，只保留需要的欄位
+        const sortedChats = chats.map(({ id, topic }) => ({ id, topic }));
+        setChatHistory(sortedChats);
+      } catch (error) {
+        console.error('Error fetching user chats:', error);
+      }
+    }
+  };
+
+  // 當用戶狀態改變時獲取對話歷史
+  useEffect(() => {
+    fetchUserChats();
+  }, [user]);
+
+  // 處理新對話產生
+  const handleNewChat = (chatId: string) => {
+    fetchUserChats(); // 刷新對話歷史
+    setSelectedChatId(chatId); // 選中新產生的對話
+  };
+
+  // 處理對話點擊
+  const handleChatClick = (chatId: string) => {
+    if (!chatId) {
+      // 如果是點擊新對話按鈕
+      setSelectedChatId(null);
+    } else {
+      setSelectedChatId(chatId);
+    }
+  };
+
+  // 處理清空對話
+  const handleClearChat = () => {
+    setSelectedChatId(null);
   };
   
   useEffect(() => {
@@ -95,6 +178,11 @@ export default function Home() {
     return () => unsubscribe();
   }, []);
 
+  // 處理刪除對話
+  const handleDeleteChat = () => {
+    fetchUserChats(); // 刷新對話列表
+  };
+
   if (!isClient) {
     return null;
   }
@@ -102,7 +190,12 @@ export default function Home() {
   return (
     <div className="flex h-screen pt-[72px] bg-gray-100">
       {/* 側邊欄 */}
-      <Sidebar user={user} chatHistory={chatHistory} startNewChat={startNewChat}/>
+      <Sidebar 
+        user={user} 
+        chatHistory={chatHistory} 
+        onChatClick={handleChatClick}
+        onDeleteChat={handleDeleteChat}
+      />
 
       {/* 主內容 */}
       <div className="flex-1 h-full">
@@ -112,7 +205,11 @@ export default function Home() {
             <p className="text-lg mb-3">資管系FAQ 請輸入提問</p>
           </div>
           <div className="flex-1 overflow-hidden">
-            <Chat />
+            <Chat 
+              selectedChatId={selectedChatId} 
+              onNewChat={handleNewChat} 
+              onClearChat={handleClearChat}
+            />
           </div>
         </div>
       </div>
