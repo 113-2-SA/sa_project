@@ -1,42 +1,43 @@
-import cohere
-#import pinecone
-# from pinecone import Pinecone, ServerlessSpec
-from pinecone.grpc import PineconeGRPC as Pinecone
-from pinecone import ServerlessSpec
-import json
-from typing import List, Dict
-import os
-from tqdm import tqdm
-from dotenv import load_dotenv
-import time
+# 導入必要的套件
+import cohere # 用於生成文本嵌入向量的 API 客戶端
+#from pinecone.grpc import PineconeGRPC as Pinecone # 用於與 Pinecone 服務互動的 API 客戶端
+#from pinecone import ServerlessSpec# Pinecone 無伺服器配置規格
+from pinecone import Pinecone
+import json # 處理 JSON 檔案
+from typing import List, Dict # 型別提示用的類型
+import os # 操作系統相關功能
+from tqdm import tqdm # 顯示進度條
+from dotenv import load_dotenv # 載入環境變數
+import time # 處理時間相關操作
 
-# 載入環境變數
+# 載入.env 檔案中的環境變數
 load_dotenv()
 
 def load_qa_data(file_path: str) -> List[Dict]:
     """從 JSON 檔案載入 QA 資料"""
     with open(file_path, 'r', encoding='utf-8') as f:
-        return json.load(f)
+        return json.load(f) # 將 JSON 檔案轉換為 Python 物件
 
 
 def get_embeddings(texts: List[str], co: cohere.Client) -> List[List[float]]:
     """使用 Cohere API 取得文本的向量"""
     try:
+        # 用 Cohere API 將文本轉換為向量
         embeddings = co.embed(
-            texts=texts,
-            model="embed-multilingual-light-v3.0", #使用多語言模型embed-multilingual-light-v3.0
-            input_type="search_query"
+            texts=texts,# 要轉換的文本列表
+            model="embed-multilingual-light-v3.0", #用多語言模型embed-multilingual-light-v3.0
+            input_type="search_query" # 指定輸入類型為搜尋查詢
         ).embeddings
         return embeddings
     except Exception as e:
-        print(f"Embedding 失敗: {e}")
-        return []
+        print(f"Embedding 失敗: {e}")  # 輸出錯誤訊息
+        return [] # 失敗時返回空列表
 
 def upsert_to_pinecone(index, records, retries: int = 3):
     """將向量資料上傳到 Pinecone，失敗時自動重試"""
-    for attempt in range(retries):
+    for attempt in range(retries): # 最多重試指定次數
         try:
-            index.upsert(vectors=list(records))
+            index.upsert(vectors=(records)) # 上傳向量到 Pinecone
             return
         except Exception as e:
             print(f"Upsert 失敗（第 {attempt+1} 次嘗試）: {e}")
@@ -52,9 +53,9 @@ def process_and_upload(qa_data: List[Dict],
         batch = qa_data[i:i + batch_size]
         
         # 準備問題列表和對應 metadata
-        questions = [item['question'] for item in batch]
-        ids = [f"q_{i+j}" for j in range(len(batch))]
-        metadata = [
+        questions = [item['question'] for item in batch]  # 提取問題
+        ids = [f"q_{i+j}" for j in range(len(batch))] # 生成唯一ID
+        metadata = [  # 準備每個問題的中繼資料
             {
                 "answer": item['answer'],
                 "level": item['level'],
@@ -65,7 +66,7 @@ def process_and_upload(qa_data: List[Dict],
             for item in batch
         ]
 
-        # 取得 embeddings
+        # 取得問題的 embeddings
         vectors = get_embeddings(questions, co)
 
         # 檢查 embeddings 是否成功
@@ -74,7 +75,8 @@ def process_and_upload(qa_data: List[Dict],
             continue
 
         # 整理成 Pinecone 需要的格式
-        records = zip(ids, vectors, metadata)
+        records = [{"id": ids[j], "values": vectors[j], "metadata": metadata[j]} for j in range(len(batch))]
+        #records = zip(ids, vectors, metadata)
 
         # 上傳至 Pinecone（帶有重試機制）
         upsert_to_pinecone(index, records)
@@ -85,7 +87,7 @@ def main():
     COHERE_API_KEY = os.getenv("COHERE_API_KEY")
     PINECONE_API_KEY = os.getenv("PINECONE_API_KEY")
     PINECONE_ENV = os.getenv("PINECONE_ENV")
-    INDEX_NAME = "faq-embeddings"
+    INDEX_NAME = "faq-embeddings" # Pinecone index名
 
     # 確認 API KEY 是否存在
     if not all([COHERE_API_KEY, PINECONE_API_KEY, PINECONE_ENV]):
@@ -101,22 +103,38 @@ def main():
     print("Pinecone 客戶端已初始化")
 
     # 檢查並建立 Pinecone Index
-    if INDEX_NAME not in [i['name'] for i in pc.list_indexes()]:
+    # if INDEX_NAME not in [i['name'] for i in pc.list_indexes()]:
+    #     pc.create_index(
+    #         name=INDEX_NAME,
+    #         dimension=384,  # embed-multilingual-light-v3.0 的向量維度是 384
+    #         metric="cosine",  # 用 cosine 相似度
+    #         spec=ServerlessSpec(
+    #             cloud="aws",       # 雲端服務供應商
+    #             region=PINECONE_ENV
+    #     )
+    # )
+    #index = pc.Index(INDEX_NAME) # 使用 pc 實例來創建或連接到 Index
+    #pinecone.init(api_key=PINECONE_API_KEY, environment=PINECONE_ENV)
+    # 確認 Index 是否存在，否則建立
+    if INDEX_NAME not in pc.list_indexes().names():
         pc.create_index(
             name=INDEX_NAME,
-            dimension=384,  # embed-multilingual-light-v3.0 的向量維度是 384
-            metric="cosine",  # 使用 cosine 相似度
-            spec=ServerlessSpec(
-                cloud="aws",      # 你的 Pinecone 是 AWS 還是 GCP
-                region=PINECONE_ENV
+            dimension=384,
+            metric="cosine",
+            spec={
+                "serverless": {
+                    "cloud": "aws",
+                    "region": "us-east-1"
+                }
+            }
         )
-    )
-    index = pc.Index(INDEX_NAME) # 使用 pc 實例來創建或連接到 Index
+
+    index = pc.Index(INDEX_NAME)
     
     # 載入 QA 資料
-    qa_data = load_qa_data("C:\Users\pengv\OneDrive - 輔仁大學\桌面\sa_project\src\FAQ\QA.json") # 用絕對路徑
-    print(qa_data[:1])  # 顯示前五筆資料以確認格式
-    # 檢查資料型態是否為list rather than set ->print(type(qa_data))
+    qa_data = load_qa_data(r"C:\Users\pengv\桌面\sa_project\src\FAQ\QA.json") # 用絕對路徑
+    print(qa_data[:1])  # 顯示第一筆資料以確認格式
+    # print(type(qa_data)) -> 檢查資料型態是否為list rather than set
     # 開始批次上傳
     process_and_upload(qa_data, index, co)
 

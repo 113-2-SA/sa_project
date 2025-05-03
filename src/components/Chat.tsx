@@ -1,10 +1,7 @@
 // Chat 組件 - 支援教授資料 + Posts資料 + RAG檢索聊天
-import { useState, useEffect } from 'react';
-import fs from 'fs';
-import path from 'path';
-import { auth } from '@/_firebase/Config';
-import { collection, addDoc, serverTimestamp, doc, updateDoc, getDoc } from 'firebase/firestore';
-import { db } from '@/_firebase/Config';
+import { auth, db } from '@/_firebase/Config';
+import { addDoc, collection, doc, getDoc, serverTimestamp, updateDoc } from 'firebase/firestore';
+import { useEffect, useState } from 'react';
 
 interface Message {
   user: 'me' | 'bot';
@@ -17,15 +14,6 @@ interface PostItem {
   content: string;
   comments: { content: string }[];
 }
-
-// const Chat = () => {
-//   const [message, setMessage] = useState('');
-//   const [chatHistory, setChatHistory] = useState<Message[]>([]);
-//   const [professorData, setProfessorData] = useState('');
-//   const [postsData, setPostsData] = useState<PostItem[]>([]);
-//   const [isLoading, setIsLoading] = useState(false);
-// }
-// 系統提示詞模板
 
 interface ChatProps {
   selectedChatId: string | null;
@@ -41,7 +29,6 @@ const Chat = ({ selectedChatId, onNewChat, onClearChat }: ChatProps) => {
   const [professorData, setProfessorData] = useState('');
   const [currentChatId, setCurrentChatId] = useState<string | null>(selectedChatId);
   const [postsData, setPostsData] = useState<PostItem[]>([]);
-  
 
   // 當 selectedChatId 改變時更新 currentChatId 和載入對話內容
   useEffect(() => {
@@ -125,8 +112,27 @@ const Chat = ({ selectedChatId, onNewChat, onClearChat }: ChatProps) => {
     setIsLoading(true);
 
     try {
-      // 現場處理 posts + 使用者問題 Embedding 並選出最相關 posts
-      const selectedPosts = postsData//.slice(0, 3) // 簡化版，先取前三篇（未來可改成真正Embedding搜尋）
+      // 1. 先調用 /api/ask 進行 RAG 檢索
+      const askResponse = await fetch('/api/ask', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ query: message }),
+      });
+      // const pineconeAnswer = askData.answer;
+      const askText = await askResponse.text();
+      let pineconeAnswer = '';
+
+      try {
+        const askData = JSON.parse(askText);
+        pineconeAnswer = askData.answer || '資料中未提及';
+    } catch (e) {
+      console.error('ask.js 回傳非 JSON：', askText); // 印出原始 HTML 內容來 debug
+      pineconeAnswer = '⚠ 無法從知識庫中取得答案，請稍後再試';
+}
+      
+
+      // 2. 處理 posts 數據
+      const selectedPosts = postsData
         .map(post => `\nPost標題: ${post.title}\n內容: ${post.content}\n留言:\n${post.comments.map(c => '- ' + c.content).join('\n')}`)
         .join('\n\n');
 
@@ -167,7 +173,6 @@ const Chat = ({ selectedChatId, onNewChat, onClearChat }: ChatProps) => {
       const botResponse = data.choices[0].message.content;
       setChatHistory((prev) => [...prev, { user: 'bot', text: botResponse }]);
 
-      
       // 更新 Firebase 中的對話，添加機器人回應
       try {
         const user = auth.currentUser;
@@ -193,7 +198,9 @@ const Chat = ({ selectedChatId, onNewChat, onClearChat }: ChatProps) => {
               },
               body: JSON.stringify({
                 model: "llama-3.1-8b-instant",
-                messages: [{ role: 'user', content: topicPrompt }],
+                messages: [{ role: 'user', content: topicPrompt },
+                          { role: 'assistant', content: pineconeAnswer },
+                ],
                 temperature: 0.3,
                 max_tokens: 10,
               }),
@@ -273,7 +280,6 @@ const Chat = ({ selectedChatId, onNewChat, onClearChat }: ChatProps) => {
       setMessage('');
     }
   };
-
 
   // 處理鍵盤事件 - Enter 發送訊息
   const handleKeyPress = (e: React.KeyboardEvent) => {
