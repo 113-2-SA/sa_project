@@ -7,6 +7,7 @@ import { collection, query, where, getDocs } from 'firebase/firestore';
 import DeletePost from '@/components/deletePost';
 import Commend from '@/components/commend';
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import CreatePost from '@/components/CreatePage';
 
 
 interface Post {
@@ -135,7 +136,10 @@ export default function Profile() {
       {loading ? (
         <p>載入中...</p>
       ) : posts.length === 0 ? (
-        <p className="text-gray-500 text-center">您尚未發布任何貼文。</p>
+        <div className="flex flex-col items-center gap-4">
+          <p className="text-gray-500 text-center">您尚未發布任何貼文。</p>
+          <CreatePost />
+        </div>
       ) : (
         posts.map((post) => (
           <div

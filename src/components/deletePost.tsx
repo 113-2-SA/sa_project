@@ -88,7 +88,7 @@ const DeletePost: React.FC<DeletePostProps> = ({ postId, userId }) => {
     <AlertDialogFooter>
       <AlertDialogCancel className='hover:bg-lime-100'>取消</AlertDialogCancel>
       <AlertDialogAction 
-      className='border-color-black hover:bg-rose-300'
+      className='bg-red-500 text-white hover:bg-red-600'
       onClick={handleDelete}>刪除</AlertDialogAction>
     </AlertDialogFooter>
   </AlertDialogContent>

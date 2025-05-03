@@ -52,6 +52,7 @@ const Sidebar = ({ user, chatHistory, onChatClick, onDeleteChat }: {
                   <button
                     onClick={(e) => handleDeleteChat(chat.id, e)}
                     className="opacity-0 group-hover:opacity-100 transition-opacity p-1 hover:bg-red-100 rounded"
+                    title="Delete chat"
                   >
                     <Trash2 className="h-4 w-4 text-red-500" />
                   </button>
