@@ -43,8 +43,7 @@ import { ModeToggle } from './ui/modetoggle'
 
 const products = [
   { name: 'FAQ ', description: '資管系常見問題詢問...', href: '/', icon: ChatBubbleOvalLeftEllipsisIcon },
-  { name: 'JUST CHAT', description: '花點時間和小熊軟糖聊聊嗎?', href: '#', icon: CursorArrowRaysIcon },
-  // { name: 'Claude', description: 'Your customers data will be safe and secure', href: '#', icon: FingerPrintIcon },
+  { name: 'JUST CHAT', description: '花點時間和小熊軟糖聊聊嗎?', href: "/gummy", icon: CursorArrowRaysIcon },
 ]
 const callsToAction = [
   { name: '前往系網', href: 'https://www.im.fju.edu.tw/', icon: PlayCircleIcon },
