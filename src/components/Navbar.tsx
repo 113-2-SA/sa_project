@@ -108,7 +108,7 @@ export default function Navbar() {
           <Popover className="relative">
             <PopoverButton className="text-sm/6 font-semibold text-gray-900 shape-ex1 px-2 py-1.5">
               <span className="flex items-center gap-1">
-                模型
+                對話機器人
                 <ChevronDownIcon aria-hidden="true" className="h-4 w-4 text-gray-400" />
               </span>
             </PopoverButton>

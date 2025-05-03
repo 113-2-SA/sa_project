@@ -234,9 +234,6 @@ export default function Test() {
 
 
 </div>
-              {/* {post.id && post.userId && (
-                <DeletePost postId={post.id} userId={post.userId} />
-              )} */}
               <Commend postId={post.id} />
             </div>
           ))
