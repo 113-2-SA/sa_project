@@ -1,7 +1,5 @@
 # 導入必要的套件
 import cohere # 用於生成文本嵌入向量的 API 客戶端
-#from pinecone.grpc import PineconeGRPC as Pinecone # 用於與 Pinecone 服務互動的 API 客戶端
-#from pinecone import ServerlessSpec# Pinecone 無伺服器配置規格
 from pinecone import Pinecone
 import json # 處理 JSON 檔案
 from typing import List, Dict # 型別提示用的類型
@@ -102,19 +100,7 @@ def main():
     pc = Pinecone(api_key=PINECONE_API_KEY)
     print("Pinecone 客戶端已初始化")
 
-    # 檢查並建立 Pinecone Index
-    # if INDEX_NAME not in [i['name'] for i in pc.list_indexes()]:
-    #     pc.create_index(
-    #         name=INDEX_NAME,
-    #         dimension=384,  # embed-multilingual-light-v3.0 的向量維度是 384
-    #         metric="cosine",  # 用 cosine 相似度
-    #         spec=ServerlessSpec(
-    #             cloud="aws",       # 雲端服務供應商
-    #             region=PINECONE_ENV
-    #     )
-    # )
-    #index = pc.Index(INDEX_NAME) # 使用 pc 實例來創建或連接到 Index
-    #pinecone.init(api_key=PINECONE_API_KEY, environment=PINECONE_ENV)
+    
     # 確認 Index 是否存在，否則建立
     if INDEX_NAME not in pc.list_indexes().names():
         pc.create_index(
