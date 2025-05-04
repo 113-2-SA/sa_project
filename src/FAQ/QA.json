@@ -794,4 +794,159 @@
   
   
 ]
+  {
+    "question": "資管系有哪些實作型課程？",
+    "level": "5",
+    "keyword": [
+      "實作課",
+      "專案",
+      "資管"
+    ],
+    "related": [
+      "課程地圖",
+      "專案教學報告"
+    ],
+    "answer": "如系統分析與設計、資訊系統專題、web前端設計、web程式設計等皆為實作導向課程。",
+    "category": "Curriculum and Teaching"
+  },
+  {
+    "question": "關於系上4+1的資訊",
+    "level": "4",
+    "keyword": [
+      "四加一學程",
+      "4+1",
+      "升學",
+      "研究所"
+    ],
+    "related": [
+      "境外學習",
+      "4+1學程計畫"
+    ],
+    "answer": "透過與美國多所大學名校合作，以4+1年的方式，最快五年即可獲得本校學士與美國碩士學位，亦即大學第四年在本院修讀美國合作學校部份碩士先修課程，通過美國學校入學條件後，第五年到美國繼續完成碩士指定課程。",
+    "category": "Further Studies and Career"
+  },
+  {
+    "question": "資管系的學士學位是否有雙主修或輔系的機會？",
+    "level": "4",
+    "keyword": [
+      "雙主修",
+      "輔系",
+      "學位"
+    ],
+    "related": [
+      "課程資訊",
+      "雙主修必修科目表",
+      "輔系申請流程"
+    ],
+    "answer": "資管系學生可選擇雙主修或輔系，需符合學校、雙主修、輔系支系所規定並通過相關課程與學分要求。",
+    "category": "Studies and courses"
+  },
+  {
+    "question": "資管系有擋修嗎？",
+    "level": "5",
+    "keyword": [
+      "擋修",
+      "課程",
+      "修課"
+    ],
+    "related": [
+      "課程資訊",
+      "相關課程畢業門檻"
+    ],
+    "answer": "依據修業規則  第五條 擋修規定：（二）「系統分析與設計」擋修「資訊系統專題一」。（三）「資訊系統專題二」成績不及格，需重修「資訊系統專題一」及「資訊系統專題二」。",
+    "category": "Studies and courses"
+  },
+  {
+    "question": "董惟鳳帶過的專題有什麼？",
+    "level": "3", 
+    "keyword": [  
+      "專題",
+      "教師",
+      "主題"
+    ],
+    "related": [ 
+      "課程資訊",
+      "資訊專題平台"
+    ],
+    "answer":[ "影像語言 Image Narrator","P-insurance (保哥一把罩)"],
+    "category": "Studies and courses"
+  },
+  {
+      "question": "吳濟聰帶過的專題主題有什麼？",
+      "level": "3", 
+      "keyword": [ 
+        "專題",
+        "教師",
+        "主題"
+      ],
+      "related": [ 
+        "專題",
+        "教師",
+        "主題"
+      ],
+      "answer": ["Education Zone","VAMM 免煩惱","QAmpus校園AI問答系統","料理小當家","Deeplink"],
+      "category": "Studies and courses"
+    },
+  {
+      "question": "會學到的程式語言",
+      "level": "2", 
+      "keyword": [  
+        "程式語言",
+        "程式",
+        "課程"
+      ],
+      "related": [ 
+        "大學部課程規劃",
+        "課程資訊"
+      ],
+      "answer":[ "python","java","C","C++","在撰寫Web時通常會接觸Javascript, query, next.js, vue, react等語言"],
+      "category": "Course"
+    },
+
+  {
+      "question": "輔大資管系的宿營在什麼時候",
+      "level": "3", 
+      "keyword": [  
+        "宿營",
+        "時間"
+      ],
+      "related": [ 
+        "活動",
+        "宿營"
+      ],
+      "answer":[ "通常是在上學期供大一新生參加的活動，約落在10月左右，詳細時間要詢問學生會。" ],
+      "category": "Campus Resources and Activities"
+    },
+  {
+      "question": "繳系學會費能得到什麼好處",
+      "level": "3", 
+      "keyword": [ 
+        "系學會",
+        "系費",
+        "會費",
+        "好處"
+      ],
+      "related": [ 
+        "活動",
+        "系學會"
+      ],
+      "answer": "可有資格抽取系學會辦公室中的個人系櫃，通常參加系學會舉辦、協辦的活動時會有折扣。"
+    },
+  {
+      "question": "專題的指導老師有誰？",
+      "level": "2", 
+      "keyword": [  
+        "專題",
+        "老師",
+        "教授",
+        "有誰"
+      ],
+      "related": [ 
+      "課程資訊",
+      "資訊專題平台"  
+      ],
+      "answer":[ "董惟鳳",
+        "呂奇傑","吳濟聰","鄭美娟","葉承達","廖建翔","黃曜輝","林青峰","林雅文","林湘霖","石佳惠","胡俊之","黃智榮","王冠云"],
+      "category": "Studies and courses"
+    }
 
