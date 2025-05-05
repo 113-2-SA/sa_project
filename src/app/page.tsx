@@ -5,9 +5,9 @@ import { useRouter } from "next/navigation";
 import Chat from '../components/Chat';
 import { auth } from "../_firebase/Config";
 import { User } from "firebase/auth";
-import { collection, query, where, getDocs, doc, getDoc, deleteDoc } from 'firebase/firestore';
+import { collection, query, where, getDocs, doc, getDoc, deleteDoc, updateDoc } from 'firebase/firestore';
 import { db } from '@/_firebase/Config';
-import { Trash2 } from 'lucide-react';
+import { Trash2, Pencil } from 'lucide-react';
 
 const Sidebar = ({ user, chatHistory, onChatClick, onDeleteChat }: { 
   user: User | null; 
@@ -17,16 +17,35 @@ const Sidebar = ({ user, chatHistory, onChatClick, onDeleteChat }: {
 }) => {
   // 處理刪除對話
   const handleDeleteChat = async (chatId: string, e: React.MouseEvent) => {
-    e.stopPropagation(); // 阻止事件冒泡，避免觸發對話點擊事件
+    e.stopPropagation();
     
     if (window.confirm('確定要刪除這個對話嗎？')) {
       try {
         await deleteDoc(doc(db, 'chats', chatId));
-        onDeleteChat(); // 通知父組件刷新對話列表
-        onChatClick(''); // 清空當前選中的對話
+        onDeleteChat();
+        onChatClick('');
       } catch (error) {
         console.error('Error deleting chat:', error);
         alert('刪除對話失敗');
+      }
+    }
+  };
+
+  // 處理編輯對話主題
+  const handleEditTopic = async (chatId: string, e: React.MouseEvent) => {
+    e.stopPropagation();
+    
+    const newTopic = prompt('請輸入新的對話主題：');
+    if (newTopic) {
+      try {
+        const chatRef = doc(db, 'chats', chatId);
+        await updateDoc(chatRef, {
+          topic: newTopic
+        });
+        onDeleteChat(); // 使用相同的函數來刷新列表
+      } catch (error) {
+        console.error('Error updating chat topic:', error);
+        alert('更新對話主題失敗');
       }
     }
   };
@@ -49,13 +68,22 @@ const Sidebar = ({ user, chatHistory, onChatClick, onDeleteChat }: {
                   onClick={() => onChatClick(chat.id)}
                 >
                   <span className="flex-1 truncate">{chat.topic}</span>
-                  <button
-                    onClick={(e) => handleDeleteChat(chat.id, e)}
-                    className="opacity-0 group-hover:opacity-100 transition-opacity p-1 hover:bg-red-100 rounded"
-                    title="Delete chat"
-                  >
-                    <Trash2 className="h-4 w-4 text-red-500" />
-                  </button>
+                  <div className="flex gap-1">
+                    <button
+                      onClick={(e) => handleEditTopic(chat.id, e)}
+                      className="opacity-0 group-hover:opacity-100 transition-opacity p-1 hover:bg-blue-100 rounded"
+                      title="Edit topic"
+                    >
+                      <Pencil className="h-4 w-4 text-blue-500" />
+                    </button>
+                    <button
+                      onClick={(e) => handleDeleteChat(chat.id, e)}
+                      className="opacity-0 group-hover:opacity-100 transition-opacity p-1 hover:bg-red-100 rounded"
+                      title="Delete chat"
+                    >
+                      <Trash2 className="h-4 w-4 text-red-500" />
+                    </button>
+                  </div>
                 </li>
               ))
             ) : (
