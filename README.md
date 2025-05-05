@@ -1,36 +1,34 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 輔大資管系智能助理
 
-## Getting Started
+這是一個使用 [Next.js](https://nextjs.org) 建立的專案，透過 [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app) 啟動。
 
-First, run the development server:
+## 專案功能說明
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### 爬蟲資料處理
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+#### 1. 教授資料爬蟲
+- 爬取教授相關資訊並儲存為 JSON 格式
+- 將處理後的資料存入 Pinecone 向量資料庫
+- 確保資料的一致性和可重複使用性
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+#### 2. 貼文留言爬蟲
+- 實現貼文留言的爬蟲功能
+- 保存爬蟲結果供後續分析使用
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 資料處理優化
+- 建議在 `src/utils` 下新增 `crawlerUtils.ts` 用於處理爬蟲相關的工具函數
+- 新增 `pineconeUtils.ts` 用於處理 Pinecone 向量資料庫的操作
+- 新增 `dataProcessingUtils.ts` 用於處理 JSON 資料的轉換和清理
 
-## Learn More
+### 專案結構優化
+- 建議在 `src` 下新增 `types` 目錄，用於存放 TypeScript 型別定義
+- 建議在 `src` 下新增 `constants` 目錄，用於存放常數配置
+- 建議在 `src` 下新增 `services` 目錄，用於存放 API 服務相關程式碼
 
-To learn more about Next.js, take a look at the following resources:
+### 爬蟲功能優化
+建議在 `src` 下新增 `crawlers` 目錄，分別存放：
+- `professorCrawler.ts`：教授資料爬蟲
+- `postCrawler.ts`：貼文留言爬蟲
+- `crawlerConfig.ts`：爬蟲配置檔案
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 資料儲存優化
