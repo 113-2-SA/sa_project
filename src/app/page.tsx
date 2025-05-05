@@ -121,7 +121,7 @@ export default function Home() {
         
         const chats = querySnapshot.docs.map(doc => ({
           id: doc.id,
-          topic: doc.data().topic || '無主題',
+          topic: doc.data().topic || '',
           lastMessageTime: doc.data().lastMessageTime || ''  // 獲取 lastMessageTime
         }));
         
