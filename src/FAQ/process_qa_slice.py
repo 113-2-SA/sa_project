@@ -50,10 +50,17 @@ def process_and_upload(qa_data: List[Dict],
     for i in tqdm(range(0, len(qa_data), batch_size), desc="上傳進度"):
         batch = qa_data[i:i + batch_size]
         
+        # 過濾掉缺少必要欄位的資料
+        valid_batch = [item for item in batch if all(key in item for key in ['question', 'answer', 'level', 'keyword', 'related', 'category'])]
+        
+        if not valid_batch:
+            print(f"第 {i} 批次沒有有效資料，跳過")
+            continue
+            
         # 準備問題列表和對應 metadata
-        questions = [item['question'] for item in batch]  # 提取問題
-        ids = [f"q_{i+j}" for j in range(len(batch))] # 生成唯一ID
-        metadata = [  # 準備每個問題的中繼資料
+        questions = [item['question'] for item in valid_batch]
+        ids = [f"q_{i+j}" for j in range(len(valid_batch))]
+        metadata = [
             {
                 "answer": item['answer'],
                 "level": item['level'],
@@ -61,7 +68,7 @@ def process_and_upload(qa_data: List[Dict],
                 "related": item['related'],
                 "category": item['category']
             }
-            for item in batch
+            for item in valid_batch
         ]
 
         # 取得問題的 embeddings
@@ -73,8 +80,7 @@ def process_and_upload(qa_data: List[Dict],
             continue
 
         # 整理成 Pinecone 需要的格式
-        records = [{"id": ids[j], "values": vectors[j], "metadata": metadata[j]} for j in range(len(batch))]
-        #records = zip(ids, vectors, metadata)
+        records = [{"id": ids[j], "values": vectors[j], "metadata": metadata[j]} for j in range(len(valid_batch))]
 
         # 上傳至 Pinecone（帶有重試機制）
         upsert_to_pinecone(index, records)

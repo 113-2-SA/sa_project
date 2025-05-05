@@ -1,4 +1,5 @@
-cohere
-pinecone
+cohere>=4.20
+pinecone-client==3.0.3
+python-dotenv>=1.0.0
+numpy==1.24.3
 tqdm
-python-dotenv
