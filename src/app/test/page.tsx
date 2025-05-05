@@ -206,7 +206,7 @@ export default function Test() {
                 <DrawerContent className='px-10 pb-10 mt:-3px'>
                   <DrawerHeader>
                   <div className=" mx-auto h-2 w-[100px] rounded-full bg-gray-100"></div>
-                    <DrawerTitle className='text-center text-xl pt-2'>所有回覆</DrawerTitle>
+                    <DrawerTitle className='text-center text-xl pt-2'>“{post.title}”<br />所有回覆</DrawerTitle>
                   </DrawerHeader>
                   
                     <h3 className="text-lg font-semibold mb-2">回覆 ({post.comments?.length || 0})</h3>

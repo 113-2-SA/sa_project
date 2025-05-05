@@ -101,6 +101,7 @@ const Chat = ({ selectedChatId, onNewChat, onClearChat }: ChatProps) => {
       ${professorData}
       【貼文與留言資訊】
       ${selectedPostsData}
+
   
     請以專業、友善的繁體中文口吻作答，並將回答整理得有條理。如果找不到資料，請誠實告知。`;
 
