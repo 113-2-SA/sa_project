@@ -151,7 +151,7 @@ const gummyChat = ({ selectedChatId, onNewChat, onClearChat }: ChatProps) => {
           // 如果是新對話或現有對話的主題是基於時間的，才進行問題判定
           if (!currentChatId) {
             // 判斷對話主題
-            const topicPrompt = `請以使用者的第一則訊息做簡短的摘要當作標題。如果對話沒有明確的問題或無法分析，請回答 "no_topic"。
+            const topicPrompt = `請以使用者的訊息做簡短的摘要當作標題。如果對話沒有明確的問題或無法分析，請回答 "no_topic"。
 
             對話內容：${message}
 

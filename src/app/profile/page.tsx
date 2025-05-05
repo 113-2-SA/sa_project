@@ -11,6 +11,7 @@ import CreatePost from '@/components/CreatePage';
 
 
 interface Post {
+  createdAt: any;
   id: string;
   title: string;
   content: string;
@@ -149,6 +150,7 @@ export default function Profile() {
             <h1 className="text-xl font-bold">{post.title}</h1>
             <p>{post.content}</p>
             <p>標籤：{post.tags.join(', ')}</p>
+            <p className='text-sm text-gray-500 text-end'>{new Date(post.createdAt?.toDate()).toLocaleString()}</p>
 
             {/* 顯示回覆區塊 */}
             <div className="mt-4 border-t pt-4">

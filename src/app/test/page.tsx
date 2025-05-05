@@ -193,7 +193,7 @@ export default function Test() {
               <h1><strong>{post.title}</strong></h1>
               <p>{post.content}</p>
               <p>標籤：{post.tags.join(', ')}</p>
-              <p>發布時間：{new Date(post.createdAt?.toDate()).toLocaleString()}</p>
+              <p className='text-sm text-gray-500 text-end'>{new Date(post.createdAt?.toDate()).toLocaleString()}</p>
               
               {/* 顯示回覆區塊 */}
 
