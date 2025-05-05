@@ -102,7 +102,6 @@ const Chat = ({ selectedChatId, onNewChat, onClearChat }: ChatProps) => {
       【貼文與留言資訊】
       ${selectedPostsData}
 
-  
     請以專業、友善的繁體中文口吻作答，並將回答整理得有條理。如果找不到資料，請誠實告知。`;
 
   // 處理發送訊息
@@ -121,10 +120,17 @@ const handleSendMessage = async () => {
       const askResponse = await fetch('/api/ask', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ query: message }),
+        body: JSON.stringify({
+          query: message,
+          professorData,
+          postsData
+        })
       });
 
       console.log('RAG 檢索響應狀態:', askResponse.status);
+      console.log('👨‍🏫 教授資料:', professorData);
+      console.log('📝 貼文資料:', postsData);
+
       
       const askText = await askResponse.text();
       console.log('RAG 檢索原始響應:', askText);
