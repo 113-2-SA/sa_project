@@ -137,10 +137,11 @@ export default function Home() {
   const [user, setUser] = useState<User | null>(null);
   const [chatHistory, setChatHistory] = useState<{id: string, topic: string}[]>([]);
   const [selectedChatId, setSelectedChatId] = useState<string | null>(null);
+  const [isUpdatingFromSidebar, setIsUpdatingFromSidebar] = useState(false);
   const router = useRouter();
 
   // 獲取用戶對話歷史
-  const fetchUserChats = async () => {
+  const fetchUserChats = async (shouldResetChatId: boolean = false) => {
     if (user) {
       try {
         const chatsRef = collection(db, 'chats');
@@ -150,7 +151,7 @@ export default function Home() {
         const chats = querySnapshot.docs.map(doc => ({
           id: doc.id,
           topic: doc.data().topic || '',
-          lastMessageTime: doc.data().lastMessageTime || ''  // 獲取 lastMessageTime
+          lastMessageTime: doc.data().lastMessageTime || ''
         }));
         
         // 按照 lastMessageTime 降序排序
@@ -162,6 +163,11 @@ export default function Home() {
         // 移除 lastMessageTime，只保留需要的欄位
         const sortedChats = chats.map(({ id, topic }) => ({ id, topic }));
         setChatHistory(sortedChats);
+
+        // 只有在需要時才重置對話 ID
+        if (shouldResetChatId) {
+          setSelectedChatId(null);
+        }
       } catch (error) {
         console.error('Error fetching user chats:', error);
       }
@@ -170,28 +176,40 @@ export default function Home() {
 
   // 當用戶狀態改變時獲取對話歷史
   useEffect(() => {
-    fetchUserChats();
+    fetchUserChats(true);
   }, [user]);
 
   // 處理新對話產生
   const handleNewChat = (chatId: string) => {
-    fetchUserChats(); // 刷新對話歷史
-    setSelectedChatId(chatId); // 選中新產生的對話
+    setIsUpdatingFromSidebar(true);
+    setSelectedChatId(chatId); // 先設置新的對話 ID
+    fetchUserChats(false); // 更新對話歷史，但不重置對話 ID
+    setIsUpdatingFromSidebar(false);
   };
 
   // 處理對話點擊
   const handleChatClick = (chatId: string) => {
+    setIsUpdatingFromSidebar(true);
     if (!chatId) {
       // 如果是點擊新對話按鈕
       setSelectedChatId(null);
+      fetchUserChats(true); // 重置對話 ID
     } else {
       setSelectedChatId(chatId);
+      fetchUserChats(false); // 更新對話歷史，但不重置對話 ID
     }
+    setIsUpdatingFromSidebar(false);
   };
 
   // 處理清空對話
   const handleClearChat = () => {
     setSelectedChatId(null);
+  };
+
+  // 處理對話更新
+  const handleChatUpdate = () => {
+    // 只有在不是從側邊欄更新時才保持當前對話 ID
+    fetchUserChats(isUpdatingFromSidebar);
   };
   
   useEffect(() => {
@@ -208,7 +226,9 @@ export default function Home() {
 
   // 處理刪除對話
   const handleDeleteChat = () => {
-    fetchUserChats(); // 刷新對話列表
+    setIsUpdatingFromSidebar(true);
+    fetchUserChats(true); // 刪除後需要重置對話 ID
+    setIsUpdatingFromSidebar(false);
   };
 
   if (!isClient) {
@@ -237,6 +257,7 @@ export default function Home() {
               selectedChatId={selectedChatId} 
               onNewChat={handleNewChat} 
               onClearChat={handleClearChat}
+              onChatUpdate={handleChatUpdate}
             />
           </div>
         </div>
