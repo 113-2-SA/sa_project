@@ -146,38 +146,38 @@ const gummyChat = ({ selectedChatId, onNewChat, onClearChat }: ChatProps) => {
         const user = auth.currentUser;
         if (user) {
           let topic = '';
-          let isTimeBasedTopic = false;
+          let isTimeBasedTopic = true;
 
-          // 如果是新對話或現有對話的主題是基於時間的，才進行問題判定
-          if (!currentChatId) {
-            // 判斷對話主題
-            const topicPrompt = `請以使用者的訊息做簡短的摘要當作標題。如果對話沒有明確的問題或無法分析，請回答 "no_topic"。
+          // // 如果是新對話或現有對話的主題是基於時間的，才進行問題判定
+          // if (!currentChatId) {
+          //   // 判斷對話主題
+          //   const topicPrompt = `請以使用者的訊息做簡短的摘要當作標題。如果對話沒有明確的問題或無法分析，請回答 "no_topic"。
 
-            對話內容：${message}
+          //   對話內容：${message}
 
-            請用繁體中文回答，如果使用者沒有問明確的問題，請只回答 "no_topic"。`;
+          //   請用繁體中文回答，如果使用者沒有問明確的問題，請只回答 "no_topic"。`;
             
-            const topicResponse = await fetch('https://api.groq.com/openai/v1/chat/completions', {
-              method: 'POST',
-              headers: {
-                'Authorization': `Bearer ${process.env.NEXT_PUBLIC_GROQ_API_KEY}`,
-                'Content-Type': 'application/json',
-                'Accept': 'application/json',
-              },
-              body: JSON.stringify({
-                model: "llama-3.1-8b-instant",
-                messages: [{ role: 'user', content: topicPrompt },
-                ],
-                temperature: 0.3,
-                max_tokens: 10,
-              }),
-            });
+          //   const topicResponse = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+          //     method: 'POST',
+          //     headers: {
+          //       'Authorization': `Bearer ${process.env.NEXT_PUBLIC_GROQ_API_KEY}`,
+          //       'Content-Type': 'application/json',
+          //       'Accept': 'application/json',
+          //     },
+          //     body: JSON.stringify({
+          //       model: "llama-3.1-8b-instant",
+          //       messages: [{ role: 'user', content: topicPrompt },
+          //       ],
+          //       temperature: 0.3,
+          //       max_tokens: 10,
+          //     }),
+          //   });
 
-            const topicData = await topicResponse.json();
-            topic = topicData.choices[0].message.content.trim();
+          //   const topicData = await topicResponse.json();
+          //   topic = topicData.choices[0].message.content.trim();
 
             // 如果沒有明確主題，使用當前時間作為主題
-            if (topic === "no_topic") {
+            // if (topic === "no_topic") {
               const now = new Date();
               const month = String(now.getMonth() + 1).padStart(2, '0');
               const day = String(now.getDate()).padStart(2, '0');
@@ -185,17 +185,17 @@ const gummyChat = ({ selectedChatId, onNewChat, onClearChat }: ChatProps) => {
               const minute = String(now.getMinutes()).padStart(2, '0');
               topic = `${month}/${day} ${hour}:${minute}`;
               isTimeBasedTopic = true;
-            }
-          } else {
-            // 如果是現有對話，獲取當前主題和 isTimeBasedTopic 狀態
-            const chatDoc = doc(db, 'chats', currentChatId);
-            const chatSnapshot = await getDoc(chatDoc);
-            if (chatSnapshot.exists()) {
-              const chatData = chatSnapshot.data();
-              topic = chatData.topic;
-              isTimeBasedTopic = chatData.isTimeBasedTopic;
-            }
-          }
+            // }
+          // } else {
+          //   // 如果是現有對話，獲取當前主題和 isTimeBasedTopic 狀態
+          //   const chatDoc = doc(db, 'chats', currentChatId);
+          //   const chatSnapshot = await getDoc(chatDoc);
+          //   if (chatSnapshot.exists()) {
+          //     const chatData = chatSnapshot.data();
+          //     topic = chatData.topic;
+          //     isTimeBasedTopic = chatData.isTimeBasedTopic;
+          //   }
+          // }
 
           const chatRef = collection(db, 'chats');
           const chatData = {

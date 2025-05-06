@@ -241,7 +241,7 @@ ${pineconeAnswer}
                     'Accept': 'application/json',
                   },
                   body: JSON.stringify({
-                    model: "llama-3.1-8b-instant",
+                    model: "llama3-70b-8192",
                     messages: [{ role: 'user', content: topicPrompt }],
                     temperature: 0.3,
                     max_tokens: 10,
