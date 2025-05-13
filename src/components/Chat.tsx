@@ -27,7 +27,7 @@ const Chat = ({ selectedChatId, onNewChat, onClearChat, onChatUpdate }: ChatProp
   const [message, setMessage] = useState(''); // 當前輸入的訊息
   const [chatHistory, setChatHistory] = useState<Message[]>([]); // 對話歷史記錄
   const [isLoading, setIsLoading] = useState(false); // 載入狀態
-  const [professorData, setProfessorData] = useState('');
+  //const [professorData, setProfessorData] = useState('');
   const [currentChatId, setCurrentChatId] = useState<string | null>(selectedChatId);
   const [postsData, setPostsData] = useState<PostItem[]>([]);
 
@@ -67,15 +67,15 @@ const Chat = ({ selectedChatId, onNewChat, onClearChat, onChatUpdate }: ChatProp
 
   // 抓取教授資料
   useEffect(() => {
-    const fetchProfessorData = async () => {
-      try {
-        const response = await fetch('/api/professors');//professors.ts
-        const data = await response.json();
-        setProfessorData(data.data);
-      } catch (error) {
-        console.error('Error fetching professor data:', error);
-      }
-    };
+  //   const fetchProfessorData = async () => {
+  //     try {
+  //       const response = await fetch('/api/professors');//professors.ts
+  //       const data = await response.json();
+  //       setProfessorData(data.data);
+  //     } catch (error) {
+  //       console.error('Error fetching professor data:', error);
+  //     }
+  //   };
 
     const fetchPostsData = async () => {
       try {
@@ -87,63 +87,85 @@ const Chat = ({ selectedChatId, onNewChat, onClearChat, onChatUpdate }: ChatProp
       }
     };
 
-    fetchProfessorData();
+    //fetchProfessorData();
     fetchPostsData();
   }, []);
 
   // 建立 System Prompt
-  const buildSystemPrompt = (professorData: string, selectedPostsData: string) => 
+  const buildSystemPrompt = (selectedPostsData: string) => 
     `你是一個輔仁大學資訊管理學系的智能助理。
-      你可以根據以下資料回答使用者問題：
-      1.教授資訊（教授姓名、職稱、專長、聯絡方式、辦公室地點、開課總覽）
-      2.貼文資訊與留言回應（如畢業條件、課程分享等）
+    你可以根據以下貼文資訊與留言回應回答使用者問題（如畢業條件、課程分享等）：
 
-      【教授資訊】
-      ${professorData}
-      【貼文與留言資訊】
-      ${selectedPostsData}
+    【貼文與留言資訊】
+    ${selectedPostsData}
 
     請以專業、友善的繁體中文口吻作答，並將回答整理得有條理。如果找不到資料，請誠實告知。`;
 
   // 處理發送訊息
   const handleSendMessage = async () => {
-    if (!message.trim() || !professorData || postsData.length === 0) return;
+    if (!message.trim() || postsData.length === 0) return;
 
     setChatHistory((prev) => [...prev, { user: 'me', text: message }]);
     setIsLoading(true);
+    const currentMessage = message;
+    setMessage('');
 
     try {
       // 1. 先調用 /api/ask 進行 RAG 檢索
       let pineconeAnswer = '';
-      
+      let botResponse = '';
+
       try {
         const askResponse = await fetch('/api/ask', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ query: message }),
+          body: JSON.stringify({ 
+            query: currentMessage,
+            postsData: postsData
+          }),
         });
 
         console.log('RAG 檢索響應狀態:', askResponse.status);
         
-        const askText = await askResponse.text();
-        console.log('RAG 檢索原始響應:', askText);
-        
-        if (askResponse.ok && askText && askText.trim()) {
+        if (askResponse.ok) {
+          // 關鍵修改：先複製響應再讀取，避免body stream已讀取的問題
+          const responseClone = askResponse.clone();
           try {
-            const askData = JSON.parse(askText);
+            const askData = await askResponse.json();
+            console.log('RAG 檢索解析JSON響應:', askData);
+            
             if (askData && askData.answer) {
               pineconeAnswer = askData.answer;
               console.log('成功從知識庫獲取答案:', pineconeAnswer);
+              console.log('答案來源:', askData.source || '未指定');
+              
+              // 直接顯示 Pinecone 或 Groq 回傳
+              setChatHistory((prev) => [...prev, { user: 'bot', text: pineconeAnswer }]);
+              
+              // 如果使用者已登入，保存對話到 Firebase
+              await saveConversationToFirebase(currentMessage, pineconeAnswer);
+              
+              setIsLoading(false);
+              return;
             } else {
               console.warn('ask.js 回傳的資料缺少 answer 欄位:', askData);
               pineconeAnswer = '資料中未提及';
             }
           } catch (e) {
-            console.error('ask.js 回傳非 JSON:', askText, e);
-            pineconeAnswer = '⚠ 無法解析知識庫回應，請稍後再試';
+            // JSON解析失敗，嘗試讀取純文本
+            console.error('ask.js 回傳非有效JSON，嘗試讀取文本:', e);
+            try {
+              const askText = await responseClone.text();
+              console.log('RAG 檢索原始響應文本:', askText);
+              pineconeAnswer = askText || '⚠ 無法解析知識庫回應，請稍後再試';
+            } catch (textError) {
+              console.error('讀取文本也失敗:', textError);
+              pineconeAnswer = '⚠ 無法解析知識庫回應，請稍後再試';
+            }
           }
         } else {
-          console.error('ask.js 返回錯誤狀態:', askResponse.status, askText);
+          const errorText = await askResponse.text();
+          console.error('ask.js 返回錯誤狀態:', askResponse.status, errorText);
           pineconeAnswer = '⚠ 知識庫檢索服務暫時不可用，請稍後再試';
         }
       } catch (error) {
@@ -157,7 +179,7 @@ const Chat = ({ selectedChatId, onNewChat, onClearChat, onChatUpdate }: ChatProp
         .join('\n\n');
 
       // 建立 System Prompt 並整合 RAG 結果
-      const systemPrompt = buildSystemPrompt(professorData, selectedPosts);
+      const systemPrompt = buildSystemPrompt(selectedPosts);
       const enhancedSystemPrompt = `${systemPrompt}
 
 【知識庫檢索結果】
@@ -166,223 +188,256 @@ ${pineconeAnswer}
 
       // 使用增強後的系統提示
       const messages = [
-        { role: 'system', content: enhancedSystemPrompt }, // 這裡使用 enhancedSystemPrompt 而非 systemPrompt
+        { role: 'system', content: enhancedSystemPrompt },
         ...chatHistory.map(msg => ({
           role: msg.user === 'me' ? 'user' : 'assistant',
           content: msg.text
         })),
-        { role: 'user', content: message },
+        { role: 'user', content: currentMessage },
       ];
 
       console.log('向 Groq API 發送請求...');
       
-      const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${process.env.NEXT_PUBLIC_GROQ_API_KEY}`,
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-        },
-        body: JSON.stringify({
-          model: "llama-3.1-8b-instant",
-          messages: messages,
-          temperature: 0.7,
-          max_tokens: 2048,
-          presence_penalty: 0.2,
-          frequency_penalty: 0.2,
-        }),
-      });
-
-      const responseText = await response.text();
-      console.log('Groq API 響應狀態:', response.status);
-      
-      if (!response.ok) {
-        throw new Error(`Groq API Error: ${response.status} - ${responseText}`);
-      }
-
       try {
-        const data = JSON.parse(responseText);
-        const botResponse = data.choices[0].message.content;
-        setChatHistory((prev) => [...prev, { user: 'bot', text: botResponse }]);
+        const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${process.env.NEXT_PUBLIC_GROQ_API_KEY}`,
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+          },
+          body: JSON.stringify({
+            model: "llama-3.1-8b-instant",
+            messages: messages,
+            temperature: 0.7,
+            max_tokens: 2048,
+            presence_penalty: 0.2,
+            frequency_penalty: 0.2,
+          }),
+        });
+
+        console.log('Groq API 回應狀態碼:', response.status);
         
-        // 更新 Firebase 中的對話，添加機器人回應
-        try {
-          const user = auth.currentUser;
-          if (user) {
-            // 獲取當前對話的主題
-            let topic = '';
-            let isTimeBasedTopic = false;
-
-            if (currentChatId) {
-              // 如果是現有對話，獲取當前主題
-              const chatDoc = doc(db, 'chats', currentChatId);
-              const chatSnapshot = await getDoc(chatDoc);
-              if (chatSnapshot.exists()) {
-                const chatData = chatSnapshot.data();
-                topic = chatData.topic || '';
-                isTimeBasedTopic = chatData.isTimeBasedTopic || false;
-              }
-            }
-
-            // 只有在沒有主題或是時間基礎主題時才生成新主題
-            if (!topic || isTimeBasedTopic) {
-              try {
-                const topicPrompt = `請分析以下對話中使用者是否問了明確的問題，若有，請用簡短的詞語描述該問題，並絕對不要加其他詞語，完全只回答該問題的提問內容（回覆必須是不包含引號的格式，例如："董惟鳳是誰"、"資管系畢業要修幾學分"；不可使用"明確的問題：董惟鳳是誰"、"明確的問題：資管系畢業要修幾學分"）。如果對話沒有明確的問題或無法分析，請回答 "no_topic"。
-
-                對話內容：${message}
-
-                請用繁體中文回答，如果使用者沒有問明確的問題，請只回答 "no_topic"。`;
-                
-                const topicResponse = await fetch('https://api.groq.com/openai/v1/chat/completions', {
-                  method: 'POST',
-                  headers: {
-                    'Authorization': `Bearer ${process.env.NEXT_PUBLIC_GROQ_API_KEY}`,
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json',
-                  },
-                  body: JSON.stringify({
-                    model: "llama3-70b-8192",
-                    messages: [{ role: 'user', content: topicPrompt }],
-                    temperature: 0.3,
-                    max_tokens: 10,
-                  }),
-                });
-
-                const topicData = await topicResponse.json();
-                topic = topicData.choices[0].message.content.trim();
-
-                // 如果沒有明確主題，使用當前時間作為主題
-                if (topic === "no_topic") {
-                  const now = new Date();
-                  const month = String(now.getMonth() + 1).padStart(2, '0');
-                  const day = String(now.getDate()).padStart(2, '0');
-                  const hour = String(now.getHours()).padStart(2, '0');
-                  const minute = String(now.getMinutes()).padStart(2, '0');
-                  topic = `${month}/${day} ${hour}:${minute}`;
-                  isTimeBasedTopic = true;
-                } else {
-                  isTimeBasedTopic = false;
-                }
-              } catch (error) {
-                console.error('生成主題時發生錯誤:', error);
-                // 如果生成主題失敗，使用時間作為主題
-                const now = new Date();
-                const month = String(now.getMonth() + 1).padStart(2, '0');
-                const day = String(now.getDate()).padStart(2, '0');
-                const hour = String(now.getHours()).padStart(2, '0');
-                const minute = String(now.getMinutes()).padStart(2, '0');
-                topic = `${month}/${day} ${hour}:${minute}`;
-                isTimeBasedTopic = true;
-              }
-            }
-
-            const chatRef = collection(db, 'chats');
-            const chatData = {
-              userEmail: user.email,
-              messages: chatHistory.concat([
-                { user: 'me', text: message },
-                { user: 'bot', text: botResponse }
-              ]),
-              timestamp: serverTimestamp(),
-              lastMessage: message,
-              lastResponse: botResponse,
-              lastMessageTime: new Date().toISOString(),
-              topic: topic,
-              isTimeBasedTopic: isTimeBasedTopic,
-              chatId: currentChatId || ''
-            };
-
-            if (currentChatId) {
-              // 更新現有對話
-              const chatDoc = doc(db, 'chats', currentChatId);
-              await updateDoc(chatDoc, chatData);
-              console.log('對話已更新到 Firebase');
-              if (onChatUpdate) onChatUpdate(); // 通知父組件更新對話歷史
-            } else {
-              // 新增對話
-              const newChatRef = await addDoc(chatRef, chatData);
-              const newChatId = newChatRef.id;
-              setCurrentChatId(newChatId); // 儲存新對話的 ID
-              
-              // 更新新建立的對話，加入其 ID
-              const newChatDoc = doc(db, 'chats', newChatId);
-              await updateDoc(newChatDoc, { chatId: newChatId });
-              console.log('新對話已保存到 Firebase');
-              
-              // 通知父組件新對話已建立
-              if (onNewChat) {
-                onNewChat(newChatId);
-              }
-              if (onChatUpdate) onChatUpdate(); // 通知父組件更新對話歷史
-            }
-          }
-        } catch (error) {
-          console.error('保存完整對話到 Firebase 時發生錯誤:', error);
-          // 即使發生錯誤，也嘗試保存對話
-          try {
-            const user = auth.currentUser;
-            if (user) {
-              const now = new Date();
-              const month = String(now.getMonth() + 1).padStart(2, '0');
-              const day = String(now.getDate()).padStart(2, '0');
-              const hour = String(now.getHours()).padStart(2, '0');
-              const minute = String(now.getMinutes()).padStart(2, '0');
-              const fallbackTopic = `${month}/${day} ${hour}:${minute}`;
-
-              const chatRef = collection(db, 'chats');
-              const chatData = {
-                userEmail: user.email,
-                messages: chatHistory.concat([
-                  { user: 'me', text: message },
-                  { user: 'bot', text: botResponse }
-                ]),
-                timestamp: serverTimestamp(),
-                lastMessage: message,
-                lastResponse: botResponse,
-                lastMessageTime: new Date().toISOString(),
-                topic: fallbackTopic,
-                isTimeBasedTopic: true,
-                chatId: currentChatId || ''
-              };
-
-              if (currentChatId) {
-                const chatDoc = doc(db, 'chats', currentChatId);
-                await updateDoc(chatDoc, chatData);
-                if (onChatUpdate) onChatUpdate(); // 通知父組件更新對話歷史
-              } else {
-                const newChatRef = await addDoc(chatRef, chatData);
-                const newChatId = newChatRef.id;
-                setCurrentChatId(newChatId);
-                const newChatDoc = doc(db, 'chats', newChatId);
-                await updateDoc(newChatDoc, { chatId: newChatId });
-                
-                // 通知父組件新對話已建立
-                if (onNewChat) {
-                  onNewChat(newChatId);
-                }
-                if (onChatUpdate) onChatUpdate(); // 通知父組件更新對話歷史
-              }
-              console.log('錯誤發生後仍成功保存對話到 Firebase');
-            }
-          } catch (saveError) {
-            console.error('錯誤發生後保存對話失敗:', saveError);
-          }
+        if (!response.ok) {
+          const errorText = await response.text();
+          console.error('Groq API 錯誤回應:', errorText);
+          throw new Error(`Groq API Error: ${response.status} - ${errorText}`);
         }
 
+        try {
+          // 克隆響應，避免body stream已讀取問題
+          const responseClone = response.clone();
+          try {
+            const data = await response.json();
+            console.log('Groq API 成功解析JSON:', data ? '成功' : '失敗');
+            if (!data || !data.choices || !data.choices[0] || !data.choices[0].message) {
+              console.error('Groq API 回應格式異常:', data);
+              throw new Error('回應格式異常');
+            }
+            
+            botResponse = data.choices[0].message.content || '⚠ 無法取得回答';
+            console.log('取得botResponse:', botResponse ? '成功' : '失敗', botResponse.substring(0, 50));
+            setChatHistory((prev) => [...prev, { user: 'bot', text: botResponse }]);
+          } catch (e) {
+            console.error('解析 Groq 回應 JSON 失敗，嘗試讀取文本:', e);
+            try {
+              const responseText = await responseClone.text();
+              console.log('Groq API 原始響應文本內容:', responseText.substring(0, 100));
+              botResponse = '⚠ 系統回應解析錯誤，請稍後再試。';
+              setChatHistory((prev) => [...prev, { user: 'bot', text: botResponse }]);
+            } catch (textError) {
+              console.error('讀取Groq響應文本也失敗:', textError);
+              botResponse = '⚠ 系統回應解析錯誤，請稍後再試。';
+              setChatHistory((prev) => [...prev, { user: 'bot', text: botResponse }]);
+            }
+          }
+
+          // 儲存對話到 Firebase
+          await saveConversationToFirebase(currentMessage, botResponse);
+        } catch (error) {
+          console.error('Groq API 請求出錯:', error);
+          botResponse = `發生錯誤: ${error instanceof Error ? error.message : '未知錯誤'}`;
+          setChatHistory((prev) => [...prev, { user: 'bot', text: botResponse }]);
+          
+          // 即使出錯，仍然嘗試儲存對話
+          await saveConversationToFirebase(currentMessage, botResponse);
+        }
       } catch (error) {
-        console.error('解析 Groq API 響應出錯:', error, responseText);
-        throw new Error('無法解析 AI 回應，請稍後再試');
+        console.error('總體錯誤:', error);
+        const errorMessage = `發生錯誤: ${error instanceof Error ? error.message : '未知錯誤'}`;
+        setChatHistory((prev) => [...prev, { user: 'bot', text: errorMessage }]);
+      } finally {
+        setIsLoading(false);
+      }
+    } catch (error) {
+      console.error('總體錯誤:', error);
+      const errorMessage = `發生錯誤: ${error instanceof Error ? error.message : '未知錯誤'}`;
+      setChatHistory((prev) => [...prev, { user: 'bot', text: errorMessage }]);
+    }
+  };
+
+  // 將儲存對話到 Firebase 的邏輯抽離出來單獨處理
+  const saveConversationToFirebase = async (userMessage: string, botResponse: string) => {
+    try {
+      const user = auth.currentUser;
+      if (!user) return;
+
+      // 獲取當前對話的主題
+      let topic = '';
+      let isTimeBasedTopic = false;
+
+      if (currentChatId) {
+        // 如果是現有對話，獲取當前主題
+        const chatDoc = doc(db, 'chats', currentChatId);
+        const chatSnapshot = await getDoc(chatDoc);
+        if (chatSnapshot.exists()) {
+          const chatData = chatSnapshot.data();
+          topic = chatData.topic || '';
+          isTimeBasedTopic = chatData.isTimeBasedTopic || false;
+        }
       }
 
+      // 只有在沒有主題或是時間基礎主題時才生成新主題
+      if (!topic || isTimeBasedTopic) {
+        try {
+          const topicPrompt = `請分析以下對話中使用者是否問了明確的問題，若有，請用簡短的詞語描述該問題，並絕對不要加其他詞語，完全只回答該問題的提問內容（回覆必須是不包含引號的格式，例如："董惟鳳是誰"、"資管系畢業要修幾學分"；不可使用"明確的問題：董惟鳳是誰"、"明確的問題：資管系畢業要修幾學分"）。如果對話沒有明確的問題或無法分析，請回答 "no_topic"。
+
+          對話內容：${userMessage}
+
+          請用繁體中文回答，如果使用者沒有問明確的問題，請只回答 "no_topic"。`;
+          
+          const topicResponse = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+            method: 'POST',
+            headers: {
+              'Authorization': `Bearer ${process.env.NEXT_PUBLIC_GROQ_API_KEY}`,
+              'Content-Type': 'application/json',
+              'Accept': 'application/json',
+            },
+            body: JSON.stringify({
+              model: "llama3-70b-8192",
+              messages: [{ role: 'user', content: topicPrompt }],
+              temperature: 0.3,
+              max_tokens: 10,
+            }),
+          });
+
+          const topicData = await topicResponse.json();
+          topic = topicData.choices[0].message.content.trim();
+
+          // 如果沒有明確主題，使用當前時間作為主題
+          if (topic === "no_topic") {
+            const now = new Date();
+            const month = String(now.getMonth() + 1).padStart(2, '0');
+            const day = String(now.getDate()).padStart(2, '0');
+            const hour = String(now.getHours()).padStart(2, '0');
+            const minute = String(now.getMinutes()).padStart(2, '0');
+            topic = `${month}/${day} ${hour}:${minute}`;
+            isTimeBasedTopic = true;
+          } else {
+            isTimeBasedTopic = false;
+          }
+        } catch (error) {
+          console.error('生成主題時發生錯誤:', error);
+          // 如果生成主題失敗，使用時間作為主題
+          const now = new Date();
+          const month = String(now.getMonth() + 1).padStart(2, '0');
+          const day = String(now.getDate()).padStart(2, '0');
+          const hour = String(now.getHours()).padStart(2, '0');
+          const minute = String(now.getMinutes()).padStart(2, '0');
+          topic = `${month}/${day} ${hour}:${minute}`;
+          isTimeBasedTopic = true;
+        }
+      }
+
+      const chatRef = collection(db, 'chats');
+      const chatData = {
+        userEmail: user.email,
+        messages: chatHistory.concat([
+          { user: 'me', text: userMessage },
+          { user: 'bot', text: botResponse }
+        ]),
+        timestamp: serverTimestamp(),
+        lastMessage: userMessage,
+        lastResponse: botResponse,
+        lastMessageTime: new Date().toISOString(),
+        topic: topic,
+        isTimeBasedTopic: isTimeBasedTopic,
+        chatId: currentChatId || ''
+      };
+
+      if (currentChatId) {
+        // 更新現有對話
+        const chatDoc = doc(db, 'chats', currentChatId);
+        await updateDoc(chatDoc, chatData);
+        console.log('對話已更新到 Firebase');
+        if (onChatUpdate) onChatUpdate(); // 通知父組件更新對話歷史
+      } else {
+        // 新增對話
+        const newChatRef = await addDoc(chatRef, chatData);
+        const newChatId = newChatRef.id;
+        setCurrentChatId(newChatId); // 儲存新對話的 ID
+        
+        // 更新新建立的對話，加入其 ID
+        const newChatDoc = doc(db, 'chats', newChatId);
+        await updateDoc(newChatDoc, { chatId: newChatId });
+        console.log('新對話已保存到 Firebase');
+        
+        // 通知父組件新對話已建立
+        if (onNewChat) {
+          onNewChat(newChatId);
+        }
+        if (onChatUpdate) onChatUpdate(); // 通知父組件更新對話歷史
+      }
     } catch (error) {
-      console.error('詳細錯誤:', error);
-      setChatHistory((prev) => [...prev, { 
-        user: 'bot', 
-        text: `發生錯誤: ${error instanceof Error ? error.message : '未知錯誤'}`
-      }]);
-    } finally {
-      setIsLoading(false);
-      setMessage('');
+      console.error('保存對話到 Firebase 時發生錯誤:', error);
+      // 使用備用方法保存對話
+      try {
+        const user = auth.currentUser;
+        if (!user) return;
+        
+        const now = new Date();
+        const month = String(now.getMonth() + 1).padStart(2, '0');
+        const day = String(now.getDate()).padStart(2, '0');
+        const hour = String(now.getHours()).padStart(2, '0');
+        const minute = String(now.getMinutes()).padStart(2, '0');
+        const fallbackTopic = `${month}/${day} ${hour}:${minute}`;
+
+        const chatRef = collection(db, 'chats');
+        const chatData = {
+          userEmail: user.email,
+          messages: chatHistory.concat([
+            { user: 'me', text: userMessage },
+            { user: 'bot', text: botResponse }
+          ]),
+          timestamp: serverTimestamp(),
+          lastMessage: userMessage,
+          lastResponse: botResponse,
+          lastMessageTime: new Date().toISOString(),
+          topic: fallbackTopic,
+          isTimeBasedTopic: true,
+          chatId: currentChatId || ''
+        };
+
+        if (currentChatId) {
+          const chatDoc = doc(db, 'chats', currentChatId);
+          await updateDoc(chatDoc, chatData);
+          if (onChatUpdate) onChatUpdate();
+        } else {
+          const newChatRef = await addDoc(chatRef, chatData);
+          const newChatId = newChatRef.id;
+          setCurrentChatId(newChatId);
+          const newChatDoc = doc(db, 'chats', newChatId);
+          await updateDoc(newChatDoc, { chatId: newChatId });
+          
+          if (onNewChat) {
+            onNewChat(newChatId);
+          }
+          if (onChatUpdate) onChatUpdate();
+        }
+        console.log('錯誤發生後仍成功保存對話到 Firebase');
+      } catch (saveError) {
+        console.error('錯誤發生後保存對話失敗:', saveError);
+      }
     }
   };
 

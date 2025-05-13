@@ -5,7 +5,7 @@ export default async function handler(req, res) {
     return res.status(405).json({ message: 'Method not allowed' });
   }
 
-  const { query, professorData, postsData } = req.body;
+  const { query, postsData } = req.body;
 
   if (!query || typeof query !== 'string') {
     return res.status(400).json({ answer: '請提供查詢文字', debug: { error: 'Missing query' } });
@@ -13,7 +13,7 @@ export default async function handler(req, res) {
 
   try {
     console.log('📩 接收到查詢 query:', query);
-    console.log('👨‍🏫 傳入的 professorData 型別:', typeof professorData);
+    //console.log('👨‍🏫 傳入的 professorData 型別:', typeof professorData);
     console.log('📝 傳入的 postsData 筆數:', Array.isArray(postsData) ? postsData.length : '不是陣列');
 
     // 1. 呼叫 Cohere 取得向量
@@ -42,10 +42,11 @@ export default async function handler(req, res) {
     let matches = [];
     let pineconeContexts = '（無相關知識庫資料）';
 
+    //console.log('key', process.env.PINECONE_API_KEY);
     try {
       const pinecone = new Pinecone({
-        apiKey: process.env.PINECONE_API_KEY,
-        controllerHostUrl: "https://controller.us-east-1.pinecone.io",
+        apiKey: process.env.PINECONE_API_KEY
+        //controllerHostUrl: "https://faq-embeddings-xqnx9wx.svc.aped-4627-b74a.pinecone.io",
       });
       
       const index = pinecone.index("faq-embeddings");
@@ -76,6 +77,14 @@ export default async function handler(req, res) {
 
     console.log('🧠 Pinecone 組合後內容:', pineconeContexts);
 
+    // 從 Pinecone 直接提取答案
+    let directAnswer = '⚠ 無法從知識庫獲取回答';
+    if (matches.length > 0 && matches[0].metadata && matches[0].metadata.answer) {
+      // 使用得分最高的匹配項的答案
+      directAnswer = matches[0].metadata.answer;
+      console.log('🎯 直接從 Pinecone 獲取答案:', directAnswer);
+    }
+
     // 4. 處理教授與貼文資料
     const postsText = Array.isArray(postsData)
       ? postsData.map((post, i) => {
@@ -84,9 +93,9 @@ export default async function handler(req, res) {
         }).join('\n\n')
       : '（未提供貼文資料）';
 
-    const professorText = typeof professorData === 'string'
-      ? professorData
-      : JSON.stringify(professorData || '（未提供教授資料）');
+    // const professorText = typeof professorData === 'string'
+    //   ? professorData
+    //   : JSON.stringify(professorData || '（未提供教授資料）');
 
     // 5. 整合所有 context
     const totalContext = `
@@ -95,8 +104,7 @@ export default async function handler(req, res) {
     📚 來自 Pinecone 資料庫：
     ${pineconeContexts || '（無相關知識庫資料）'}
 
-    👨‍🏫 教授資料摘要：
-    ${professorText || '（無教授資料）'}
+    
 
     💬 貼文與留言摘要：
     ${postsText || '（無貼文資料）'}
@@ -105,6 +113,7 @@ export default async function handler(req, res) {
         // 6. 組合提示詞
         const finalPrompt = `
     你是一個輔仁大學資訊管理學系的智能助理，根據以下資料回答問題。如果資料中沒有答案，請誠實回答不知道。
+    【以下是來自 Pinecone 資料庫與討論區貼文的輔助資料，請根據它們回答使用者的問題：】
 
     ${totalContext}
 
@@ -133,8 +142,21 @@ export default async function handler(req, res) {
 
     console.log('🗣️ Groq 回答摘要:', answer.substring(0, 80) + '...');
 
+    // 如果 Groq 回答失敗，直接返回 Pinecone 答案
+    if (answer === '⚠ 無法取得回答' && directAnswer && directAnswer !== '⚠ 無法從知識庫獲取回答') {
+      return res.status(200).json({
+        answer: `${directAnswer} (直接從知識庫提取)`,
+        source: 'pinecone',
+        debug: {
+          query,
+          pineconeMatches: matches
+        }
+      });
+    }
+
     return res.status(200).json({
       answer,
+      source: 'groq',
       debug: {
         query,
         prompt: finalPrompt,
