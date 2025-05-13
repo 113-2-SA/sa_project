@@ -37,15 +37,12 @@ export function ModeToggle() {
           <span className="sr-only">Toggle theme</span>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end">
+      <DropdownMenuContent align="end" className="bg-white dark:bg-gray-800">
         <DropdownMenuItem onClick={() => { toggleFilter("light"); setTheme("light") }}>
-          Light
+          淺色模式
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => { toggleFilter("dark"); setTheme("dark") }}>
-          Dark
-        </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => { toggleFilter("system"); setTheme("system") }}>
-          System
+          深色模式
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
