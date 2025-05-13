@@ -39,13 +39,13 @@ export function ModeToggle() {
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
         <DropdownMenuItem onClick={() => { toggleFilter("light"); setTheme("light") }}>
-          Light
+          淺色模式
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => { toggleFilter("dark"); setTheme("dark") }}>
-          Dark
+          深色模式
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => { toggleFilter("system"); setTheme("system") }}>
-          System
+          跟隨系統
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
