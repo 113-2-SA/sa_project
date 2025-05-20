@@ -51,7 +51,7 @@ def process_and_upload(qa_data: List[Dict],
         batch = qa_data[i:i + batch_size]
         
         # 過濾掉缺少必要欄位的資料
-        valid_batch = [item for item in batch if all(key in item for key in ['question', 'answer', 'level', 'keyword', 'related', 'category'])]
+        valid_batch = [item for item in batch if all(key in item for key in ['question', 'answer', 'level', 'keyword', 'related', 'category','resource'])]
         
         if not valid_batch:
             print(f"第 {i} 批次沒有有效資料，跳過")
@@ -66,7 +66,8 @@ def process_and_upload(qa_data: List[Dict],
                 "level": item['level'],
                 "keyword": item['keyword'],
                 "related": item['related'],
-                "category": item['category']
+                "category": item['category'],
+                "resource": item['resource']
             }
             for item in valid_batch
         ]
