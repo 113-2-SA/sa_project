@@ -16,7 +16,10 @@
             "機器人應用"
         ],
         "answer": "董惟鳳，教授兼系主任，電話：(02) 2905-2717，電子郵件：076144@mail.fju.edu.tw，辦公室：利瑪竇大樓LM307-1，教授課程：創新與設計思考、資訊管理講座(英)、資訊系統專題、服務科學、產業實習。",
-        "category": "教師資訊"
+        "category": "教師資訊",
+        "resource": [
+            "https://www.im.fju.edu.tw/%E5%B0%88%E4%BB%BB%E6%95%99%E5%B8%AB/"
+        ]
     },
     {
         "question": "呂奇傑",
@@ -36,7 +39,10 @@
             "品質管理"
         ],
         "answer": "呂奇傑，學術特聘教授，電話：(02) 2905-2973，電子郵件：059099@mail.fju.edu.tw，辦公室：羅耀拉大樓SL269-1，教授課程：深度學習概論與應用(實)(網)、資訊系統專題、機器學習與商業分析、人工智慧、深度學習導論與應用、研究方法、商學研究專題、機器學習、多變量分析。",
-        "category": "教師資訊"
+        "category": "教師資訊",
+        "resource": [
+            "https://www.im.fju.edu.tw/%E5%B0%88%E4%BB%BB%E6%95%99%E5%B8%AB/"
+        ]
     },
     {
         "question": "廖建翔",
@@ -56,7 +62,10 @@
             "研究方法"
         ],
         "answer": "廖建翔，教授兼副教務長，電話：(02) 2905-2622，電子郵件：052122@mail.fju.edu.tw，辦公室：羅耀拉大樓SL269，教授課程：資訊系統專題、WEB程式設計、電子商務總論。",
-        "category": "教師資訊"
+        "category": "教師資訊",
+        "resource": [
+            "https://www.im.fju.edu.tw/%E5%B0%88%E4%BB%BB%E6%95%99%E5%B8%AB/"
+        ]
     },
     {
         "question": "葉承達",
@@ -75,7 +84,10 @@
             "服務品質分析"
         ],
         "answer": "葉承達，教授兼商管學程主任，電話：(02) 2905-2975，電子郵件：145712@mail.fju.edu.tw，辦公室：羅耀拉大樓SL270-1，教授課程：資訊系統專題、作業流程設計、微積分(網)。",
-        "category": "教師資訊"
+        "category": "教師資訊",
+        "resource": [
+            "https://www.im.fju.edu.tw/%E5%B0%88%E4%BB%BB%E6%95%99%E5%B8%AB/"
+        ]
     },
     {
         "question": "黃曜輝",
@@ -91,7 +103,10 @@
             "決策支援方法"
         ],
         "answer": "黃曜輝，教授，電話：(02) 2905-2620，電子郵件：140485@mail.fju.edu.tw，辦公室：羅耀拉大樓SL240-1，教授課程：資訊系統專題、統計學。",
-        "category": "教師資訊"
+        "category": "教師資訊",
+        "resource": [
+            "https://www.im.fju.edu.tw/%E5%B0%88%E4%BB%BB%E6%95%99%E5%B8%AB/"
+        ]
     },
     {
         "question": "許嘉霖",
@@ -111,7 +126,10 @@
             "消費者心理與行為"
         ],
         "answer": "許嘉霖，教授，電話：(02) 2905-2908，電子郵件：157287@mail.fju.edu.tw，辦公室：羅耀拉大樓SL241，教授課程：資訊系統專題、電子商務(英)、經濟學、行銷管理。",
-        "category": "教師資訊"
+        "category": "教師資訊",
+        "resource": [
+            "https://www.im.fju.edu.tw/%E5%B0%88%E4%BB%BB%E6%95%99%E5%B8%AB/"
+        ]
     },
     {
         "question": "胡俊之",
@@ -129,7 +147,10 @@
             "演算法"
         ],
         "answer": "胡俊之，副教授，電話：(02) 2905-2903，電子郵件：126385@mail.fju.edu.tw，辦公室：羅耀拉大樓SL241-1，教授課程：資訊系統專題、進階程式設計、資訊安全、作業系統。",
-        "category": "教師資訊"
+        "category": "教師資訊",
+        "resource": [
+            "https://www.im.fju.edu.tw/%E5%B0%88%E4%BB%BB%E6%95%99%E5%B8%AB/"
+        ]
     },
     {
         "question": "張銀益",
@@ -148,7 +169,10 @@
             "行動通訊與網路管理"
         ],
         "answer": "張銀益，副教授，電話：(02) 2905-2972，電子郵件：042833@mail.fju.edu.tw，辦公室：羅耀拉大樓SL229，教授課程：資訊系統專題、商業自動化、管理資訊系統、網路行銷專題、網路管理、電子採購與物流專題。",
-        "category": "教師資訊"
+        "category": "教師資訊",
+        "resource": [
+            "https://www.im.fju.edu.tw/%E5%B0%88%E4%BB%BB%E6%95%99%E5%B8%AB/"
+        ]
     },
     {
         "question": "吳濟聰",
@@ -165,7 +189,10 @@
             "生成式人工智慧應用"
         ],
         "answer": "吳濟聰，助理教授，電話：(02) 2905-3938，電子郵件：053792@mail.fju.edu.tw，辦公室：羅耀拉大樓SL209-1，教授課程：資訊系統專題、web前端設計、系統分析與設計、敏捷式軟體開發、使用者經驗設計、進階Web程式設計。",
-        "category": "教師資訊"
+        "category": "教師資訊",
+        "resource": [
+            "https://www.im.fju.edu.tw/%E5%B0%88%E4%BB%BB%E6%95%99%E5%B8%AB/"
+        ]
     },
     {
         "question": "林湘霖",
@@ -187,7 +214,10 @@
             "區塊鏈應用"
         ],
         "answer": "林湘霖，助理教授，電話：(02) 2905-2976，電子郵件：146414@mail.fju.edu.tw，辦公室：羅耀拉大樓SL206-1，教授課程：生產與作業管理、資訊系統專題、巨量資料概論、管理資訊系統",
-        "category": "教師資訊"
+        "category": "教師資訊",
+        "resource": [
+            "https://www.im.fju.edu.tw/%E5%B0%88%E4%BB%BB%E6%95%99%E5%B8%AB/"
+        ]
     },
     {
         "question": "黃智榮",
@@ -207,7 +237,10 @@
             "消費者行為"
         ],
         "answer": "黃智榮，助理教授，電話：(02) 2905-2625，電子郵件：154231@mail.fju.edu.tw，辦公室：羅耀拉大樓SL242，教授課程：資訊管理導論、資訊系統專題、網路行銷",
-        "category": "教師資訊"
+        "category": "教師資訊",
+        "resource": [
+            "https://www.im.fju.edu.tw/%E5%B0%88%E4%BB%BB%E6%95%99%E5%B8%AB/"
+        ]
     },
     {
         "question": "林雅文",
@@ -225,7 +258,10 @@
             "空間資訊科學"
         ],
         "answer": "林雅文，助理教授，電話：(02) 2905-2667，電子郵件：154327@mail.fju.edu.tw，辦公室：羅耀拉大樓SL268，教授課程：雲端應用平台概論、資訊系統專題、資訊系統專案管理、空間資訊管理",
-        "category": "教師資訊"
+        "category": "教師資訊",
+        "resource": [
+            "https://www.im.fju.edu.tw/%E5%B0%88%E4%BB%BB%E6%95%99%E5%B8%AB/"
+        ]
     },
     {
         "question": "林青峰",
@@ -245,7 +281,10 @@
             "機器學習"
         ],
         "answer": "林青峰，助理教授，電話：(02) 2905-2629，電子郵件：155360@mail.fju.edu.tw，辦公室：羅耀拉大樓SL220，教授課程：資料處理程式設計、資訊系統專題、資料通訊與網路、程式設計概論",
-        "category": "教師資訊"
+        "category": "教師資訊",
+        "resource": [
+            "https://www.im.fju.edu.tw/%E5%B0%88%E4%BB%BB%E6%95%99%E5%B8%AB/"
+        ]
     },
     {
         "question": "鄭美娟",
@@ -265,7 +304,10 @@
             "專案管理"
         ],
         "answer": "鄭美娟，助理教授，電話：(02) 2905-2742，電子郵件：155379@mail.fju.edu.tw，辦公室：羅耀拉大樓SL237，教授課程：資訊系統專題、網路行銷、企業管理概論、管理數學、新媒體科技互動應用",
-        "category": "教師資訊"
+        "category": "教師資訊",
+        "resource": [
+            "https://www.im.fju.edu.tw/%E5%B0%88%E4%BB%BB%E6%95%99%E5%B8%AB/"
+        ]
     },
     {
         "question": "石佳惠",
@@ -283,7 +325,10 @@
             "AI應用"
         ],
         "answer": "石佳惠，助理教授，電話：(02) 2905-2676，電子郵件：159931@mail.fju.edu.tw，辦公室：羅耀拉大樓SL267，教授課程：資訊系統專題、電腦繪圖與應用、資料視覺化分析與應用、Ｃ程式語言",
-        "category": "教師資訊"
+        "category": "教師資訊",
+        "resource": [
+            "https://www.im.fju.edu.tw/%E5%B0%88%E4%BB%BB%E6%95%99%E5%B8%AB/"
+        ]
     },
     {
         "question": "王冠云",
@@ -304,7 +349,10 @@
             "電腦視覺"
         ],
         "answer": "王冠云，助理教授，電話：(02) 2905-2181，電子郵件：162944@mail.fju.edu.tw，辦公室：羅耀拉大樓SL239，教授課程：大語言模型、資料結構",
-        "category": "教師資訊"
+        "category": "教師資訊",
+        "resource": [
+            "https://www.im.fju.edu.tw/%E5%B0%88%E4%BB%BB%E6%95%99%E5%B8%AB/"
+        ]
     },
     {
         "question": "歐思鼎",
@@ -326,7 +374,10 @@
             "神經哲學"
         ],
         "answer": "歐思鼎，助理教授，電話：(02) 2905-2135，電子郵件：156567@mail.fju.edu.tw，辦公室：聖言樓SF521，教授課程：企業倫理",
-        "category": "教師資訊"
+        "category": "教師資訊",
+        "resource": [
+            "https://www.im.fju.edu.tw/%E5%B0%88%E4%BB%BB%E6%95%99%E5%B8%AB/"
+        ]
     },
     {
         "question": "邱瑞科",
@@ -345,7 +396,10 @@
             "醫療與健康資訊"
         ],
         "answer": "邱瑞科，教授，電話：無電話，電子郵件：rkchiu@mail.fju.edu.tw，辦公室：無地址。",
-        "category": "教師資訊"
+        "category": "教師資訊",
+        "resource": [
+            "https://www.im.fju.edu.tw/%E5%85%BC%E4%BB%BB%E6%95%99%E5%B8%AB/"
+        ]
     },
     {
         "question": "蔡明志",
@@ -362,7 +416,10 @@
             "大數據分析與人工智慧"
         ],
         "answer": "蔡明志，副教授，電話：無電話，電子郵件：mjtsai168@gmail.com，辦公室：無地址，教授課程：C++程式設計",
-        "category": "教師資訊"
+        "category": "教師資訊",
+        "resource": [
+            "https://www.im.fju.edu.tw/%E5%85%BC%E4%BB%BB%E6%95%99%E5%B8%AB/"
+        ]
     },
     {
         "question": "鄒濟民",
@@ -383,7 +440,10 @@
             "資料探勘"
         ],
         "answer": "鄒濟民，助理教授，電話：無電話，電子郵件：jtsou0823@yahoo.com.tw，辦公室：無地址。",
-        "category": "教師資訊"
+        "category": "教師資訊",
+        "resource": [
+            "https://www.im.fju.edu.tw/%E5%85%BC%E4%BB%BB%E6%95%99%E5%B8%AB/"
+        ]
     },
     {
         "question": "徐銘傑",
@@ -399,48 +459,100 @@
             "財務管理"
         ],
         "answer": "徐銘傑，助理教授，電話：無電話，電子郵件：157287@mail.fju.edu.tw，辦公室：無地址。",
-        "category": "教師資訊"
+        "category": "教師資訊",
+        "resource": [
+            "https://www.im.fju.edu.tw/%E5%85%BC%E4%BB%BB%E6%95%99%E5%B8%AB/"
+        ]
     },
     {
         "question": "羅淑貞",
         "level": "4",
         "keyword": [
-            "教師",
+            "秘書",
             "資訊",
             "電話",
             "地址",
             "無課程"
         ],
         "related": [],
-        "answer": "羅淑貞，碩士班祕書，電話：(02) 2905-2940，電子郵件：013763@mail.fju.edu.tw，辦公室：LM306。",
-        "category": "教師資訊"
+        "answer": "羅淑貞，碩士班祕書，電話：(02) 2905-2940，電子郵件：013763@mail.fju.edu.tw，辦公室：LM306。服務項目：資管系碩士班課務、學務等行政業務、學術研究相關行政業務",
+        "category": "秘書資訊",
+        "resource": [
+            "https://www.im.fju.edu.tw/%e8%a1%8c%e6%94%bf%e5%90%8c%e4%bb%81/"
+        ]
     },
     {
         "question": "黃圩君",
         "level": "4",
         "keyword": [
-            "教師",
+            "秘書",
             "資訊",
             "電話",
             "地址",
-            "無課程"
+            "大學部課務",
+            "行政業務"
         ],
         "related": [],
-        "answer": "黃圩君，大學部祕書，電話：(02) 2905-2666，電子郵件：050164@mail.fju.edu.tw，辦公室：LM306。",
-        "category": "教師資訊"
+        "answer": "黃圩君，大學部祕書，電話：(02) 2905-2666，電子郵件：050164@mail.fju.edu.tw，辦公室：LM306。服務項目：資管系大學部課務、學務等行政業務、電子商務學程行政業務、系網頁資料更新與維護",
+        "category": "秘書資訊",
+        "resource": [
+            "https://www.im.fju.edu.tw/%e8%a1%8c%e6%94%bf%e5%90%8c%e4%bb%81/"
+        ]
     },
     {
         "question": "徐智慧",
         "level": "4",
         "keyword": [
-            "教師",
+            "秘書",
             "資訊",
             "電話",
             "地址",
-            "無課程"
+            "碩士",
+            "在職專班"
         ],
-        "related": []
+        "related": [],
+        "answer": "徐智慧，碩士在職專班祕書，電話：(02) 2905-2626，電子郵件：055969@mail.fju.edu.tw，辦公室：LM306。服務項目：在職專班課務、學務等行政業務、產業實習、籌辦活動(系上自強活動、EMBA各項活動…)",
+        "category": "秘書資訊",
+        "resource": [
+            "https://www.im.fju.edu.tw/%e8%a1%8c%e6%94%bf%e5%90%8c%e4%bb%81/"
+        ]
       },
+  {
+        "question": "林育潔",
+        "level": "4",
+        "keyword": [
+            "秘書",
+            "資訊",
+            "電話",
+            "地址",
+            "設備",
+            "雲端服務趨勢學程"
+        ],
+        "related": [],
+        "answer": "林育潔，助教，電話：(02) 2905-2652，電子郵件：057545@mail.fju.edu.tw，辦公室：LM306。服務項目：機房相關網路設備之建置管理與維護、雲端服務趨勢學程行政業務、虛擬主機之申請、建置與管理、軟硬體設備規劃/採購/管理、教室講桌、投影設備維護、專題研究室管理、各項系務、活動支援",
+        "category": "秘書資訊",
+        "resource": [
+            "https://www.im.fju.edu.tw/%e8%a1%8c%e6%94%bf%e5%90%8c%e4%bb%81/"
+        ]
+      },
+  {
+        "question": "王玫鈞",
+        "level": "4",
+        "keyword": [
+            "秘書",
+            "資訊",
+            "電話",
+            "地址",
+            "專題",
+            "程式語言機測"
+        ],
+        "related": [],
+        "answer": "王玫鈞，助教，電話：(02) 2905-6351，電子郵件：153689@mail.fju.edu.tw，辦公室：LM306。服務項目：專題事務、程式語言機測統籌管理與規劃、系機房、研究生研究室管理、教室環境及各設備管理及鑰匙借用、安排期中期末考時間、協助老師職涯講座活動/核銷、系務、活動支援",
+        "category": "秘書資訊",
+        "resource": [
+            "https://www.im.fju.edu.tw/%e8%a1%8c%e6%94%bf%e5%90%8c%e4%bb%81/"
+        ]
+  },    
   {
     "question": "輔仁大學資訊管理學系的創立時間是什麼時候？",
     "level": "4",
@@ -454,7 +566,10 @@
       "資管系簡介頁面"
     ],
     "answer": "輔仁大學資訊管理學系創立於1994年，致力於培養兼具資訊科技與管理知識的人才。",
-    "category": "Department Overview"
+    "category": "Department Overview",
+    "resource": [
+      "https://www.im.fju.edu.tw/"
+    ]
   },
   {
     "question": "資管系的課程設計有什麼特色？",
@@ -469,7 +584,10 @@
       "教務處課程大綱查詢"
     ],
     "answer": "課程設計涵蓋資訊科技、資料庫、程式設計、資訊安全、系統分析與電子商務，同時融入專案實作與跨領域訓練。",
-    "category": "Department Overview"
+    "category": "Department Overview",
+    "resource": [
+      "https://www.im.fju.edu.tw/"
+    ]
   },
   {
     "question": "資管系畢業學分規定是什麼？",
@@ -484,7 +602,10 @@
       "教務處畢業規定"
     ],
     "answer": "資管系學生需修滿128學分，其中包含通識課程、核心專業課程、專題製作及校定必修。",
-    "category": "Department Overview"
+    "category": "Department Overview",
+    "resource": [
+      "https://www.im.fju.edu.tw/"
+    ]
   },
   {
     "question": "資管系設有哪幾種學位？",
@@ -499,7 +620,10 @@
       "碩士班招生簡章"
     ],
     "answer": "資管系設有學士班與碩士班，提供資訊與管理整合的跨領域訓練，部分課程開放雙語授課。",
-    "category": "Department Overview"
+    "category": "Department Overview",
+    "resource": [
+      "https://www.im.fju.edu.tw/"
+    ]
   },
   {
     "question": "資管系的定位與企管系有何不同？",
@@ -514,7 +638,11 @@
       "選系指南"
     ],
     "answer": "資管系強調結合資訊科技與管理知識，注重資料處理、系統開發與決策支援，而企管系偏向組織管理、人力資源與行銷策略。",
-    "category": "Department Overview"
+    "category": "Department Overview",
+    "resource": [
+      "https://www.im.fju.edu.tw/",
+      "https://www.management.fju.edu.tw/subweb/mba/"
+    ]
   },
   {
     "question": "資管系的學生人數與師資規模大約是多少？",
@@ -529,7 +657,10 @@
       "教師名單"
     ],
     "answer": "資管系每年約招收100-120名大一新生，師資團隊包含約20位專任與兼任教授。",
-    "category": "Department Overview"
+    "category": "Department Overview",
+    "resource": [
+      "https://www.im.fju.edu.tw/"
+    ]
   },
   {
     "question": "資管系有英文授課課程嗎？",
@@ -544,7 +675,10 @@
       "EMI課程清單"
     ],
     "answer": "部分課程如資訊管理導論、電子商務等採用英語授課，並與國際化政策接軌。",
-    "category": "Department Overview"
+    "category": "Department Overview",
+        "resource": [
+      "https://www.im.fju.edu.tw/"
+    ]
   },
   {
     "question": "資管系有姐妹校交換機會嗎？",
@@ -559,7 +693,10 @@
       "系上交換計畫公告"
     ],
     "answer": "輔大與多所國外大學簽訂合作協議，資管系學生可申請赴歐洲、亞洲或美國姐妹校進行一學期或一年交換學習。",
-    "category": "Department Overview"
+    "category": "Department Overview",
+    "resource": [
+      "https://iscoie.fju.edu.tw/generalServices.jsp?labelID=39"
+    ]
   },
   {
     "question": "資管系有開設哪些程式語言相關的課程？",
@@ -574,7 +711,10 @@
       "課程大綱"
     ],
     "answer": "主要程式語言課程包括Python、Java、C語言與Web開發（HTML/CSS/JavaScript）。部分課程搭配專案實作提升實務能力。",
-    "category": "Curriculum and Teaching"
+    "category": "Curriculum and Teaching",
+    "resource": [
+      "https://www.im.fju.edu.tw/"
+    ]
   },
   {
     "question": "專題製作通常安排在第幾學年？",
@@ -589,7 +729,10 @@
       "歷屆專題展"
     ],
     "answer": "專題製作通常安排於大三上學期啟動，至大三下完成，分為上、下兩學期持續進行，並於畢業前公開成果發表。",
-    "category": "Curriculum and Teaching"
+    "category": "Curriculum and Teaching",
+    "resource": [
+      "https://www.im.fju.edu.tw/"
+    ]
   },
   {
     "question": "資管系的通識課程有哪些類別？",
@@ -603,8 +746,12 @@
       "通識教育中心",
       "通識選課系統"
     ],
-    "answer": "通識課程分為人文、社會、自然類別，資管系學生須修滿通識規定學分。",
-    "category": "Curriculum and Teaching"
+    "answer": "通識課程分為人文、社會、自然類別，每個類別皆要修四個學分，資管系學生須修滿通識規定學分，方能畢業。",
+    "category": "Curriculum and Teaching",
+    "resource": [
+      "https://www.im.fju.edu.tw/",
+      "http://www.hec.fju.edu.tw/article.jsp?articleID=88"
+    ]
   },
   {
     "question": "資料庫管理是必修課嗎？",
@@ -618,8 +765,11 @@
       "課程地圖",
       "課程大綱"
     ],
-    "answer": "資料庫管理為核心必修課程之一，教授SQL語法、資料庫設計與管理，為進階專案與分析課程打下基礎。",
-    "category": "Curriculum and Teaching"
+    "answer": "資料庫管理為核心必修課程之一，教授SQL語法、資料庫設計與管理，為接下來的系統與分析課程及專題打下基礎。",
+    "category": "Curriculum and Teaching",
+    "resource": [
+      "https://www.im.fju.edu.tw/"
+    ]
   },
   {
     "question": "資管系是否有開設AI相關課程？",
@@ -634,7 +784,10 @@
       "教師研究領域"
     ],
     "answer": "開設如「人工智慧」、「機器學習」等碩班選修課程，大學部大三學生可跨步選修，部分專題也可探討AI在商業應用的實作案例。",
-    "category": "Curriculum and Teaching"
+    "category": "Curriculum and Teaching",
+    "resource": [
+      "https://www.im.fju.edu.tw/"
+    ]
   },
   {
     "question": "修課壓力是否很大？",
@@ -648,7 +801,10 @@
       "歷年課表"
     ],
     "answer": "課業強度中等偏高，專業科目需動手實作與理解邏輯，但多數學生透過分組互助與規劃可順利完成。",
-    "category": "Curriculum and Teaching"
+    "category": "Curriculum and Teaching",
+    "resource": [
+      "https://www.im.fju.edu.tw/"
+    ]
   },
   {
     "question": "資管系有提供跨系選修的機會嗎？",
@@ -662,8 +818,11 @@
       "選課系統",
       "跨領域學程"
     ],
-    "answer": "學生可選修其他系所如統計、資工、商學課程，亦可申請跨領域學程，如金融大數據分析、雲端服務趨勢學分學程等。",
-    "category": "Curriculum and Teaching"
+    "answer": "學生可選修其他系所如統計、資工、金企系相關課程，亦可申請跨領域學程，如金融大數據分析、雲端服務趨勢學分學程等。",
+    "category": "Curriculum and Teaching",
+    "resource": [
+      "https://www.im.fju.edu.tw/"
+    ]
   },
   {
     "question": "資管系有哪些實作型課程？",
@@ -678,7 +837,10 @@
       "專案教學報告"
     ],
     "answer": "如系統分析與設計、資訊系統專題、web前端設計、web程式設計等皆為實作導向課程。",
-    "category": "Curriculum and Teaching"
+    "category": "Curriculum and Teaching",
+    "resource": [
+      "https://www.im.fju.edu.tw/"
+    ]
   },
   {
     "question": "資管系畢業生有哪些常見的升學方向？",
@@ -693,7 +855,10 @@
       "研究所推薦信申請流程"
     ],
     "answer": "畢業生常見升學方向包括資訊管理、資訊工程、商管碩士（如MBA）、科技法律等相關領域。",
-    "category": "Further Studies and Career"
+    "category": "Further Studies and Career",
+    "resource": [
+      "https://www.im.fju.edu.tw/"
+    ]
   },
   {
     "question": "資管系畢業後可以從事哪些職業？",
@@ -707,8 +872,12 @@
       "104職缺統計",
       "校友職涯案例分享"
     ],
-    "answer": "常見職業有系統分析師、資料工程師、軟體開發工程師、IT專案管理師、資訊安全顧問等。",
-    "category": "Further Studies and Career"
+    "answer": "常見職業有系統分析師、資料工程師、軟體開發工程師、IT專案管理師、資訊安全顧問等，也有系友跨足金融界。",
+    "category": "Further Studies and Career",
+    "resource": [
+      "https://www.im.fju.edu.tw/",
+      "https://guide.104.com.tw/career/major/GU16/?cId=sb007"
+    ]
   },
   {
     "question": "資管系是否提供就業媒合？",
@@ -722,8 +891,11 @@
       "系辦公告",
       "職涯中心"
     ],
-    "answer": "系上會協助學生參與企業實習與職涯講座，並與企業舉辦人才媒合活動。",
-    "category": "Further Studies and Career"
+    "answer": "系上會協助學生參與企業實習與職涯講座，並與企業舉辦人才媒合活動。系上也有與企業合作的實習計畫，提供學生實習機會，企業詳情可參考系網。",
+    "category": "Further Studies and Career",
+    "resource": [
+      "https://www.im.fju.edu.tw/"
+    ]
   },
   {
     "question": "資管系是否有海外交換機會？",
@@ -737,7 +909,11 @@
       "學生經驗分享"
     ],
     "answer": "部分同學透過交換、姊妹校計畫爭取海外實習交換機會，須具備語言與專業能力。",
-    "category": "Further Studies and Career"
+    "category": "Further Studies and Career",
+    "resource": [
+      "https://www.im.fju.edu.tw/",
+      "https://iscoie.fju.edu.tw/generalServices.jsp?labelID=39"
+    ]
   },
   {
     "question": "資管系的校友在哪些產業工作？",
@@ -752,7 +928,11 @@
       "職涯發展報告"
     ],
     "answer": "校友遍佈於科技業、金融科技、顧問公司、公部門與創業領域，展現多元發展潛力。",
-    "category": "Further Studies and Career"
+    "category": "Further Studies and Career",
+    "resource": [
+      "https://www.im.fju.edu.tw/",
+      "https://guide.104.com.tw/career/major/GU16/?cId=sb007"
+    ]
   },
   {
     "question": "考研究所是否需要準備特定科目？",
@@ -766,8 +946,12 @@
       "研究所招生簡章",
       "輔導班資訊"
     ],
-    "answer": "多數研究所會考資料庫、程式設計、系統分析等，視報考學校而定，建議提前規劃與複習。",
-    "category": "Further Studies and Career"
+    "answer": "多數研究所會考資料庫、程式設計、資料結構等，視報考學校而定，建議提前規劃與複習。",
+    "category": "Further Studies and Career",
+    "resource": [
+      "https://www.im.fju.edu.tw/",
+      "https://master.get.com.tw/it/MIS/module.aspx"
+    ]
   },
   {
     "question": "資管系畢業是否有報考公職機會？",
@@ -782,7 +966,11 @@
       "歷年錄取經驗談"
     ],
     "answer": "可報考高普考資訊類、移民署、統計等職缺，具穩定工作保障與專業應用發揮空間。",
-    "category": "Further Studies and Career"
+    "category": "Further Studies and Career",
+    "resource": [
+      "https://www.im.fju.edu.tw/",
+      "https://wwwc.moex.gov.tw/main/exam/wFrmExamDetail.aspx?c=114080"
+    ]
   },
   {
     "question": "資管系學生常見的兼職有哪些？",
@@ -797,7 +985,11 @@
       "校內職缺公告"
     ],
     "answer": "常見兼職包括系辦助理、TA助教、家教、電腦補習班助教、UI/UX設計或接案實習等。",
-    "category": "Further Studies and Career"
+    "category": "Further Studies and Career",
+    "resource": [
+      "https://www.im.fju.edu.tw/"
+    ]
+
   },
   {
     "question": "資管系有哪些研究領域？",
@@ -811,8 +1003,11 @@
       "資管系教師研究專長",
       "期刊論文發表"
     ],
-    "answer": "研究領域涵蓋人工智慧、資料探勘、資訊安全、數位轉型、電子商務與決策支援系統等。",
-    "category": "Faculty and Research"
+    "answer": "研究領域涵蓋人工智慧、資料探勘、資訊安全、電子商務與決策支援系統等。",
+    "category": "Faculty and Research",
+    "resource": [
+      "https://www.im.fju.edu.tw/"
+    ]
   },
   {
     "question": "如何申請加入教授的研究計畫？",
@@ -827,7 +1022,10 @@
       "老師個人網頁"
     ],
     "answer": "學生可主動聯繫有興趣的教授，提出研究動機與履歷，自行申請加入RA或計畫團隊。",
-    "category": "Faculty and Research"
+    "category": "Faculty and Research",
+    "resource": [
+      "https://www.im.fju.edu.tw/"
+    ]
   },
   {
     "question": "教授們是否接受學生參與學術論文撰寫？",
@@ -842,7 +1040,10 @@
       "研究輔導時程"
     ],
     "answer": "部分教授歡迎學生參與論文計畫，尤其是碩士班或高年級學生，需具備研究興趣與基本資料處理能力。",
-    "category": "Faculty and Research"
+    "category": "Faculty and Research",
+    "resource": [
+      "https://www.im.fju.edu.tw/"
+    ]
   },
   {
     "question": "資管系有無專門的研究中心或實驗室？",
@@ -856,8 +1057,11 @@
       "研究設施介紹",
       "實驗室網站"
     ],
-    "answer": "資管系設有資訊應用研究室、數位創新實驗室與資料分析工作坊，供學生進行專題研究與開發。",
-    "category": "Faculty and Research"
+    "answer": "資管系設有備有大學部專題實驗室、碩士班研究室，提供同學電腦研究畢業專題、論文之用。",
+    "category": "Faculty and Research",
+    "resource": [
+      "https://www.im.fju.edu.tw/%E7%B3%BB%E6%89%80%E4%BB%8B%E7%B4%B9/%E7%A9%BA%E9%96%93%E8%88%87%E8%A8%AD%E5%82%99/"
+    ]
   },
   {
     "question": "是否有機會參與跨校研究計畫？",
@@ -872,7 +1076,10 @@
       "USR計畫"
     ],
     "answer": "系上教授與其他學校合作申請國科會與教育部計畫，學生有機會成為計畫助理或共同作者。",
-    "category": "Faculty and Research"
+    "category": "Faculty and Research",
+    "resource": [
+      "https://www.im.fju.edu.tw/"
+    ]
   },
   {
     "question": "如何查詢老師的研究成果？",
@@ -887,7 +1094,11 @@
       "臺灣博碩士論文系統"
     ],
     "answer": "可透過資管系網頁或台灣博碩士論文系統搜尋各教授的研究論文與專書。",
-    "category": "Faculty and Research"
+    "category": "Faculty and Research",
+    "resource": [
+      "https://www.im.fju.edu.tw/",
+      "https://ndltd.ncl.edu.tw/cgi-bin/gs32/gsweb.cgi/ccd=9myIcj/login?jstimes=1&loadingjs=1&o=dwebmge&ssoauth=1&cache=1747708991843"
+    ]
   },
   {
     "question": "教授會幫忙學生推薦出國研究所嗎？",
@@ -902,7 +1113,11 @@
       "IELTS/TOEFL準備建議"
     ],
     "answer": "若與教授關係良好並具備學術成果，教授通常願意提供推薦信與出國準備建議。",
-    "category": "Faculty and Research"
+    "category": "Faculty and Research",
+    "resource": [
+      "https://www.im.fju.edu.tw/",
+      "https://cln-asia.com/%E6%83%B3%E5%87%BA%E5%9C%8B%E7%95%99%E5%AD%B8%EF%BC%9F%E5%BE%9E%E6%BA%96%E5%82%99%E6%99%82%E7%A8%8B%E5%88%B0%E5%BF%85%E5%82%99%E6%96%87%E4%BB%B6%EF%BC%8C%E7%B5%A6%E4%BD%A0%E6%9C%80%E7%8B%82%E5%9C%8B/"
+    ]
   },
   {
     "question": "有教授在產業界有實務經驗嗎？",
@@ -917,7 +1132,10 @@
       "專案合作簡介"
     ],
     "answer": "部分教授曾任職於企業IT部門、顧問公司或新創團隊，能結合理論與實務教學。",
-    "category": "Faculty and Research"
+    "category": "Faculty and Research",
+    "resource": [
+      "https://www.im.fju.edu.tw/"
+  ]
   },
   {
     "question": "資管系有舉辦哪些學生活動？",
@@ -933,7 +1151,10 @@
       "系上活動公告"
     ],
     "answer": "活動包含迎新宿營、企業參訪、系際盃、期末送舊、講座與校外參訪等，促進師生交流與實務接觸。",
-    "category": "Campus Resources and Activities"
+    "category": "Campus Resources and Activities",
+    "resource": [
+      "https://www.im.fju.edu.tw/"
+    ]
   },
   {
     "question": "資管系有沒有提供實習機會？",
@@ -948,7 +1169,10 @@
       "實習媒合平台"
     ],
     "answer": "系上與多家企業合作，提供寒暑期實習及學期制業界專案合作，提升學生職場經驗。",
-    "category": "Campus Resources and Activities"
+    "category": "Campus Resources and Activities",
+    "resource": [
+      "https://www.im.fju.edu.tw/"
+    ]
   },
   {
     "question": "學生可以參與哪些競賽？",
@@ -963,7 +1187,10 @@
       "教育部技術競賽"
     ],
     "answer": "學生常參加數據分析、黑客松、系統開發與創業競賽，校內外皆有主辦與推薦機會。",
-    "category": "Campus Resources and Activities"
+    "category": "Campus Resources and Activities",
+    "resource": [
+      "https://www.im.fju.edu.tw/"
+    ]
   },
   {
     "question": "資管系學會的主要職責是什麼？",
@@ -978,7 +1205,10 @@
       "歷屆幹部介紹"
     ],
     "answer": "負責策劃系上活動、協助新生輔導、維護師生關係與代表同學發聲。",
-    "category": "Campus Resources and Activities"
+    "category": "Campus Resources and Activities",
+    "resource": [
+      "https://www.im.fju.edu.tw/"
+    ]
   },
   {
     "question": "資管系有提供課業輔導嗎？",
@@ -992,37 +1222,11 @@
       "TA名單",
       "課輔時間表"
     ],
-    "answer": "部分課程由助教提供課後輔導，另有學長姐舉辦自願性讀書會。",
-    "category": "Campus Resources and Activities"
-  },
-  {
-    "question": "有哪些資源可協助學生考證照？",
-    "level": "4",
-    "keyword": [
-      "證照",
-      "資源",
-      "輔導"
-    ],
-    "related": [
-      "資策會合作課程",
-      "證照補助公告"
-    ],
-    "answer": "學校與資策會、TQC等單位合作開設考照輔導課程，亦提供報名費補助。",
-    "category": "Campus Resources and Activities"
-  },
-  {
-    "question": "資管系是否有校外參訪活動？",
-    "level": "3",
-    "keyword": [
-      "企業參訪",
-      "校外教學"
-    ],
-    "related": [
-      "活動紀錄",
-      "產學合作單位清單"
-    ],
-    "answer": "系上每年安排企業參訪活動，如科技公司總部、資料中心、創業基地等，拓展學生視野。",
-    "category": "Campus Resources and Activities"
+    "answer": "部分課程由助教提供課後輔導。",
+    "category": "Campus Resources and Activities",
+    "resource": [
+      "https://www.im.fju.edu.tw/"
+    ]
   },
   {
     "question": "是否有資管系的學生社團？",
@@ -1036,18 +1240,18 @@
       "社團博覽會",
       "社團名錄"
     ],
-    "answer": "部分學生組成自發性技術社團，如資料科學社、Python研習會，增進技能交流與學習動力。",
-    "category": "Campus Resources and Activities"
+    "answer": "部分學生組成自發性技術社團，增進技能交流與學習動力。此外系學會也是學生社團的一種，負責系上活動與學生事務。",
+    "category": "Campus Resources and Activities",
+    "resource": []
   },
-
-
   {
     "question": "不喜歡寫程式還能在資管系活下去嗎？",
     "level": "4",
     "keyword": ["寫程式", "資管系", "興趣"],
     "related": ["程式設計學不好會被當掉嗎？", "資管系的生活是不是就是天天打程式？", "不會前端可以直接用模板嗎？"],
     "answer": "如果是不喜歡甚至討厭的話建議考慮尋找其他的系所就讀，但如果只是因為不熟練而不喜歡的話，可以多找一些練習的機會，逐漸讓自己熟練。",
-    "category": "Curriculum and Teaching"
+    "category": "Curriculum and Teaching",
+    "resource": []
   },
   {
     "question": "程式設計學不好會被當掉嗎？",
@@ -1055,7 +1259,8 @@
     "keyword": ["程式設計", "被當", "學習建議"],
     "related": ["不喜歡寫程式還能在資管系活下去嗎？", "不會前端可以直接用模板嗎？", "自學好難，該怎麼開始寫 side project？"],
     "answer": "只要用心學習，一定會有成果的，不用一開始就害怕。",
-    "category": "Curriculum and Teaching"
+    "category": "Curriculum and Teaching",
+    "resource": []
   },
   {
     "question": "不會前端可以直接用模板嗎？",
@@ -1063,7 +1268,8 @@
     "keyword": ["前端", "模板", "實作"],
     "related": ["程式設計學不好會被當掉嗎？", "自學好難，該怎麼開始寫 side project？", "不喜歡寫程式還能在資管系活下去嗎？"],
     "answer": "可以使用模板，但建議先自己知道每個部分程式的邏輯，未來需要修改時，也不會無從下手。",
-    "category": "Curriculum and Teaching"
+    "category": "Curriculum and Teaching",
+    "resource": []
   },
   {
     "question": "系上課程這麼多，需要半工半讀怎麼安排時間？",
@@ -1071,7 +1277,8 @@
     "keyword": ["半工半讀", "時間管理", "課程安排"],
     "related": ["系上要分組的課多嗎？", "資管系的生活是不是就是天天打程式？", "如果學業跟不上，該不該考慮轉系？"],
     "answer": "掌握時間的能力是每個人的課題，只要不會影響到分組以及其他人即可。",
-    "category": "Curriculum and Teaching"
+    "category": "Curriculum and Teaching",
+    "resource": []
   },
   {
     "question": "系上要分組的課多嗎？",
@@ -1079,7 +1286,8 @@
     "keyword": ["分組課程", "課程型態", "合作學習"],
     "related": ["系上課程這麼多，需要半工半讀怎麼安排時間？", "系上專題會不會要很多人一起做？", "遇到組員雷怎麼辦？"],
     "answer": "每個學期都會有需要分組的課程。",
-    "category": "Curriculum and Teaching"
+    "category": "Curriculum and Teaching",
+    "resource": []
   },
   {
     "question": "為什麼要學這麼多理論（像是資料結構、演算法）未來用得到嗎？",
@@ -1087,7 +1295,8 @@
     "keyword": ["理論課程", "資料結構", "演算法", "未來應用"],
     "related": ["資管系學微積分的意義是甚麼？", "資管系學統計的意義是甚麼？", "程式設計學不好會被當掉嗎？"],
     "answer": "這些理論是建立邏輯思考與問題解決能力的基礎，無論是系統開發、資料分析或進階學習都會用到。",
-    "category": "Curriculum and Teaching"
+    "category": "Curriculum and Teaching",
+    "resource": []
   },
   {
     "question": "資管系學統計的意義是甚麼？",
@@ -1095,7 +1304,8 @@
     "keyword": ["統計", "資管系", "數據分析"],
     "related": ["資管系學經濟的意義是甚麼？", "資管系學微積分的意義是甚麼？", "為什麼要學這麼多理論（像是資料結構、演算法）未來用得到嗎？"],
     "answer": "統計學有助於分析資料與判斷趨勢，是資料分析與商業決策中不可或缺的技能。",
-    "category": "Curriculum and Teaching"
+    "category": "Curriculum and Teaching",
+    "resource": []
   },
   {
     "question": "資管系學經濟的意義是甚麼？",
@@ -1103,7 +1313,8 @@
     "keyword": ["經濟學", "商業背景", "資管系"],
     "related": ["資管系學統計的意義是甚麼？", "資管系學會計的意義是甚麼？", "資管系學微積分的意義是甚麼？"],
     "answer": "經濟學能幫助學生理解市場運作、資源配置與決策行為，是資訊管理應用的重要背景知識。",
-    "category": "Curriculum and Teaching"
+    "category": "Curriculum and Teaching",
+    "resource": []
   },
   {
     "question": "資管系學會計的意義是甚麼？",
@@ -1111,7 +1322,8 @@
     "keyword": ["會計", "財務知識", "資管系"],
     "related": ["資管系學經濟的意義是甚麼？", "資管系學統計的意義是甚麼？", "資管系學微積分的意義是甚麼？"],
     "answer": "會計能幫助學生了解企業財務運作，對於ERP系統操作與財務資訊系統設計具有基礎價值。",
-    "category": "Curriculum and Teaching"
+    "category": "Curriculum and Teaching",
+    "resource": []
   },
   {
     "question": "資管系學微積分的意義是甚麼？",
@@ -1119,7 +1331,8 @@
     "keyword": ["微積分", "數學基礎", "資管系"],
     "related": ["資管系學會計的意義是甚麼？", "為什麼要學這麼多理論（像是資料結構、演算法）未來用得到嗎？", "資管系學統計的意義是甚麼？"],
     "answer": "微積分有助於培養抽象思維與邏輯推理能力，並可應用於系統模擬、機器學習等進階領域。",
-    "category": "Curriculum and Teaching"
+    "category": "Curriculum and Teaching",
+    "resource": []
   },
   {
     "question": "系上有沒有大刀老師?",
@@ -1127,7 +1340,8 @@
     "keyword": ["大刀老師", "嚴格教師", "資管系"],
     "related": ["程式設計學不好會被當掉嗎？", "資管系的生活是不是就是天天打程式？", "不喜歡寫程式還能在資管系活下去嗎？"],
     "answer": "部分老師課程難度較高，但也代表能學到紮實的內容，建議多了解老師教學風格後選課。",
-    "category": "Faculty and Research"
+    "category": "Faculty and Research",
+    "resource": []
   },
   {
     "question": "系上有沒有自己的讀書群組或社群？",
@@ -1135,7 +1349,8 @@
     "keyword": ["讀書會", "學習社群", "同儕互助"],
     "related": ["系學會存在的意義是甚麼？", "資管系的生活是不是就是天天打程式？", "自學好難，該怎麼開始寫 side project？"],
     "answer": "有些課程會自發性組成讀書會，也有學長姐帶讀或提供筆記資源，鼓勵多與同學互動。",
-    "category": "Campus Resources and Activities"
+    "category": "Campus Resources and Activities",
+    "resource": []
   },
   {
     "question": "系學會存在的意義是甚麼？",
@@ -1143,7 +1358,8 @@
     "keyword": ["系學會", "學生自治", "活動"],
     "related": ["系上有沒有自己的讀書群組或社群？", "資管系的生活是不是就是天天打程式？", "不會前端可以直接用模板嗎？"],
     "answer": "系學會負責系上活動籌辦、與系辦溝通橋樑、提供同學資源與意見反映的管道。",
-    "category": "Campus Resources and Activities"
+    "category": "Campus Resources and Activities",
+    "resource": []
   },
   {
     "question": "資管系的生活是不是就是天天打程式？",
@@ -1151,7 +1367,8 @@
     "keyword": ["資管系生活", "程式設計", "學習內容"],
     "related": ["不喜歡寫程式還能在資管系活下去嗎？", "系學會存在的意義是甚麼？", "系上有沒有大刀老師?"],
     "answer": "雖然程式設計是重要一環，但資管系也涵蓋管理、資料分析、系統整合等多元內容。",
-    "category": "Campus Resources and Activities"
+    "category": "Campus Resources and Activities",
+    "resource": []
   },
   {
     "question": "推薦大幾開始找實習？",
@@ -1159,7 +1376,8 @@
     "keyword": ["實習", "大三", "工作經驗"],
     "related": ["一定要讀碩士才會有好工作嗎？", "自學好難，該怎麼開始寫 side project？", "資管系的生活是不是就是天天打程式？"],
     "answer": "大三開始是多數學生尋找實習的高峰，建議提早準備履歷與技能，寒暑假實習機會也很多。",
-    "category": "Further Studies and Career"
+    "category": "Further Studies and Career",
+    "resource": []
   },
   {
     "question": "一定要讀碩士才會有好工作嗎？",
@@ -1167,7 +1385,8 @@
     "keyword": ["碩士", "就業", "學歷"],
     "related": ["推薦大幾開始找實習？", "自學好難，該怎麼開始寫 side project？", "如果學業跟不上，該不該考慮轉系？"],
     "answer": "不一定，若大學期間累積專案與實習經驗，也有機會找到好工作；碩士則適合深耕研究或轉換跑道。",
-    "category": "Further Studies and Career"
+    "category": "Further Studies and Career",
+    "resource": []
   },
   {
     "question": "自學好難，該怎麼開始寫 side project？",
@@ -1175,7 +1394,8 @@
     "keyword": ["自學", "side project", "實作經驗"],
     "related": ["不會前端可以直接用模板嗎？", "推薦大幾開始找實習？", "一定要讀碩士才會有好工作嗎？"],
     "answer": "可從興趣出發選一個簡單的專案，搭配線上課程與GitHub範例模仿，累積信心後逐步深化。",
-    "category": "Further Studies and Career"
+    "category": "Further Studies and Career",
+    "resource": []
   },
   {
     "question": "如果學業跟不上，該不該考慮轉系？",
@@ -1183,7 +1403,8 @@
     "keyword": ["轉系", "學業壓力", "適應問題"],
     "related": ["系上課程這麼多，需要半工半讀怎麼安排時間？", "一定要讀碩士才會有好工作嗎？", "遇到組員雷怎麼辦？"],
     "answer": "可以先尋求師長或學長姐協助，若真的興趣不合或壓力過大，再評估是否轉系較為合適。",
-    "category": "Department Overview"
+    "category": "Department Overview",
+    "resource": []
   },
   {
     "question": "系上專題會不會要很多人一起做？",
@@ -1191,7 +1412,8 @@
     "keyword": ["專題製作", "分組", "團隊合作"],
     "related": ["系上要分組的課多嗎？", "遇到組員雷怎麼辦？", "不會前端可以直接用模板嗎？"],
     "answer": "專題通常以5人小組進行，強調合作與分工，也能學習實務開發流程。",
-    "category": "Department Overview"
+    "category": "Department Overview",
+    "resource": []
   },
   {
     "question": "遇到組員雷怎麼辦？",
@@ -1199,7 +1421,8 @@
     "keyword": ["組員", "合作問題", "分組困擾"],
     "related": ["系上要分組的課多嗎？", "系上專題會不會要很多人一起做？", "如果學業跟不上，該不該考慮轉系？"],
     "answer": "可先溝通並試圖調整分工，必要時可與老師反映，盡量保持紀錄以利後續處理。",
-    "category": "Department Overview"
+    "category": "Department Overview",
+    "resource": []
   },
   {
     "question": "資管系的課程難度如何？",
@@ -1207,7 +1430,8 @@
     "keyword": ["課程", "難度", "學習挑戰"],
     "related": ["系上有沒有大刀老師?", "系上要分組的課多嗎？", "資管系的生活是不是就是天天打程式？"],
     "answer": "課程難度因教授與內容而異，部分課程需投入較多時間與精力，但也能獲得豐富的學習經驗。",
-    "category": "Department Overview"
+    "category": "Department Overview",
+    "resource": []
   },
   {
     "question": "資管系的學生背景多元嗎？",
@@ -1215,7 +1439,8 @@
     "keyword": ["學生背景", "多元性", "資管系"],
     "related": ["資管系的生活是不是就是天天打程式？", "不喜歡寫程式還能在資管系活下去嗎？", "自學好難，該怎麼開始寫 side project？"],
     "answer": "學生來自不同科系與背景，包含商科、理工、社會科學等，展現多元化的學習環境。",
-    "category": "Department Overview"
+    "category": "Department Overview",
+    "resource": []
   },
   {
     "question": "資管系有沒有交換學生機會？",
@@ -1223,7 +1448,8 @@
     "keyword": ["交換學生", "國際交流", "資管系"],
     "related": ["出國交換資訊", "國際合作計畫"],
     "answer": "有提供交換學生計畫，與多所國際大學合作，鼓勵學生拓展國際視野。",
-    "category": "Further Studies and Career"
+    "category": "Further Studies and Career",
+    "resource": []
   },
   {
     "question": "資管系有沒有雙主修或輔修的機會？",
@@ -1231,7 +1457,8 @@
     "keyword": ["雙主修", "輔修", "學位選擇"],
     "related": ["雙主修申請流程", "輔修科目介紹"],
     "answer": "可選擇雙主修或輔修其他科系，建議提前規劃時間與課程安排。",
-    "category": "Further Studies and Career"
+    "category": "Further Studies and Career",
+    "resource": []
   },
   {
     "question": "資管系有哪些實作型課程？",
@@ -1246,7 +1473,8 @@
       "專案教學報告"
     ],
     "answer": "如系統分析與設計、資訊系統專題、web前端設計、web程式設計等皆為實作導向課程。",
-    "category": "Curriculum and Teaching"
+    "category": "Curriculum and Teaching",
+    "resource": []
   },
   {
     "question": "關於系上4+1的資訊",
@@ -1262,7 +1490,10 @@
       "4+1學程計畫"
     ],
     "answer": "透過與美國多所大學名校合作，以4+1年的方式，最快五年即可獲得本校學士與美國碩士學位，亦即大學第四年在本院修讀美國合作學校部份碩士先修課程，通過美國學校入學條件後，第五年到美國繼續完成碩士指定課程。",
-    "category": "Further Studies and Career"
+    "category": "Further Studies and Career",
+    "resource": [
+      "https://www.im.fju.edu.tw/"
+    ]
   },
   {
     "question": "資管系的學士學位是否有雙主修或輔系的機會？",
@@ -1278,7 +1509,10 @@
       "輔系申請流程"
     ],
     "answer": "資管系學生可選擇雙主修或輔系，需符合學校、雙主修、輔系支系所規定並通過相關課程與學分要求。",
-    "category": "Studies and courses"
+    "category": "Studies and courses",
+    "resource": [
+      "https://www.im.fju.edu.tw/"
+    ]
   },
   {
     "question": "資管系有擋修嗎？",
@@ -1293,7 +1527,10 @@
       "相關課程畢業門檻"
     ],
     "answer": "依據修業規則  第五條 擋修規定：（二）「系統分析與設計」擋修「資訊系統專題一」。（三）「資訊系統專題二」成績不及格，需重修「資訊系統專題一」及「資訊系統專題二」。",
-    "category": "Studies and courses"
+    "category": "Studies and courses",
+    "resource": [
+      "https://www.im.fju.edu.tw/"
+    ]
   },
   {
     "question": "董惟鳳帶過的專題有什麼？",
@@ -1308,7 +1545,10 @@
       "資訊專題平台"
     ],
     "answer":[ "影像語言 Image Narrator","P-insurance (保哥一把罩)"],
-    "category": "Studies and courses"
+    "category": "Studies and courses",
+    "resource": [
+      "https://www.im.fju.edu.tw/"
+    ]
   },
   {
       "question": "吳濟聰帶過的專題主題有什麼？",
@@ -1324,7 +1564,10 @@
         "主題"
       ],
       "answer": ["Education Zone","VAMM 免煩惱","QAmpus校園AI問答系統","料理小當家","Deeplink"],
-      "category": "Studies and courses"
+      "category": "Studies and courses",
+      "resource": [
+      "https://www.im.fju.edu.tw/"
+    ]
     },
   {
       "question": "會學到的程式語言",
@@ -1339,7 +1582,10 @@
         "課程資訊"
       ],
       "answer":[ "python","java","C","C++","在撰寫Web時通常會接觸Javascript, query, next.js, vue, react等語言"],
-      "category": "Course"
+      "category": "Course",
+      "resource": [
+      "https://www.im.fju.edu.tw/"
+    ]
     },
 
   {
@@ -1354,7 +1600,10 @@
         "宿營"
       ],
       "answer":[ "通常是在上學期供大一新生參加的活動，約落在10月左右，詳細時間要詢問學生會。" ],
-      "category": "Campus Resources and Activities"
+      "category": "Campus Resources and Activities",
+      "resource": [
+      "https://www.im.fju.edu.tw/"
+    ]
     },
   {
       "question": "繳系學會費能得到什麼好處",
@@ -1369,7 +1618,11 @@
         "活動",
         "系學會"
       ],
-      "answer": "可有資格抽取系學會辦公室中的個人系櫃，通常參加系學會舉辦、協辦的活動時會有折扣。"
+      "answer": "可有資格抽取系學會辦公室中的個人系櫃，通常參加系學會舉辦、協辦的活動時會有折扣。",
+      "category": "Campus Resources and Activities",
+      "resource": [
+      "https://www.im.fju.edu.tw/"
+    ]
     },
   {
       "question": "專題的指導老師有誰？",
@@ -1386,7 +1639,11 @@
       ],
       "answer":[ "董惟鳳",
         "呂奇傑","吳濟聰","鄭美娟","葉承達","廖建翔","黃曜輝","林青峰","林雅文","林湘霖","石佳惠","胡俊之","黃智榮","王冠云"],
-      "category": "Studies and courses"
+      "category": "Studies and courses",
+      "resource": [
+      "https://www.im.fju.edu.tw/",
+      "https://project.im.fju.edu.tw/Company/List"
+    ]
     }
   
 ]
