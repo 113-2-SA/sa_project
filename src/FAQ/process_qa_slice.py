@@ -87,6 +87,16 @@ def process_and_upload(qa_data: List[Dict],
         upsert_to_pinecone(index, records)
 
 
+def clear_pinecone_index(index, batch_size=100):
+    print("開始清空 Pinecone Index 中的舊資料...")
+    try:
+        # 使用 delete_all 方法直接清空整個 index
+        index.delete(delete_all=True)
+        print("Pinecone Index 已清空完畢！")
+    except Exception as e:
+        print(f"清空 Index 時發生錯誤: {e}")
+        raise
+
 def main():
     # 從環境變數讀取 API KEY 和設定
     COHERE_API_KEY = os.getenv("COHERE_API_KEY")
@@ -123,6 +133,9 @@ def main():
         )
 
     index = pc.Index(INDEX_NAME)
+    
+    # 清空舊資料（初始化）
+    clear_pinecone_index(index)
     
     # 載入 QA 資料
     qa_data = load_qa_data(r"C:\Users\pengv\桌面\sa_project\src\FAQ\QA.json") # 用絕對路徑
