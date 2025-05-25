@@ -13,6 +13,7 @@ interface PostItem {
   title: string;
   content: string;
   comments: { content: string }[];
+  resource?: string[];  // 新增 resource 欄位
 }
 
 interface ChatProps {
@@ -78,7 +79,6 @@ const Chat = ({ selectedChatId, onNewChat, onClearChat, onChatUpdate }: ChatProp
       }
     };
 
-    //fetchProfessorData();
     fetchPostsData();
   }, []);
 
@@ -166,7 +166,7 @@ const Chat = ({ selectedChatId, onNewChat, onClearChat, onChatUpdate }: ChatProp
 
       // 2. 處理 posts 數據
       const selectedPosts = postsData
-        .map(post => `\nPost標題: ${post.title}\n內容: ${post.content}\n留言:\n${post.comments.map(c => '- ' + c.content).join('\n')}`)
+        .map(post => `\nPost標題: ${post.title}\n內容: ${post.content}\n留言:\n${post.comments.map(c => '- ' + c.content).join('\n')}${post.resource ? `\n相關資源:\n${post.resource.map(r => '- ' + r).join('\n')}` : ''}`)
         .join('\n\n');
 
       // 建立 System Prompt 並整合 RAG 結果

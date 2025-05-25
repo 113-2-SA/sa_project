@@ -1231,26 +1231,10 @@
     ]
   },
   {
-    "question": "是否有資管系的學生社團？",
-    "level": "3",
-    "keyword": [
-      "社團",
-      "技術社",
-      "學生組織"
-    ],
-    "related": [
-      "社團博覽會",
-      "社團名錄"
-    ],
-    "answer": "部分學生組成自發性技術社團，增進技能交流與學習動力。此外系學會也是學生社團的一種，負責系上活動與學生事務。",
-    "category": "Campus Resources and Activities",
-    "resource": []
-  },
-  {
     "question": "不喜歡寫程式還能在資管系活下去嗎？",
     "level": "4",
     "keyword": ["寫程式", "資管系", "興趣"],
-    "related": ["程式設計學不好會被當掉嗎？", "資管系的生活是不是就是天天打程式？", "不會前端可以直接用模板嗎？"],
+    "related": ["資管生活"],
     "answer": "如果是不喜歡甚至討厭的話建議考慮尋找其他的系所就讀，但如果只是因為不熟練而不喜歡的話，可以多找一些練習的機會，逐漸讓自己熟練。",
     "category": "Curriculum and Teaching",
     "resource": []
@@ -1259,7 +1243,7 @@
     "question": "程式設計學不好會被當掉嗎？",
     "level": "4",
     "keyword": ["程式設計", "被當", "學習建議"],
-    "related": ["不喜歡寫程式還能在資管系活下去嗎？", "不會前端可以直接用模板嗎？", "自學好難，該怎麼開始寫 side project？"],
+    "related": ["不喜歡寫程式","自學難"],
     "answer": "只要用心學習，一定會有成果的，不用一開始就害怕。",
     "category": "Curriculum and Teaching",
     "resource": []
@@ -1268,7 +1252,7 @@
     "question": "不會前端可以直接用模板嗎？",
     "level": "4",
     "keyword": ["前端", "模板", "實作"],
-    "related": ["程式設計學不好會被當掉嗎？", "自學好難，該怎麼開始寫 side project？", "不喜歡寫程式還能在資管系活下去嗎？"],
+    "related": ["程式設計","使用模板"],
     "answer": "可以使用模板，但建議先自己知道每個部分程式的邏輯，未來需要修改時，也不會無從下手。",
     "category": "Curriculum and Teaching",
     "resource": []
@@ -1277,7 +1261,7 @@
     "question": "系上課程這麼多，需要半工半讀怎麼安排時間？",
     "level": "4",
     "keyword": ["半工半讀", "時間管理", "課程安排"],
-    "related": ["系上要分組的課多嗎？", "資管系的生活是不是就是天天打程式？", "如果學業跟不上，該不該考慮轉系？"],
+    "related": ["分組課多", "資管生活"],
     "answer": "掌握時間的能力是每個人的課題，只要不會影響到分組以及其他人即可。",
     "category": "Curriculum and Teaching",
     "resource": []
@@ -1286,7 +1270,7 @@
     "question": "系上要分組的課多嗎？",
     "level": "4",
     "keyword": ["分組課程", "課程型態", "合作學習"],
-    "related": ["系上課程這麼多，需要半工半讀怎麼安排時間？", "系上專題會不會要很多人一起做？", "遇到組員雷怎麼辦？"],
+    "related": ["分組課程多", "專題分組", "組員問題"],
     "answer": "每個學期都會有需要分組的課程。",
     "category": "Curriculum and Teaching",
     "resource": []
@@ -1295,7 +1279,7 @@
     "question": "為什麼要學這麼多理論（像是資料結構、演算法）未來用得到嗎？",
     "level": "4",
     "keyword": ["理論課程", "資料結構", "演算法", "未來應用"],
-    "related": ["資管系學微積分的意義是甚麼？", "資管系學統計的意義是甚麼？", "程式設計學不好會被當掉嗎？"],
+    "related": ["理論課程"],
     "answer": "這些理論是建立邏輯思考與問題解決能力的基礎，無論是系統開發、資料分析或進階學習都會用到。",
     "category": "Curriculum and Teaching",
     "resource": []
@@ -1304,7 +1288,7 @@
     "question": "資管系學統計的意義是甚麼？",
     "level": "4",
     "keyword": ["統計", "資管系", "數據分析"],
-    "related": ["資管系學經濟的意義是甚麼？", "資管系學微積分的意義是甚麼？", "為什麼要學這麼多理論（像是資料結構、演算法）未來用得到嗎？"],
+    "related": ["經濟意義", "微積分意義", "理論課程", "會計意義"],
     "answer": "統計學有助於分析資料與判斷趨勢，是資料分析與商業決策中不可或缺的技能。",
     "category": "Curriculum and Teaching",
     "resource": []
@@ -1313,7 +1297,7 @@
     "question": "資管系學經濟的意義是甚麼？",
     "level": "4",
     "keyword": ["經濟學", "商業背景", "資管系"],
-    "related": ["資管系學統計的意義是甚麼？", "資管系學會計的意義是甚麼？", "資管系學微積分的意義是甚麼？"],
+    "related": ["統計意義", "會計意義", "微積分意義", "理論課程"],
     "answer": "經濟學能幫助學生理解市場運作、資源配置與決策行為，是資訊管理應用的重要背景知識。",
     "category": "Curriculum and Teaching",
     "resource": []
@@ -1322,7 +1306,7 @@
     "question": "資管系學會計的意義是甚麼？",
     "level": "4",
     "keyword": ["會計", "財務知識", "資管系"],
-    "related": ["資管系學經濟的意義是甚麼？", "資管系學統計的意義是甚麼？", "資管系學微積分的意義是甚麼？"],
+    "related": ["經濟意義", "統計意義", "微積分意義"],
     "answer": "會計能幫助學生了解企業財務運作，對於ERP系統操作與財務資訊系統設計具有基礎價值。",
     "category": "Curriculum and Teaching",
     "resource": []
@@ -1331,7 +1315,7 @@
     "question": "資管系學微積分的意義是甚麼？",
     "level": "4",
     "keyword": ["微積分", "數學基礎", "資管系"],
-    "related": ["資管系學會計的意義是甚麼？", "為什麼要學這麼多理論（像是資料結構、演算法）未來用得到嗎？", "資管系學統計的意義是甚麼？"],
+    "related": ["會計意義", "理論課程", "統計意義"],
     "answer": "微積分有助於培養抽象思維與邏輯推理能力，並可應用於系統模擬、機器學習等進階領域。",
     "category": "Curriculum and Teaching",
     "resource": []
@@ -1340,7 +1324,7 @@
     "question": "系上有沒有大刀老師?",
     "level": "4",
     "keyword": ["大刀老師", "嚴格教師", "資管系"],
-    "related": ["程式設計學不好會被當掉嗎？", "資管系的生活是不是就是天天打程式？", "不喜歡寫程式還能在資管系活下去嗎？"],
+    "related": ["程式設計困難", "資管生活", "不喜歡寫程式"],
     "answer": "部分老師課程難度較高，但也代表能學到紮實的內容，建議多了解老師教學風格後選課。",
     "category": "Faculty and Research",
     "resource": []
@@ -1349,7 +1333,7 @@
     "question": "系上有沒有自己的讀書群組或社群？",
     "level": "3",
     "keyword": ["讀書會", "學習社群", "同儕互助"],
-    "related": ["系學會存在的意義是甚麼？", "資管系的生活是不是就是天天打程式？", "自學好難，該怎麼開始寫 side project？"],
+    "related": ["讀書社群", "資管生活"],
     "answer": "有些課程會自發性組成讀書會，也有學長姐帶讀或提供筆記資源，鼓勵多與同學互動。",
     "category": "Campus Resources and Activities",
     "resource": []
@@ -1358,7 +1342,7 @@
     "question": "系學會存在的意義是甚麼？",
     "level": "3",
     "keyword": ["系學會", "學生自治", "活動"],
-    "related": ["系上有沒有自己的讀書群組或社群？", "資管系的生活是不是就是天天打程式？", "不會前端可以直接用模板嗎？"],
+    "related": ["系學會意義", "資管生活"],
     "answer": "系學會負責系上活動籌辦、與系辦溝通橋樑、提供同學資源與意見反映的管道。",
     "category": "Campus Resources and Activities",
     "resource": []
@@ -1367,7 +1351,7 @@
     "question": "資管系的生活是不是就是天天打程式？",
     "level": "3",
     "keyword": ["資管系生活", "程式設計", "學習內容"],
-    "related": ["不喜歡寫程式還能在資管系活下去嗎？", "系學會存在的意義是甚麼？", "系上有沒有大刀老師?"],
+    "related": ["資管生活"],
     "answer": "雖然程式設計是重要一環，但資管系也涵蓋管理、資料分析、系統整合等多元內容。",
     "category": "Campus Resources and Activities",
     "resource": []
@@ -1376,7 +1360,7 @@
     "question": "推薦大幾開始找實習？",
     "level": "4",
     "keyword": ["實習", "大三", "工作經驗"],
-    "related": ["一定要讀碩士才會有好工作嗎？", "自學好難，該怎麼開始寫 side project？", "資管系的生活是不是就是天天打程式？"],
+    "related": ["讀碩士必要性", "實習經驗", "資管生活"],
     "answer": "大三開始是多數學生尋找實習的高峰，建議提早準備履歷與技能，寒暑假實習機會也很多。",
     "category": "Further Studies and Career",
     "resource": []
@@ -1385,7 +1369,7 @@
     "question": "一定要讀碩士才會有好工作嗎？",
     "level": "4",
     "keyword": ["碩士", "就業", "學歷"],
-    "related": ["推薦大幾開始找實習？", "自學好難，該怎麼開始寫 side project？", "如果學業跟不上，該不該考慮轉系？"],
+    "related": ["推薦找實習", "資管生活", "讀碩士必要性"],
     "answer": "不一定，若大學期間累積專案與實習經驗，也有機會找到好工作；碩士則適合深耕研究或轉換跑道。",
     "category": "Further Studies and Career",
     "resource": []
@@ -1394,7 +1378,7 @@
     "question": "自學好難，該怎麼開始寫 side project？",
     "level": "4",
     "keyword": ["自學", "side project", "實作經驗"],
-    "related": ["不會前端可以直接用模板嗎？", "推薦大幾開始找實習？", "一定要讀碩士才會有好工作嗎？"],
+    "related": ["模板使用", "自學難"],
     "answer": "可從興趣出發選一個簡單的專案，搭配線上課程與GitHub範例模仿，累積信心後逐步深化。",
     "category": "Further Studies and Career",
     "resource": []
@@ -1403,7 +1387,7 @@
     "question": "如果學業跟不上，該不該考慮轉系？",
     "level": "4",
     "keyword": ["轉系", "學業壓力", "適應問題"],
-    "related": ["系上課程這麼多，需要半工半讀怎麼安排時間？", "一定要讀碩士才會有好工作嗎？", "遇到組員雷怎麼辦？"],
+    "related": ["課程多","轉系考慮"],
     "answer": "可以先尋求師長或學長姐協助，若真的興趣不合或壓力過大，再評估是否轉系較為合適。",
     "category": "Department Overview",
     "resource": []
@@ -1412,7 +1396,7 @@
     "question": "系上專題會不會要很多人一起做？",
     "level": "4",
     "keyword": ["專題製作", "分組", "團隊合作"],
-    "related": ["系上要分組的課多嗎？", "遇到組員雷怎麼辦？", "不會前端可以直接用模板嗎？"],
+    "related": ["組員問題","專題分組" ],
     "answer": "專題通常以5人小組進行，強調合作與分工，也能學習實務開發流程。",
     "category": "Department Overview",
     "resource": []
@@ -1421,7 +1405,7 @@
     "question": "遇到組員雷怎麼辦？",
     "level": "4",
     "keyword": ["組員", "合作問題", "分組困擾"],
-    "related": ["系上要分組的課多嗎？", "系上專題會不會要很多人一起做？", "如果學業跟不上，該不該考慮轉系？"],
+    "related": ["分組課多", "專題分組","SA分組"],
     "answer": "可先溝通並試圖調整分工，必要時可與老師反映，盡量保持紀錄以利後續處理。",
     "category": "Department Overview",
     "resource": []
@@ -1430,223 +1414,1458 @@
     "question": "資管系的課程難度如何？",
     "level": "4",
     "keyword": ["課程", "難度", "學習挑戰"],
-    "related": ["系上有沒有大刀老師?", "系上要分組的課多嗎？", "資管系的生活是不是就是天天打程式？"],
+    "related": ["大刀老師", "資管生活"],
     "answer": "課程難度因教授與內容而異，部分課程需投入較多時間與精力，但也能獲得豐富的學習經驗。",
     "category": "Department Overview",
     "resource": []
   },
-  {
-    "question": "資管系的學生背景多元嗎？",
-    "level": "3",
-    "keyword": ["學生背景", "多元性", "資管系"],
-    "related": ["資管系的生活是不是就是天天打程式？", "不喜歡寫程式還能在資管系活下去嗎？", "自學好難，該怎麼開始寫 side project？"],
-    "answer": "學生來自不同科系與背景，包含商科、理工、社會科學等，展現多元化的學習環境。",
-    "category": "Department Overview",
-    "resource": []
-  },
-  {
-    "question": "資管系有沒有交換學生機會？",
-    "level": "4",
-    "keyword": ["交換學生", "國際交流", "資管系"],
-    "related": ["出國交換資訊", "國際合作計畫"],
-    "answer": "有提供交換學生計畫，與多所國際大學合作，鼓勵學生拓展國際視野。",
-    "category": "Further Studies and Career",
-    "resource": []
-  },
-  {
-    "question": "資管系有沒有雙主修或輔修的機會？",
-    "level": "4",
-    "keyword": ["雙主修", "輔修", "學位選擇"],
-    "related": ["雙主修申請流程", "輔修科目介紹"],
-    "answer": "可選擇雙主修或輔修其他科系，建議提前規劃時間與課程安排。",
-    "category": "Further Studies and Career",
-    "resource": []
-  },
-  {
-    "question": "資管系有哪些實作型課程？",
-    "level": "5",
-    "keyword": [
-      "實作課",
-      "專案",
-      "資管"
-    ],
-    "related": [
-      "課程地圖",
-      "專案教學報告"
-    ],
-    "answer": "如系統分析與設計、資訊系統專題、web前端設計、web程式設計等皆為實作導向課程。",
-    "category": "Curriculum and Teaching",
-    "resource": []
-  },
-  {
-    "question": "關於系上4+1的資訊",
-    "level": "4",
-    "keyword": [
-      "四加一學程",
-      "4+1",
-      "升學",
-      "研究所"
-    ],
-    "related": [
-      "境外學習",
-      "4+1學程計畫"
-    ],
-    "answer": "透過與美國多所大學名校合作，以4+1年的方式，最快五年即可獲得本校學士與美國碩士學位，亦即大學第四年在本院修讀美國合作學校部份碩士先修課程，通過美國學校入學條件後，第五年到美國繼續完成碩士指定課程。",
-    "category": "Further Studies and Career",
-    "resource": [
-      "https://www.im.fju.edu.tw/"
-    ]
-  },
-  {
-    "question": "資管系的學士學位是否有雙主修或輔系的機會？",
-    "level": "4",
-    "keyword": [
-      "雙主修",
-      "輔系",
-      "學位"
-    ],
-    "related": [
-      "課程資訊",
-      "雙主修必修科目表",
-      "輔系申請流程"
-    ],
-    "answer": "資管系學生可選擇雙主修或輔系，需符合學校、雙主修、輔系支系所規定並通過相關課程與學分要求。",
-    "category": "Studies and courses",
-    "resource": [
-      "https://www.im.fju.edu.tw/"
-    ]
-  },
-  {
-    "question": "資管系有擋修嗎？",
-    "level": "5",
-    "keyword": [
-      "擋修",
-      "課程",
-      "修課"
-    ],
-    "related": [
-      "課程資訊",
-      "相關課程畢業門檻"
-    ],
-    "answer": "依據修業規則  第五條 擋修規定：（二）「系統分析與設計」擋修「資訊系統專題一」。（三）「資訊系統專題二」成績不及格，需重修「資訊系統專題一」及「資訊系統專題二」。",
-    "category": "Studies and courses",
-    "resource": [
-      "https://www.im.fju.edu.tw/"
-    ]
-  },
-  {
-    "question": "董惟鳳帶過的專題有什麼？",
-    "level": "3", 
-    "keyword": [  
-      "專題",
-      "教師",
-      "主題"
-    ],
-    "related": [ 
-      "課程資訊",
-      "資訊專題平台"
-    ],
-    "answer":[ "影像語言 Image Narrator","P-insurance (保哥一把罩)"],
-    "category": "Studies and courses",
-    "resource": [
-      "https://www.im.fju.edu.tw/"
-    ]
-  },
-  {
-      "question": "吳濟聰帶過的專題主題有什麼？",
-      "level": "3", 
-      "keyword": [ 
-        "專題",
-        "教師",
-        "主題"
-      ],
-      "related": [ 
-        "專題",
-        "教師",
-        "主題"
-      ],
-      "answer": ["Education Zone","VAMM 免煩惱","QAmpus校園AI問答系統","料理小當家","Deeplink"],
-      "category": "Studies and courses",
-      "resource": [
-      "https://www.im.fju.edu.tw/"
-    ]
-    },
-  {
-      "question": "會學到的程式語言",
-      "level": "2", 
-      "keyword": [  
-        "程式語言",
-        "程式",
-        "課程"
-      ],
-      "related": [ 
-        "大學部課程規劃",
-        "課程資訊"
-      ],
-      "answer":[ "python","java","C","C++","在撰寫Web時通常會接觸Javascript, query, next.js, vue, react等語言"],
-      "category": "Course",
-      "resource": [
-      "https://www.im.fju.edu.tw/"
-    ]
-    },
 
   {
-      "question": "輔大資管系的宿營在什麼時候",
-      "level": "3", 
-      "keyword": [  
-        "宿營",
-        "時間"
-      ],
-      "related": [ 
-        "活動",
-        "宿營"
-      ],
-      "answer":[ "通常是在上學期供大一新生參加的活動，約落在10月左右，詳細時間要詢問學生會。" ],
-      "category": "Campus Resources and Activities",
-      "resource": [
-      "https://www.im.fju.edu.tw/"
-    ]
-    },
+    "question": "就讀輔大資管系會學到哪些能力?",
+    "level": "3",
+    "keyword": [
+      "能力",
+      "未來出路",
+      "學到什麼"
+    ],
+    "related": [
+      "課程規劃",
+      "學分數",
+      "證書",
+      "修讀資格"
+    ],
+    "answer": "包含程式開發、數據分析、資訊系統管理、以及商業流程優化的能力。",
+    "category": "courses and studies",
+    "resource": "https://www.im.fju.edu.tw/%E6%9C%AA%E4%BE%86%E5%B0%B1%E6%A5%AD/"
+  },
   {
-      "question": "繳系學會費能得到什麼好處",
-      "level": "3", 
-      "keyword": [ 
-        "系學會",
-        "系費",
-        "會費",
-        "好處"
-      ],
-      "related": [ 
-        "活動",
-        "系學會"
-      ],
-      "answer": "可有資格抽取系學會辦公室中的個人系櫃，通常參加系學會舉辦、協辦的活動時會有折扣。",
-      "category": "Campus Resources and Activities",
-      "resource": [
-      "https://www.im.fju.edu.tw/"
-    ]
-    },
+    "question": "就讀輔大資管系，未來可以在資訊技術（IT）與軟體開發方面做哪些工作?",
+    "level": "3",
+    "keyword": [
+      "資訊技術",
+      "軟體開發",
+      "就業方向"
+    ],
+    "related": [
+      "軟體工程",
+      "職涯發展",
+      "技能需求"
+    ],
+    "answer": "可從事軟體開發工程師、系統分析師、IT顧問、網頁程式設計師、行動應用開發工程師等職業。",
+    "category": "career",
+    "resource": "https://www.im.fju.edu.tw/%E6%9C%AA%E4%BE%86%E5%B0%B1%E6%A5%AD/"
+  },
   {
-      "question": "專題的指導老師有誰？",
-      "level": "2", 
-      "keyword": [  
-        "專題",
-        "老師",
-        "教授",
-        "有誰"
-      ],
-      "related": [ 
-      "課程資訊",
-      "資訊專題平台"  
-      ],
-      "answer":[ "董惟鳳",
-        "呂奇傑","吳濟聰","鄭美娟","葉承達","廖建翔","黃曜輝","林青峰","林雅文","林湘霖","石佳惠","胡俊之","黃智榮","王冠云"],
-      "category": "Studies and courses",
-      "resource": [
-      "https://www.im.fju.edu.tw/",
-      "https://project.im.fju.edu.tw/Company/List"
-    ]
-    }
+    "question": "就讀輔大資管系，未來可以在數據分析與資料科學方面做哪些工作?",
+    "level": "3",
+    "keyword": [
+      "資料分析",
+      "數據科學",
+      "職涯發展"
+    ],
+    "related": [
+      "統計",
+      "資料庫",
+      "AI應用"
+    ],
+    "answer": "可從事資料分析師、資料科學家、商業智慧分析師、數據工程師、資料庫管理員等職業。",
+    "category": "career",
+    "resource": "https://www.im.fju.edu.tw/%E6%9C%AA%E4%BE%86%E5%B0%B1%E6%A5%AD/"
+  },
+  {
+    "question": "就讀輔大資管系，未來可以在雲端運算與系統架構方面做哪些工作?",
+    "level": "3",
+    "keyword": [
+      "雲端運算",
+      "系統架構",
+      "就業方向"
+    ],
+    "related": [
+      "雲端技術",
+      "IT基礎架構",
+      "技術支援"
+    ],
+    "answer": "可從事雲端工程師、系統管理員、雲端解決方案架構師、IT技術支援專員、DevOps工程師等職業。",
+    "category": "career",
+    "resource": "https://www.im.fju.edu.tw/%E6%9C%AA%E4%BE%86%E5%B0%B1%E6%A5%AD/"
+  },
+  {
+    "question": "就讀輔大資管系，未來可以在專案與產品管理方面做哪些工作?",
+    "level": "3",
+    "keyword": [
+      "專案管理",
+      "產品管理",
+      "職涯"
+    ],
+    "related": [
+      "敏捷開發",
+      "PM技能",
+      "跨部門協作"
+    ],
+    "answer": "可從事專案經理、產品經理、IT專案協調員、商業分析師等職業。",
+    "category": "career",
+    "resource": "https://www.im.fju.edu.tw/%E6%9C%AA%E4%BE%86%E5%B0%B1%E6%A5%AD/"
+  },
+  {
+    "question": "就讀輔大資管系，未來可以在網路與資訊安全方面做哪些工作?",
+    "level": "3",
+    "keyword": [
+      "資安",
+      "網路安全",
+      "防駭"
+    ],
+    "related": [
+      "資安認證",
+      "風險控管",
+      "網路防護"
+    ],
+    "answer": "可從事網路管理員、資安工程師、網路安全分析師、資訊安全顧問、風險管理專家等職業。",
+    "category": "career",
+    "resource": "https://www.im.fju.edu.tw/%E6%9C%AA%E4%BE%86%E5%B0%B1%E6%A5%AD/"
+  },
+  {
+    "question": "就讀輔大資管系，未來可以在數位行銷與電子商務方面做哪些工作?",
+    "level": "3",
+    "keyword": [
+      "數位行銷",
+      "電子商務",
+      "網路行銷"
+    ],
+    "related": [
+      "SEO",
+      "社群經營",
+      "數據驅動行銷"
+    ],
+    "answer": "可從事數位行銷專員、電子商務分析師、SEO/SEM專家、社群媒體經理等職業。",
+    "category": "career",
+    "resource": "https://www.im.fju.edu.tw/%E6%9C%AA%E4%BE%86%E5%B0%B1%E6%A5%AD/"
+  },
+  {
+    "question": "就讀輔大資管系，未來可以在顧問及業務支援方面做哪些工作?",
+    "level": "3",
+    "keyword": [
+      "顧問",
+      "業務支援",
+      "職涯"
+    ],
+    "related": [
+      "顧問技能",
+      "客戶關係",
+      "商務拓展"
+    ],
+    "answer": "可從事管理顧問、商務拓展專員、技術帳戶經理、客戶成功經理、企業流程顧問等職業。",
+    "category": "career",
+    "resource": "https://www.im.fju.edu.tw/%E6%9C%AA%E4%BE%86%E5%B0%B1%E6%A5%AD/"
+  },
+{
+  "question": "資管系歷屆系友從事過什麼職業?",
+  "level": "3",
+  "keyword": [
+    "系友",
+    "職業",
+    "畢業出路"
+  ],
+  "related": [
+    "業界發展",
+    "職涯規劃",
+    "就業領域",
+    "系友分享"
+  ],
+  "answer": "網路公司（Google、伊雲谷、萬里雲）總監、雲端工程師。外商公司（AWS、Microsoft、HP、IBM、Digital River、Apple、Appier、Atlassian、奧美、美商安邁科技）顧問、工程師、亞洲區負責人、合夥人。軟體公司（台灣大哥大、中華電信、叡揚資訊、遠傳電信、趨勢科技、益群健康）高階主管、軟體設計工程師。電子公司（台積電、華碩、廣達、HTC、精英電腦、和碩）IT、資訊工程師。金融業（國泰金控、永豐銀行、玉山銀行、復華證券、新光人壽、中國信託、凱基證券）資訊部專員、財務管理襄理會計師事務所（安永、資誠、勤業眾信）主管、專員。國內大學、各級中學、小學（政治大學、淡江大學、台北大學、輔仁大學、大同大學、文化大學）教職公職機關（經濟部）資訊管理師。自行創業（旭傳媒科技股份有限公司、沃提利數位、PicSee、系統上線資訊、億全聚網路科技）創辦人。財團法人（資策會）資安工程師。中國企業（阿里巴巴、香港保险科技公司OneDegree集团）高級用戶體驗設計專家、首席執行官。",
+  "category": "career and alumni",
+  "resource": "https://www.im.fju.edu.tw/%E6%9C%AA%E4%BE%86%E5%B0%B1%E6%A5%AD/"
+},
+{
+  "question": "資管系歷屆系友不同職業的從業比例?",
+  "level": "3",
+  "keyword": [
+    "系友",
+    "職業比例",
+    "就業統計"
+  ],
+  "related": [
+    "統計數據",
+    "畢業出路",
+    "熱門職缺"
+  ],
+  "answer": "軟體工程師44.3%，軟體專案管理師9.1%，國內業務9.1%，前端工程師6.8%，國外業務5.7%，網頁設計師5.7%，電玩程式設計師5.7%，其他客服人員4.5%，軟韌體測試工程師4.5%，國貿人員4.5%",
+  "category": "career and alumni",
+  "resource": "https://guide.104.com.tw/career/schoolMajor/5058000000/480109/#savePosition"
+},
+{
+  "question": "管院國際體驗學習在幹嘛?",
+  "level": "2",
+  "keyword": [
+    "國際學習",
+    "海外體驗",
+    "體驗學習"
+  ],
+  "related": [
+    "企管系",
+    "社會企業參與",
+    "暑期服務"
+  ],
+  "answer": "輔大管理學院國際體驗學習以「具社會企業精神與專業之國際體驗學習」為目標， 指導學生運用所學、解決問題，進行服務反思、體驗學習反思。若要參與，需修習企管系開設的「社會企業參與」，以作為暑期服務的基礎。",
+  "category": "programs and opportunities",
+  "resource": "https://www.management.fju.edu.tw/subweb/servicelearning/profile.php?IID=23"
+},
+{
+  "question": "4+1學程計劃是什麼?",
+  "level": "4",
+  "keyword": [
+    "4+1學程",
+    "雙聯學位",
+    "美國碩士"
+  ],
+  "related": [
+    "交換生",
+    "國際合作",
+    "學制"
+  ],
+  "answer": "4+1學成企劃是管院院透過與美國多所大學名校合作，大學第四年在本院修讀美國合作學校部份碩士先修課程，通過美國學校入學條件後，第五年到美國繼續完成碩士指定課程，最快五年即可獲得本校學士與美國碩士學位的就學管道。目前合作之美國學校有德克薩斯州大學達拉斯分校（University of Texas at Dallas）、福坦莫大學（Fordham University）、西雅圖大學（Seattle University）、康乃迪克大學（University of Connecticut）、羅耀拉瑪麗蒙特大學（Loyola Marymount University）、密西根大學弗林特分校（University of Michigan-Flint）、斯克蘭頓大學（University of Scranton）、奧克拉荷馬巿大學（Oklahoma City University)。",
+  "category": "programs and opportunities",
+  "resource": "https://www.management.fju.edu.tw/subweb/studyabroad/subedit.php?EID=108"
+},
+{
+  "question": "資管系畢業薪資是多少?",
+  "level": "2",
+  "keyword": [
+    "畢業薪資",
+    "起薪",
+    "平均薪資"
+  ],
+  "related": [
+    "就業前景",
+    "職涯發展",
+    "工作機會"
+  ],
+  "answer": "月薪落在4.5萬~7萬之間，平均薪資6.2萬。",
+  "category": "career and alumni",
+  "resource": "https://guide.104.com.tw/career/schoolMajor/5058000000/480109/#savePosition"
+},
+{
+  "question": "資管系畢業後的升學狀況?",
+  "level": "3",
+  "keyword": [
+    "升學狀況",
+    "研究所",
+    "國內外升學"
+  ],
+  "related": [
+    "升學統計",
+    "研究所科系",
+    "國內外學校選擇"
+  ],
+  "answer": "據統計約有22%的人選擇繼續升學，其中83%就讀國內研究所，17%就讀國外研究所。國內部分系所選擇，資訊管理學系為86%，企業管理學系4%，資訊工程學系3%，其餘7%。國外研究所所在國家，美國54%，英國27%，日本9%，南韓4%。",
+  "category": "career and alumni",
+  "resource": "https://guide.104.com.tw/career/schoolMajor/5058000000/480109/#savePosition"
+},
+
+{
+      "question": "大學部跟碩士的學分學程跟微學分學程的修課差別是甚麼？",
+    "level": "2",
+    "keyword": [
+      "學分學程",
+      "微學分學程", "跨領域","碩士","博士"
+    ],
+    "related": [
+      "課程規劃",
+      "學分數",
+      "證書",
+      "修讀資格"
+    ],
+    "answer": "學分學程規劃課程學分數學士班至少為 15 學分、碩、博士班至少為 10 學分。微學分學程，至少 6 學分以上，12 學分以下。",
+    "category": "courses and studies",
+    "resource": "https://interdisciplinary.fju.edu.tw/faq"
+  },
+{
+    "question": "修跨領域學分學程的好處為何",
+    "level": "2",
+    "keyword": [
+      "跨領域",
+      "學分學程",
+      "專業知識",
+      "證書",
+      "職涯競爭力"
+    ],
+    "related": [
+      "課程選修",
+      "專業發展",
+      "證書效益",
+      "多元學習"
+    ],
+    "answer": "除了本系的專業之外，有機會可以修讀其他領域的課程，不但可學習到各個不同領域的專業知識，更可於選修完畢後獲得一張證書，在未來職涯的選擇上有更多的競爭力。",
+    "category": "courses and studies",
+    "resource": "https://interdisciplinary.fju.edu.tw/faq"
+  },
+  {
+    "question": "修讀完成有什麼證明嗎?",
+    "level": "2",
+    "keyword": [
+      "學分學程",
+      "微學分學程",
+      "證明",
+      "證書",
+      "履歷"
+    ],
+    "related": [
+      "修課完成",
+      "畢業證書",
+      "加分",
+      "學程認證"
+    ],
+    "answer": "學分學程(含微學分學程)修畢後，將會獲得一張證書，為履歷加分!",
+    "category": "courses and studies",
+    "resource":"https://interdisciplinary.fju.edu.tw/faq"
+  },
+  {
+    "question": "一個人只能選一個學程嗎",
+    "level": "2",
+    "keyword": [
+      "學分學程",
+      "申請限制",
+      "學年申請",
+      "資格認定",
+      "修讀限制"
+    ],
+    "related": [
+      "申請資格",
+      "修課限制",
+      "學年規定",
+      "更改申請"
+    ],
+    "answer": "學生每學年申請認定學分學程以一學程為限，學分學程修讀資格認定後一學年內不得更改；學生得因志趣或其他原因，於次學年依規定，申請其他學分學程。",
+    "category": "courses and studies",
+    "resource":"https://interdisciplinary.fju.edu.tw/faq"
+  },
+  {
+    "question": "甚麼是微學分學程？",
+    "level": "2",
+    "keyword": [
+      "微學分學程",
+      "跨科系",
+      "知識整合",
+      "第二專長",
+      "相關知識"
+    ],
+    "related": [
+      "跨領域學習",
+      "學程特色",
+      "知識融合",
+      "專業發展"
+    ],
+    "answer": "將不同科系或是不同領域的知識加以組織整合，讓學生除本科系之專業知識外，更能夠融合學習其它相關知識，甚至具備第二專長。",
+    "category": "courses and studies",
+    "resource":["https://interdisciplinary.fju.edu.tw/faq"]
+  },
+  {
+    "question": "微學分學程、學分學程、輔系、雙主修差別是甚麼？",
+    "level": "2",
+    "keyword": [
+      "微學分學程",
+      "學分學程",
+      "輔系",
+      "雙主修",
+      "學制差異"
+    ],
+    "related": [
+      "學分限制",
+      "必選修課程",
+      "學制規定",
+      "學習規劃"
+    ],
+    "answer": "每個都是獨立的學制，依照不同的規定，在自己系上的必選修上，再加入不同的學分限制。",
+    "category": "courses and studies",
+    "resource":"https://interdisciplinary.fju.edu.tw/blank-1"
+  },
+  {
+    "question": "校內有哪些學分學程？",
+    "level": "2",
+    "keyword": ["學分學程", "校內學程", "課程開設", "114學年度", "跨系課程"],
+    "related": ["開課單位", "學年度", "課程範圍", "學分認定"],
+    "answer": "以114學年度開設的課程為舉例，其中包含多個院系所開設的課程。",
+    "category": "courses and studies",
+    "resource":"https://academic.fju.edu.tw/newsDetail.jsp?newsID=383&newsClassID=15"
+  },
+  {
+    "question": "輔系是想要就可以輔嗎？",
+    "level": "2",
+    "keyword": ["輔系", "申請資格", "申請條件", "輔系限制", "修讀資格"],
+    "related": ["申請規定", "輔系申請", "資格認定", "學分限制"],
+    "answer": "輔系有相關規定，若您有符合資格即可進行申請。",
+    "category": "minor and double major",
+    "resource":"https://academic.fju.edu.tw/awardDetail.jsp?newsID=3"
+  },
+  {
+    "question": "雙主修申請流程是啥？",
+    "level": "2",
+    "keyword": ["申請流程", "學分學程", "輔系", "雙主修", "申請辦法"],
+    "related": ["申請時間", "申請辦法公告", "流程說明", "申請步驟"],
+    "answer": "每年四月中會公布下個學年度的申請辦法，再依照相關規定進行申請的事宜。",
+    "category": "application process",
+    "resource":"https://academic.fju.edu.tw/awardDetail.jsp?newsID=5"
+  },
+  {
+    "question": "輔系與雙主修的差別是什麼？",
+    "level": "2",
+    "keyword": ["輔系", "雙主修", "差別", "課程量", "畢業規定"],
+    "related": ["學分要求", "課程彈性", "畢業條件", "學制差異"],
+    "answer": "輔系較為彈性，課程量少；雙主修課程較完整且要求較高，需同時符合兩系畢業規定。",
+    "category": "minor and double major",
+"resource":"https://academic.fju.edu.tw/awardDetail.jsp?newsID=5"
+  },
+  {
+    "question": "我可以同時申請輔系和雙主修嗎？",
+    "level": "2",
+    "keyword": ["輔系", "雙主修", "同時申請", "資格要求", "學分要求"],
+    "related": ["申請資格", "學分限制", "課程規劃", "學程搭配"],
+    "answer": "可以呦，但需符合各自的申請資格及學分要求。",
+    "category": "minor and double major",
+    "resource": []
+  },
+  {
+    "question": "輔系和雙主修需要在什麼時候申請？",
+    "level": "2",
+    "keyword": ["申請時間", "輔系", "雙主修", "申請時機", "學年度"],
+    "related": ["申請流程", "系辦公告", "申請資格", "學期安排"],
+    "answer": "通常在大二或大三下學期提出申請，具體時間依學校公告為準。",
+    "category": "application process",
+"resource":"https://academic.fju.edu.tw/awardDetail.jsp?newsID=5"
+  },
+  {
+    "question": "輔系或雙主修的修課會影響資管系的畢業學分嗎？",
+    "level": "2",
+    "keyword": ["輔系", "雙主修", "修課影響", "畢業學分", "選修學分"],
+    "related": ["學分抵免", "畢業條件", "選課規定", "學分認定"],
+    "answer": "輔系學分一般不計入主修必修學分，但可抵部分選修學分；雙主修則需完成兩個系的畢業學分。",
+    "category": "minor and double major",
+"resource":"https://academic.fju.edu.tw/awardDetail.jsp?newsID=5"
+  },
+  {
+    "question": "修輔系是否有額外費用？",
+    "level": "2",
+    "keyword": ["輔系", "費用", "學分費", "實習費", "學士班"],
+    "related": ["收費標準", "學分費用", "實習費用", "修業年限"],
+    "answer": "學士班學生修讀輔系，其加修科目學分，於規定修業年限內，須另行開班者，應依照本校收費標準繳納學分費及實習費。",
+    "category": "minor and double major",
+  "resource":"https://academic.fju.edu.tw/awardDetail.jsp?newsID=3"
+  },
+  {
+    "question": "修輔系要多修多少學分?",
+    "level": "2",
+    "keyword": ["輔系", "學分數", "修課量", "學分範圍", "學分要求"],
+    "related": ["科系差異", "學分規定", "課程數量", "修課負擔"],
+    "answer": "依照不同科系，20-36學分皆有可能。",
+    "category": "minor and double major",
+"resource":"https://academic.fju.edu.tw/awardDetail.jsp?newsID=3"
+  },
+  {
+    "question": "申請輔系和雙主修有GPA限制嗎？",
+    "level": "2",
+    "keyword": ["GPA限制", "申請資格", "成績要求", "輔系", "雙主修"],
+    "related": ["成績門檻", "申請公告", "資格規定", "成績評定"],
+    "answer": "有些科系會有成績限制，具體需要以該學年度的申請公告為主。",
+    "category": "application process",
+"resource":"https://academic.fju.edu.tw/awardDetail.jsp?newsID=3"
+  },
+  {
+    "question": "如何選擇適合自己的輔系或雙主修？",
+    "level": "2",
+    "keyword": ["選擇輔系", "雙主修", "職涯規劃", "興趣", "課程搭配"],
+    "related": ["學習興趣", "職涯發展", "課程規劃", "專業發展"],
+    "answer": "建議依興趣、未來職涯規劃及輔系與主修課程搭配度來挑選。",
+    "category": "minor and double major",
+    "resource": []
+  },
+  {
+    "question": "修完輔系或雙主修會拿到證書或學位嗎？",
+    "level": "2",
+    "keyword": ["證書", "學位", "輔系", "雙主修", "畢業證書"],
+    "related": ["學位認證", "學程結業", "畢業資格", "證書註記"],
+    "answer": "輔系和雙主修修畢後皆會加註於畢業證書上。",
+    "category": "minor and double major",
+"resource":"https://interdisciplinary.fju.edu.tw/faq"
+  },
+  {
+    "question": "輔系或雙主修的課程是否會與資管系課程衝堂？",
+    "level": "2",
+    "keyword": ["課程衝堂", "輔系", "雙主修", "課表安排", "選課規劃"],
+    "related": ["選課協調", "系辦溝通", "課程時間", "排課"],
+    "answer": "可能會有衝堂狀況，需提前規劃選課並與系辦協調。",
+    "category": "minor and double major",
+"resource":"https://interdisciplinary.fju.edu.tw/blank-1"
+  },
+  {
+    "question": "是否可以把輔系課程計入資管系選修學分？",
+    "level": "2",
+    "keyword": ["輔系", "選修學分", "學分計算", "學分認定", "主系選修"],
+    "related": ["學分規定", "輔系課程", "系主任同意", "學分補足"],
+    "answer": "各輔系專業（門）科目如與主系專業（門）科目相同時，不得計算為輔系學分。並應徵求輔系系主任同意，另在其它輔系專業（門）科目中，選修規定學分補足之。",
+    "category": "minor and double major",
+"resource":"https://academic.fju.edu.tw/awardDetail.jsp?newsID=3"
+  },
+  {
+    "question": "申請雙主修後是否要在兩個系所辦公室都辦理相關手續？",
+    "level": "2",
+    "keyword": ["雙主修", "申請手續", "系所辦公室", "學程認證", "手續流程"],
+    "related": ["系所規定", "申請流程", "認證手續", "雙系管理"],
+    "answer": "是的，需符合兩個系的規定與流程。",
+    "category": "application process",
+"resource":"https://academic.fju.edu.tw/awardDetail.jsp?newsID=5"
+  },
+  {
+    "question": "修輔系或雙主修的過程中可以轉回單一主修嗎？",
+    "level": "2",
+    "keyword": ["輔系", "雙主修", "退輔系", "退雙主修", "轉回單主修"],
+    "related": ["退學程流程", "學分調整", "申請手續", "學程更改"],
+    "answer": "可以，但需依學校流程辦理退輔系或退雙主修手續。",
+    "category": "minor and double major",
+"resource":"https://academic.fju.edu.tw/awardDetail.jsp?newsID=5"
+  },
+  {
+    "question": "如果雙主修的學分不足，會影響畢業嗎？",
+    "level": "2",
+    "keyword": ["雙主修", "學分不足", "畢業資格", "學位認證", "畢業影響"],
+    "related": ["學分修滿", "學位要求", "畢業條件", "學程完成"],
+    "answer": "會，需完成雙主修學分才能同時獲得兩個學位。",
+    "category": "minor and double major",
+"resource":"https://academic.fju.edu.tw/awardDetail.jsp?newsID=5"
+  },
+  {
+    "question": "申請輔系或雙主修會增加畢業年限嗎？",
+    "level": "2",
+    "keyword": ["輔系", "雙主修", "畢業年限", "修課安排", "延長學制"],
+    "related": ["課程安排", "學分負擔", "學制規定", "畢業進度"],
+    "answer": "視課程安排，有時會延長1-2學期，建議提早規劃。",
+    "category": "minor and double major",
+"resource":"https://academic.fju.edu.tw/awardDetail.jsp?newsID=5"
+  },
+  {
+    "question": "修輔系或雙主修的課程會不會太難應付？",
+    "level": "2",
+    "keyword": ["課程難度", "輔系", "雙主修", "學習負擔", "時間管理"],
+    "related": ["學習能力", "課業壓力", "時間規劃", "學習支援"],
+    "answer": "課業負擔會增加，建議評估自身時間管理與學習能力。",
+    "category": "minor and double major",
+"resource":"https://academic.fju.edu.tw/awardDetail.jsp?newsID=5"
+  },
+  {
+    "question": "如何查詢輔系和雙主修的開課資訊與申請流程？",
+    "level": "2",
+    "keyword": ["查詢", "開課資訊", "申請流程", "輔系", "雙主修"],
+    "related": ["教務系統", "系辦輔導", "資訊公告", "申請步驟"],
+    "answer": "可至學校教務系統查詢。",
+    "category": "application process",
+"resource":"https://academic.fju.edu.tw/awardDetail.jsp?newsID=5"
+  },
+{
+   "question": "微積分",
+    "level": "2", 
+    "keyword": [  
+      "微積分",
+      "資管系課程",
+      "學年課",
+      "必修",
+      "網課"
+    ],
+    "related": [ 
+      "微積分",
+      "葉承達",
+      "數學",
+      "大一",
+      "關於系上必修課"
+    ],
+    "answer": "開課名稱：微積分，開課老師：葉承達，學分數：3，培養的核心能力：數學，教學方式：講述、電子教學、對話教學法，學習評量方式：上課守則：期中考(筆試)(Midterm Test) 30%，期末考(筆試)(Final Test) 30%，隨堂測試(Quiz, 每學期4~5次) 20%，課堂參與(Class Participation) 10%，助教評量(Class Participation) 10%，學習規範：1.本課學校規定當率為15% 以上，2. Tronclass上每支教學片，觀看比例須達50%，否則學期成績不及格。",
+    "category": "courses and studies",
+    "resource":"https://outline.fju.edu.tw/#/outlineSearch/outlineView/709888/1028"
+},
+{
+ "question": "會計學",
+    "level": "2", 
+    "keyword": [  
+      "會計",
+      "資管系課程",
+      "學年課",
+      "必修"
+    ],
+    "related": [ 
+      "會計",
+      "洪玉舜",
+      "英文教材",
+      "大一",
+      "關於系上必修課"
+    ],
+    "answer": "開課名稱：會計學，開課老師：洪玉舜，學分數：3，培養的核心能力：經濟與會計，教學方式：以老師講授為主，搭配PPT與電子講義。並以競賽遊戲方式，要求學生討論、分工回答問題，學習評量方式：1.課堂參與(20%)，2.期中考(30%)，3.期末考(20%)4.心得或作業撰寫(10%)，5.其他(20%)。補充：1. 其他為實習課評分。2. 第9、11與12項評分標準視實際執行狀況作微調。學習規範：學生請假經核准而缺席者為缺課，未經請假或請假未准而缺席者為曠課，曠課一小時以缺課三小時論。學生某一科目缺課達該學期上課實際時數三分之一以上時（包括請假與曠課之換算），該科應予扣考，不得參加該科目之學期考試（或畢業考試），成績以零分計算。遲到將予以計算入出席評分。遲交作業將予以計算入學期成績評分。",
+    "category": "courses and studies",
+     "resource":"https://outline.fju.edu.tw/#/outlineSearch/outlineView/709889/1028"
+},
+{
+ "question": "企業管理概論",
+    "level": "2", 
+    "keyword": [  
+      "企概",
+      "鄭美娟",
+      "概論",
+      "上學期",
+      "必修"
+    ],
+    "related": [ 
+      "資管系專業課程",
+      "開課老師",
+      "英文教材",
+      "大一",
+      "關於系上必修課"
+    ],
+    "answer": "開課名稱：企業管理概論，開課老師：鄭美娟，學分數：3，培養的核心能力：人力資源、管理、銷售與行銷，課程與專門議題之關聯性：智慧財產權、資訊教育，教學方式：講述、個案研究、討論，學習評量方式：1.書面報告(30%)(自主學習成果報告10%併入書面報告成績計算。)，2.期中考(25%)，3.口頭報告(30%)，4.課堂參與(15%)，學習規範：課堂中隨機點名，若累積五次點名缺席，無故未到課，即本課程成績不及格。",
+    "category": "courses and studies",
+    "resource":"https://outline.fju.edu.tw/#/outlineSearch/outlineView/709891/1028"
+},
+{
+"question": "程式設計概論",
+    "level": "2", 
+    "keyword": [  
+      "程設",
+      "林青峰",
+      "程式",
+      "上學期",
+      "必修"
+    ],
+    "related": [ 
+      "程式語言",
+      "python",
+      "大一",
+      "課堂實作",
+      "關於系上必修課"
+    ],
+    "answer": "開課名稱：程式設計概論，開課老師：林青峰，學分數：3，培養的核心能力：資訊與電子，課程與專門議題之關聯性：資訊教育，教學方式：講述、實作教學，學習評量方式：1.課堂實作演練(20%)，2.期中考(30%)，3.期末考(40%)，4.心得或作業撰寫(20%)，學習規範：如果已有Python相關基礎，可申請PBL組",
+    "category": "courses and studies",
+    "resource":"https://outline.fju.edu.tw/#/outlineSearch/outlineView/709892/1028"
+},
+{
+"question": "統計學",
+    "level": "2", 
+    "keyword": [  
+      "統計",
+      "黃曜輝",
+      "學年課",
+      "必修"
+    ],
+    "related": [
+      "資管系課程",
+      "開課老師",
+      "數學",
+      "大二",
+      "關於系上必修課"
+    ],
+    "answer": "開課名稱：統計學，開課老師：黃曜輝，學分數：3，培養的核心能力：數學、資訊與電子相關、網路與電信、人力資源、顧客與人群服務、管理，課程與專門議題之關聯性：資訊教育，教學方式：講述，學習評量方式：1.隨堂考(30%)，2.期中考(30%)，3.期末考(30%)，4.課堂參與(10%)",
+    "category": "courses and studies",
+    "resource":"https://outline.fju.edu.tw/#/outlineSearch/outlineView/709893/1028"
+},
+{
+"question": "經濟學",
+    "level": "2", 
+    "keyword": [  
+      "許佳霖",
+      "資管系課程",
+      "學年課",
+      "必修"
+    ],
+    "related": [ 
+      "資管系專業課程",
+      "開課老師",
+      "英文教材",
+      "大二",
+      "關於系上必修課"
+    ],
+    "answer": "開課名稱：經濟學，開課老師：許嘉霖，學分數：3，培養的核心能力：經濟與會計，課程與專門議題之關聯性：環境保護，教學方式：講述、影片欣賞、專家演講、討論、自主學習，學習評量方式：1.課堂參與(20%)，2.期中考(25%)，3.期末考(25%)，4.口頭報告(30%)，學習規範：若需請假，請依學校規定辦理之。不論何種類型的請假(如病假、公假等)以3次為限，若有特殊狀況請與老師聯繫。",
+    "category": "courses and studies",
+    "resource":"https://outline.fju.edu.tw/#/outlineSearch/outlineView/709894/1028"
+  },
+  {
+  "question": "資料庫管理",
+  "level": "2", 
+    "keyword": [  
+      "資料庫",
+      "專業課程",
+      "蔡幸蓁",
+      "上學期",
+      "必修",
+      "程式"
+    ],
+    "related": [ 
+      "資管系專業課程",
+      "開課老師",
+      "資訊",
+      "大二",
+      "關於系上必修課"
+    ],
+    "answer": "開課名稱：資料庫管理，開課老師：蔡幸蓁，學分數：3，培養的核心能力：資訊與電子，課程與專門議題之關聯性：品德教育、資訊教育，教學方式：講述、專題實作，學習評量方式：1.隨堂考(10%)，2.期中考(35%)，3.期末考(35%)，4.課堂參與(5%)，5.心得或作業撰寫(15%)",
+    "category": "courses and studies",
+    "resource":"https://outline.fju.edu.tw/#/outlineSearch/outlineView/709896/1028"
+},
+{
+"question": "WEB程式設計",
+    "level": "2", 
+    "keyword": [  
+      "WEB",
+      "專業課程",
+      "資管系課程",
+      "上學期",
+      "必修",
+      "程式"
+    ],
+    "related": [ 
+     "資管系專業課程",
+      "開課老師",
+      "資訊",
+      "大二",
+      "關於系上必修課"
+    ],
+    "answer": "開課名稱：WEB程式設計，開課老師：吳濟聰，學分數：3，培養的核心能力：資續允電子、數學、網路與電信，課程與專門議題之關聯性：資訊教育，教學方式：講述、實作教學，學習評量方式：1.心得或作業撰寫(100%)",
+    "category": "courses and studies",
+    "resource":"https://outline.fju.edu.tw/#/outlineSearch/outlineView/709897/1028"
+},
+{
+"question": "創新與設計思考",
+    "level": "2", 
+    "keyword": [  
+      "課程",
+      "專業課程",
+      "資管系課程",
+      "上學期",
+      "必修"
+    ],
+    "related": [ 
+      "資管系專業課程",
+      "開課老師",
+      "大二",
+      "關於系上必修課"
+    ],
+    "answer": "開課名稱：創新與設計思考，開課老師：董惟鳳，學分數：2，培養的核心能力：管理，課程與專門議題之關聯性：資訊教育，教學方式：講述、實作教學、專家演講、討論，學習評量方式：1.專題發表(60%)，2.課堂參與(40%)",
+    "category": "courses and studies",
+    "resource":"https://outline.fju.edu.tw/#/outlineSearch/outlineView/709898/1028"
+},
+{
+"question": "作業系統",
+    "level": "2", 
+    "keyword": [  
+      "作業系統",
+      "胡俊之",
+      "資管系課程",
+      "上學期",
+      "必修"
+    ],
+    "related": [ 
+      "資管系專業課程",
+      "大三",
+      "關於系上必修課"
+    ],
+    "answer": "開課名稱：作業系統，開課老師：胡俊之，學分數：3，培養的核心能力：資訊與電子，課程與專門議題之關聯性：資訊教育，教學方式：講述、電子教學，學習評量方式：1.課堂參與(15%)，2.期中考(35%)，3.期末考(35%)，4.心得或作業撰寫(15%)",
+    "category": "courses and studies",
+    "resource":"https://outline.fju.edu.tw/#/outlineSearch/outlineView/709899/1028"
+},
+{
+"question": "進階程式設計",
+    "level": "2", 
+    "keyword": [  
+      "進階程設",
+      "資管系課程",
+      "下學期",
+      "必修",
+      "程式"
+    ],
+    "related": [ 
+      "java",
+      "python",
+      "程式設計",
+      "大一",
+      "關於系上必修課"
+    ],
+    "answer": "開課名稱：進階程式設計，開課老師：胡俊之，學分數：3，培養的核心能力：資訊與電子，課程與專門議題之關聯性：資訊教育，教學方式：講述、電子教學，學習評量方式：1.課堂參與(15%)，2.期中考(35%)，3.期末考(35%)，4.心得或作業撰寫(15%)",
+    "category": "courses and studies",
+"resource":"https://outline.fju.edu.tw/#/outlineSearch/outlineView/715335/1028"
+},
+{
+"question": "web前端設計",
+    "level": "2", 
+    "keyword": [  
+      "WEB前端",
+      "專業課程",
+      "資管系課程",
+      "下學期",
+      "必修"
+    ],
+    "related": [ 
+      "吳濟聰",
+      "程式",
+      "大一",
+      "關於系上必修課"
+    ],
+    "answer": "開課名稱：web前端設計，開課老師：吳濟聰，學分數：3，培養的核心能力：資訊與電子、網路與電信、顧客與人群服務，課程與專門議題之關聯性：資訊教育，教學方式：講述、實作教學，學習評量方式：1.心得或作業撰寫(100%)",
+    "category": "courses and studies",
+"resource":"https://outline.fju.edu.tw/#/outlineSearch/outlineView/715336/1028"
+},
+{
+"question": "系統分析與設計",
+    "level": "2", 
+    "keyword": [  
+      "系統分析",
+      "資管系課程",
+      "下學期",
+      "必修",
+      "程式"
+    ],
+    "related": [ 
+      "吳濟聰",
+      "大二",
+      "程式",
+      "關於系上必修課"
+    ],
+    "answer": "開課名稱：系統分析與設計，開課老師：吳濟聰，學分數：3，培養的核心能力：資訊與電子、網路與電信、顧客與人群服務，課程與專門議題之關聯性：資訊教育，教學方式：講述、對話教學法、問題導向學習、專題實作、自主學習，學習評量方式：1.專題發表(80%)，2.課堂參與(5%)，3.心得或作業撰寫(15%)",
+    "category": "courses and studies",
+    "resource":"https://outline.fju.edu.tw/#/outlineSearch/outlineView/715337/1028"
+},
+{
+"question": "資料結構",
+    "level": "2", 
+    "keyword": [  
+      "資結",
+      "王冠云",
+      "資管系課程",
+      "下學期",
+      "必修",
+      "程式"
+    ],
+    "related": [ 
+      "開課單位",
+      "開課老師",
+      "核心能力",
+      "關於系上必修課"
+    ],
+    "answer": "開課名稱：資料結構，開課老師：王冠云，學分數：3，培養的核心能力：資訊與電子，課程與專門議題之關聯性：資訊教育，教學方式：講述、討論，學習評量方式：1.隨堂考(10%)，2.期中考(35%)，3.期末考(35%)，4.課堂參與(5%)，5.心得或作業撰寫(15%)，學習規範：1. 如果無法出席課堂，請依規定請假並聯繫授課老師。2. 作業請準時繳交，遲交會扣分。",
+    "category": "courses and studies",
+    "resource":"https://outline.fju.edu.tw/#/outlineSearch/outlineView/715340/1028"
+},
+{
+"question": "資料通訊與網路",
+    "level": "2", 
+    "keyword": [  
+      "課程",
+      "專業課程",
+      "資管系課程",
+      "下學期",
+      "必修"
+    ],
+    "related": [ 
+      "開課單位",
+      "開課老師",
+      "核心能力",
+      "關於系上必修課"
+    ],
+    "answer": "開課名稱：資料通訊與網路，開課老師：林青峰，學分數：3，培養的核心能力：網路與電信、資訊與電子，課程與專門議題之關聯性：資訊教育，教學方式：講述、教學實作，學習評量方式：1.課堂上實作演練(30%)，2.期中考(30%)，3.期末考(30%)，4.課堂參與(10%)",
+    "category": "courses and studies",
+    "resource":"https://outline.fju.edu.tw/#/outlineSearch/outlineView/715342/1028"
+},
+{
+"question": "管理資訊系統",
+    "level": "2", 
+    "keyword": [  
+      "課程",
+      "專業課程",
+      "資管系課程",
+      "下學期",
+      "必修"
+    ],
+    "related": [ 
+      "開課單位",
+      "開課老師",
+      "核心能力",
+      "關於系上必修課"
+    ],
+    "answer": "開課名稱：管理資訊系統，開課老師：林湘霖，學分數：3，培養的核心能力：資訊與電子、網路與電信、人力資源、顧客與人群服務、管理、銷售與行銷，課程與專門議題之關聯性：資訊教育，教學方式：講述、個案研究、自主學習，學習評量方式：1.隨堂考(20%)，2.期中考(30%)，3.期末考(30%)，4.課堂參與(10%)，5.口頭報告(10%)，學習規範：1.作業提交：作業或報告需在規定期限內繳交至TronClass平台，非合理之理由，不接受補交。2.課程參與：每次上課隨機點名，除非課前請假，否則缺勤六次學期成績不予及格。3.其他規定：上課期間可以同步使用筆記本電腦觀看教材，但不允許使用手機。",
+    "category": "courses and studies",
+    "resource":"https://outline.fju.edu.tw/#/outlineSearch/outlineView/715343/1028"
+},
+{
+"question": "web前端設計",
+    "level": "2", 
+    "keyword": [  
+      "廖建翔",
+      "WEB前端",
+      "資管系課程",
+      "下學期",
+      "必修",
+      "程式"
+    ],
+    "related": [ 
+      "開課單位",
+      "程式",
+      "HTML",
+      "關於系上必修課"
+    ],
+    "answer": "開課名稱：web前端設計，開課老師：廖建翔，學分數：3，培養的核心能力：網路與電信、顧客與人群服務，課程與專門議題之關聯性：資訊教育，教學方式：講述、專題實作，學習評量方式：1.課堂參與(20%)，2.期中考(25%)，3.期末考(25%)，4.心得或作業撰寫(20%)，5.其他(10%)，學習規範：出席率和學習成績有高度相關",
+    "category": "courses and studies",
+   "resource":"https://outline.fju.edu.tw/#/outlineSearch/outlineView/715350/1028"
+},
+{
+ "question": "組織學習與社會探究",
+    "level": "3", 
+    "keyword": [  
+      "課程",
+      "專業課程",
+      "資管系課程",
+      "上學期",
+      "選修"
+    ],
+    "related": [ 
+      "開課單位",
+      "開課老師",
+      "核心能力",
+      "關於系上選修課"
+    ],
+    "answer": "開課名稱：組織學習與社會探究，開課老師：李禮孟，學分數：2，培養的核心能力：人力資源、顧客與人群服務、管理、銷售與行銷，課程與專門議題之關聯性：服務學習、環境保護、環境安全，無擋修，教學方式：以2次整天的校外體驗工作坊為主加上專案實作，學習評量方式：1.課堂參與 Participation (30%)，2.心得/作業撰寫 Assignment (20%)，3.專題發表 Project Presentation (20%)，4.課堂上實作演練 Class Practice (10%)，5.其他 Others (20%)",
+    "category": "courses and studies",
+   "resource":"https://outline.fju.edu.tw/#/outlineSearch/outlineView/720052/1028"
+},
+{
+
+"question": "生產與作業管理",
+    "level": "3", 
+    "keyword": [  
+      "課程",
+      "專業課程",
+      "資管系課程",
+      "上學期",
+      "選修",
+      "全英"
+    ],
+    "related": [ 
+      "開課單位",
+      "開課老師",
+      "核心能力",
+      "關於系上選修課"
+    ],
+    "answer": "開課名稱：生產與作業管理，開課老師：林湘霖，學分數：3，培養的核心能力：數學、人力資源、顧客與人群服務、管理、銷售與行銷、經濟與會計，課程與專門議題之關聯性：服務學習、環境安全、資訊教育，教學方式：講述、個案研究、實作教學、自主學習，學習評量方式：1.期中考(25%)，2.期末考(25%)，3.心得或作業撰寫(40%)，4.口頭報告(10%)",
+    "category": "courses and studies",
+    "resource":"https://outline.fju.edu.tw/#/outlineSearch/outlineView/709862/1028"
+},
+{
+
+"question": "Ｃ程式語言",
+    "level": "3", 
+    "keyword": [  
+      "課程",
+      "專業課程",
+      "資管系課程",
+      "上學期",
+      "選修"
+    ],
+    "related": [ 
+      "開課單位",
+      "開課老師",
+      "核心能力",
+      "關於系上選修課"
+    ],
+    "answer": "開課名稱：Ｃ程式語言，開課老師：石佳惠，學分數：3，培養的核心能力：資訊、管理，課程與專門議題之關聯性：資訊教育，教學方式：講述、實作教學，學習評量方式：1.期中考(30%)，2.期末考(30%)，3.課堂參與(20%)，4.心得或作業撰寫(10%)",
+    "category": "courses and studies",
+    "resource":"https://outline.fju.edu.tw/#/outlineSearch/outlineView/719558/1028"
+},
+{
+"question": "企業資源規劃",
+    "level": "3", 
+    "keyword": [  
+      "課程",
+      "專業課程",
+      "資管系課程",
+      "上學期",
+      "選修"
+    ],
+    "related": [ 
+      "開課單位",
+      "開課老師",
+      "核心能力",
+      "關於系上選修課"
+    ],
+    "answer": "開課名稱：企業資源規劃，開課老師：鄒濟民，學分數：3，培養的核心能力：資訊與電子、網路與電信、管理，課程與專門議題之關聯性：資訊教育，教學方式：講述、個案研究、討論，學習評量方式：1.專題發表(25%)，2.期末考(40%)，3.書面報告(10%)，4.課堂參與(15%)，5.心得或作業撰寫(5%)，6.自評語小組互評(5%)",
+    "category": "courses and studies",
+    "resource":"https://outline.fju.edu.tw/#/outlineSearch/outlineView/719585/1028"
+},
+{
+"question": "電子商務",
+    "level": "3", 
+    "keyword": [  
+      "課程",
+      "專業課程",
+      "資管系課程",
+      "上學期",
+      "選修",
+      "全英"
+    ],
+    "related": [ 
+      "開課單位",
+      "開課老師",
+      "核心能力",
+      "關於系上選修課"
+    ],
+    "answer": "開課名稱：電子商務，開課老師：許嘉霖，學分數：3，培養的核心能力：銷售與行銷，課程與專門議題之關聯性：本土教育、品德教育，教學方式：講述、個案研究、影片欣賞、專家演講、討論、自主學習，學習評量方式：1.期中考(25%)，2.期末考(25%)，3.課堂參與(20%)，4.書面報告(30%)",
+    "category": "courses and studies",
+    "resource":"https://outline.fju.edu.tw/#/outlineSearch/outlineView/709864/1028"
+},
+{
+"question": "商業自動化",
+    "level": "3", 
+    "keyword": [  
+      "課程",
+      "專業課程",
+      "資管系課程",
+      "上學期",
+      "選修"
+    ],
+    "related": [ 
+      "開課單位",
+      "開課老師",
+      "核心能力",
+      "關於系上選修課"
+    ],
+    "answer": "開課名稱：商業自動化，開課老師：張銀益，學分數：3，培養的核心能力：銷售與行銷，課程與專門議題之關聯性：智慧財產權、資訊教育，教學方式：上課13週，考試2次，兩週觀察作業2次，自主學習作業2次，學習評量方式：期中考22%+ 期末考 21% + 作業 45% + 課堂出席表現 12%",
+    "category": "courses and studies",
+    "resource":"https://outline.fju.edu.tw/#/outlineSearch/outlineView/709865/1028"
+},
+{
+"question": "雲端應用平台概論",
+    "level": "3", 
+    "keyword": [  
+      "林雅文",
+      "雲端平台",
+      "概論",
+      "上學期",
+      "選修",
+      "程式"
+    ],
+    "related": [ 
+      "開課單位",
+      "開課老師",
+      "核心能力",
+      "關於系上選修課"
+    ],
+    "answer": "開課名稱：雲端應用平台概論，開課老師：林雅文，學分數：3，培養的核心能力：網路與電信、管理，課程與專門議題之關聯性：資訊教育，教學方式：講述、實作教學，學習評量方式：1.課堂實作(50%)，2.課堂參與(20%)，3.書面報告(30%)",
+    "category": "courses and studies",
+"resource":"https://outline.fju.edu.tw/#/outlineSearch/outlineView/709866/1028"
+},
+{
+"question": "財務管理",
+    "level": "3", 
+    "keyword": [  
+      "徐銘傑",
+      "財管",
+      "資管系課程",
+      "上學期",
+      "選修"
+    ],
+    "related": [ 
+      "開課單位",
+      "開課老師",
+      "核心能力",
+      "關於系上選修課"
+    ],
+    "answer": "開課名稱：財務管理，開課老師：徐銘傑，學分數：3，培養的核心能力：數學、管理、經濟與會計，課程與專門議題之關聯性：法治教育、資訊教育，教學方式：講述，學習評量方式：1.個案分析報告撰寫(30%)，2.期中考(30%)，3.期末考(40%)",
+    "category": "courses and studies",
+    "resource":"https://outline.fju.edu.tw/#/outlineSearch/outlineView/719403/1028"
+},
+{
+"question": "資訊系統專題",
+    "level": "3", 
+    "keyword": [  
+      "課程",
+      "專業課程",
+      "資管系課程",
+      "上學期",
+      "必修"
+    ],
+    "related": [ 
+      "開課單位",
+      "開課老師",
+      "核心能力",
+      "關於系上選修課"
+    ],
+    "answer": "開課名稱：資訊系統專題，開課老師：董惟鳳、林湘霖、吳濟聰、張銀益、黃曜輝、胡俊之、石佳惠、黃智榮、林雅文、廖建翔、呂奇傑、葉承達、林青峰、鄭美娟、許嘉霖，學分數：3",
+    "category": "courses and studies",
+     "resource":"https://outline.fju.edu.tw/#/outlineSearch/outlineView/719403/1028"
+},
+{
+"question": "網路行銷",
+    "level": "3", 
+    "keyword": [  
+      "黃智榮",
+      "網路",
+      "資管系課程",
+      "上學期",
+      "選修",
+      "全英"
+    ],
+    "related": [ 
+      "開課單位",
+      "開課老師",
+      "核心能力",
+      "關於系上選修課"
+    ],
+    "answer": "開課名稱：網路行銷，開課老師：黃智榮，學分數：3，培養的核心能力：管理、銷售與行銷，教學方式：講述、個案研究，學習評量方式：1.個案分析報告撰寫(28%)，2.口頭報告(60%)，3.其他(12%)",
+    "category": "courses and studies",
+     "resource":"https://outline.fju.edu.tw/#/outlineSearch/outlineView/719591/1028"
+},
+{
+"question": "網路行銷",
+    "level": "3", 
+    "keyword": [  
+      "鄭美娟",
+      "網路",
+      "資管系課程",
+      "上學期",
+      "選修"
+    ],
+    "related": [ 
+      "大三",
+      "開課老師",
+      "核心能力",
+      "關於系上選修課"
+    ],
+    "answer": "開課名稱：網路行銷，開課老師：鄭美娟，學分數：3，培養的核心能力：顧客與人群服務、銷售與行銷、管理，教學方式：講述、個案研究，學習評量方式：1.書面報告(30%)(自主學習成果報告10%併入書面報告成績計算。)，2.心得或作業撰寫(20%)，3.口頭報告(30%)，4.課堂參與(20%)",
+    "category": "courses and studies",
+     "resource":"https://outline.fju.edu.tw/#/outlineSearch/outlineView/709884/1028"
+},
+{
+"question": "資訊系統專案管理",
+    "level": "3", 
+    "keyword": [  
+      "課程",
+      "專業課程",
+      "資管系課程",
+      "上學期",
+      "選修"
+    ],
+    "related": [ 
+      "開課單位",
+      "開課老師",
+      "核心能力",
+      "關於系上選修課"
+    ],
+    "answer": "開課名稱：資訊系統專案管理，開課老師：林雅文，學分數：2，培養的核心能力：顧客與人群服務、管理，課程與專門議題之關聯性：資訊教育，教學方式：講述、個案研究、討論、專題實作、自主學習，學習評量方式：1.書面報告(30%)，2.課堂參與(20%)，3.心得或作業撰寫(20%)，4.口頭報告(30%)",
+    "category": "courses and studies",
+    "resource":"https://outline.fju.edu.tw/#/outlineSearch/outlineView/709886/1028"
+},
+{
+"question": "進階Web程式設計",
+    "level": "3", 
+    "keyword": [  
+      "進階WEB",
+      "吳濟聰",
+      "資管系課程",
+      "上學期",
+      "選修",
+      "程式"
+    ],
+    "related": [ 
+      "開課單位",
+      "開課老師",
+      "核心能力",
+      "關於系上選修課"
+    ],
+    "answer": "開課名稱：進階Web程式設計，開課老師：吳濟聰，學分數：3，培養的核心能力：資訊與電子，課程與專門議題之關聯性：資訊教育，教學方式：實作教學、問題導向學習、專題實作，學習評量方式：1.專題發表(70%)，2.心得或作業撰寫(30%)",
+    "category": "courses and studies",
+    "resource":"https://outline.fju.edu.tw/#/outlineSearch/outlineView/709887/1028"
+},
+{
+"question": "行銷管理",
+    "level": "3", 
+    "keyword": [  
+      "行管",
+      "許佳霖",
+      "資管系課程",
+      "下學期",
+      "選修"
+    ],
+    "related": [ 
+      "開課單位",
+      "上下學期",
+      "核心能力",
+      "關於系上選修課"
+    ],
+    "answer": "開課名稱：行銷管理，開課老師：許嘉霖，學分數：2，培養的核心能力：銷售與行銷，課程與專門議題之關聯性：品德教育，教學方式：，學習評量方式：1.課堂參與(20%)，2.期中考(25%)，3.期末考(25%)，4.口頭報告(10%)，5.書面報告(20%)",
+    "category": "courses and studies",
+   "resource":"https://outline.fju.edu.tw/#/outlineSearch/outlineView/709887/1028"
+},
+{
+"question": "資訊管理導論",
+    "level": "3", 
+    "keyword": [  
+      "資管導論",
+      "黃智榮",
+      "資管系課程",
+      "下學期",
+      "選修",
+      "全英"
+    ],
+    "related": [ 
+      "開課單位",
+      "開課老師",
+      "核心能力",
+      "關於系上選修課"
+    ],
+    "answer": "開課名稱：資訊管理導論，開課老師：黃智榮，學分數：3，培養的核心能力：管理，教學方式：講述、個案研究，學習評量方式：1.個案分析報告撰寫(28%)，2.口頭報告(60%)，3.其他(12%)",
+    "category": "courses and studies",
+"resource":"https://outline.fju.edu.tw/#/outlineSearch/outlineView/715302/1028"
+},
+{
+"question": "資料處理程式設計",
+    "level": "3", 
+    "keyword": [ 
+      "資料處理",
+      "資管系課程",
+      "下學期",
+      "選修",
+      "全英",
+      "程式"
+    ],
+    "related": [ 
+      "開課單位",
+      "開課老師",
+      "核心能力",
+      "關於系上選修課"
+    ],
+    "answer": "開課名稱：資料處理程式設計，開課老師：林青峰，學分數：3，培養的核心能力：資訊與電子，課程與專門議題之關聯性：資訊教育，教學方式：講述、實作教學、討論，學習評量方式：1.課堂實作演練(20%)，2.期中考(20%)，3.專題發表(30%)，4.心得或作業撰寫(20%)，5.課堂參與(10%)",
+    "category": "courses and studies",
+   "resource":"https://outline.fju.edu.tw/#/outlineSearch/outlineView/723732/1028"
+},
+{
+"question": "管理數學",
+    "level": "3", 
+    "keyword": [  
+      "管數",
+      "專業課程",
+      "資管系課程",
+      "下學期",
+      "選修"
+    ],
+    "related": [ 
+      "開課單位",
+      "開課老師",
+      "核心能力",
+      "關於系上選修課"
+    ],
+    "answer": "開課名稱：管理數學，開課老師：鄭美娟，學分數：3，培養的核心能力：數學、管理，課程與專門議題之關聯性：資訊教育，教學方式：講述、實作教學、討論、問題導向學習，學習評量方式：1.書面報告(30%)(自主學習成果報告10%併入書面報告成績計算。)，2.課堂上實作演練(20%)，3.口頭報告(30%)，4.課堂參與(20%)，學習規範：課堂中隨機點名，若累積五次點名缺席，無故未到課，即本課程成績不及格。",
+    "category": "courses and studies",
+ "resource":"https://outline.fju.edu.tw/#/outlineSearch/outlineView/715304/1028"
+},
+{
+"question": "電子商務",
+    "level": "3", 
+    "keyword": [  
+      "課程",
+      "專業課程",
+      "資管系課程",
+      "下學期",
+      "選修"
+    ],
+    "related": [ 
+      "開課單位",
+      "開課老師",
+      "核心能力",
+      "關於系上選修課"
+    ],
+    "answer": "開課名稱：電子商務，開課老師：張銀益，學分數：3，培養的核心能力：銷售與行銷，課程與專門議題之關聯性：智慧財產權，資訊教育，教學方式：老師上課8週，學生創店提案4週，作業1次，期中考一週，期末考一週，自主學習2週。學習評量方式：創店提案專題20分（口頭報告 10分，文件10分），期中考30分、期終考15分、作業1次15分、自主學習10分，出席點名10分。學習規範：公假，事假須要先請假，送學校核准。病假可以事後請假，需送看病收據或藥單。下午上課，不可遲到。前半學期點名三次以上，後半學期點名三次以上，點名五次不到，給予扣考。作業需準時交，遲交一律以補交分數計算，補交期限最晚在學期末最後一堂課上補交。",
+    "category": "courses and studies",
+ "resource":"https://outline.fju.edu.tw/#/outlineSearch/outlineView/715305/1028"
+},
+{
+"question": "電腦繪圖與應用",
+    "level": "3", 
+    "keyword": [  
+      "石佳惠",
+      "電腦繪圖",
+      "資管系課程",
+      "下學期",
+      "選修",
+      "程式"
+    ],
+    "related": [ 
+      "開課單位",
+      "開課老師",
+      "核心能力",
+      "關於系上選修課"
+    ],
+    "answer": "開課名稱：電腦繪圖與應用，開課老師：石佳惠，學分數：3，培養的核心能力：資訊與電子，課程與專門議題之關聯性：資訊教育，教學方式：講述、個案研究、實作教學、專題實作，學習評量方式：1.專題發表(50%)，2.課堂參與(20%)，3.心得或作業撰寫(20%)，4.自評與小組互評(10%)",
+    "category": "courses and studies",
+ "resource":"https://outline.fju.edu.tw/#/outlineSearch/outlineView/720470/1028"
+},
+{
+"question": "巨量資料概論",
+    "level": "3", 
+    "keyword": [  
+      "巨量資料",
+      "林湘霖",
+      "資管系課程",
+      "下學期",
+      "選修"
+    ],
+    "related": [ 
+      "開課單位",
+      "開課老師",
+      "核心能力",
+      "關於系上選修課"
+    ],
+    "answer": "開課名稱：巨量資料概論，開課老師：林湘霖，學分數：3，培養的核心能力：數學、顧客與人群服務、銷售與行銷，課程與專門議題之關聯性：資訊教育，教學方式：講述、實作教學、自主學習，學習評量方式：1.個案分析報告撰寫(30%)，2.課堂上實作演練(40%)，3.期中考(20%)，4.課堂參與(10%)，學習規範：1.作業提交：作業或報告需在規定期限內繳交至TronClass平台，非合理之理由，不接受補交。2.課程參與：每次上課隨機點名，除非課前請假，否則缺勤六次學期成績不予及格。3.其他規定：上課期間可以同步使用筆記本電腦觀看教材，但不允許使用手機。",
+    "category": "courses and studies",
+ "resource":"https://outline.fju.edu.tw/#/outlineSearch/outlineView/715322/1028"
+},
+{
+"question": "服務科學",
+    "level": "3", 
+    "keyword": [  
+      "課程",
+      "專業課程",
+      "資管系課程",
+      "下學期",
+      "選修"
+    ],
+    "related": [ 
+      "開課單位",
+      "開課老師",
+      "核心能力",
+      "關於系上選修課"
+    ],
+    "answer": "開課名稱：服務科學，開課老師：董惟鳳，學分數：3，培養的核心能力：顧客與人群服務，課程與專門議題之關聯性：資訊教育，教學方式：講述、專題實作，學習評量方式：1.書面報告(30%)，2.課堂參與(30%)，3.口頭報告(40%)",
+    "category": "courses and studies",
+ "resource":"https://outline.fju.edu.tw/#/outlineSearch/outlineView/715323/1028"
+},
+{
+"question": "C++程式設計",
+    "level": "3", 
+    "keyword": [  
+      "C++",
+      "蔡明志",
+      "下學期",
+      "選修",
+      "程式"
+    ],
+    "related": [ 
+      "開課單位",
+      "開課老師",
+      "核心能力",
+      "關於系上選修課"
+    ],
+    "answer": "開課名稱：C++程式設計，開課老師：蔡明志，學分數：3，培養的核心能力：數學、資訊與電子、網路與電信、人力資源、顧客與人群服務，課程與專門議題之關聯性：品德教育、資訊教育，教學方式：講述、對話教學法，學習評量方式：1.課堂上實作演練(!0%)，2.期中考(25%)，3.期末考(35%)，4.隨堂考(10%)，5.課堂參與(10%)，6.心得或作業撰寫(10%)，學習規範：有時會抽點，不可遲到或早退，除非有請假。曠課三次基本上不會及格。",
+    "category": "courses and studies",
+ "resource":"https://outline.fju.edu.tw/#/outlineSearch/outlineView/715325/1028"
+},
+{
+"question": "資料視覺化分析與應用",
+    "level": "3", 
+    "keyword": [  
+      "資料視覺化",
+      "視覺化分析",
+      "石佳惠",
+      "下學期",
+      "選修",
+      "程式"
+    ],
+    "related": [ 
+      "開課單位",
+      "開課老師",
+      "核心能力",
+      "關於系上選修課"
+    ],
+    "answer": "開課名稱：資料視覺化分析與應用，開課老師：石佳惠，學分數：3，培養的核心能力：資訊與電子，課程與專門議題之關聯性：資訊教育，教學方式：講述+實作，學習評量方式：出席20%, 課堂作業20%, 期中報告30%, 期末報告30%",
+    "category": "courses and studies",
+ "resource":"https://outline.fju.edu.tw/#/outlineSearch/outlineView/715326/1028"
+},
+{
+"question": "空間資訊管理",
+    "level": "3", 
+    "keyword": [  
+      "林雅文",
+      "空間資訊",
+      "資管系課程",
+      "下學期",
+      "選修",
+      "全英"
+    ],
+    "related": [ 
+      "開課單位",
+      "開課老師",
+      "核心能力",
+      "關於系上選修課"
+    ],
+    "answer": "開課名稱：空間資訊管理，開課老師：林雅文，學分數：3，培養的核心能力：資訊與電子，課程與專門議題之關聯性：資訊教育，教學方式：講述、個案研究、實作教學、專題實作、自主學習，學習評量方式：1.書面報告(25%)，2.課堂參與(20%)，3.心得或作業撰寫(30%)，4.口頭報告(25%)，學習規範：1. Students should attend every class. Leave of absence must be requested ahead of class and authorized by the teacher.2. Group assignments must be uploaded to TronClass platform before the deadline; late submissions will not be accepted unless authorized by the teacher.",
+    "category": "courses and studies",
+ "resource":"https://outline.fju.edu.tw/#/outlineSearch/outlineView/715327/1028"
+},
+{
+"question": "大語言模型",
+    "level": "3", 
+    "keyword": [  
+      "LLM",
+      "大語言",
+      "王冠云",
+      "下學期",
+      "選修",
+      "全英"
+    ],
+    "related": [ 
+      "開課單位",
+      "開課老師",
+      "核心能力",
+      "關於系上選修課"
+    ],
+    "answer": "開課名稱：大語言模型，開課老師：王冠云，學分數：3，培養的核心能力：資訊與電子、網路與電信、銷售與行銷，課程與專門議題之關聯性：資訊教育，教學方式：講述、實作教學、討論、自主學習，學習評量方式：1.專題發表(30%)，2.書面報告(20%)，3.口頭報告(30%)，4.自評語小組互評(20%)",
+    "category": "courses and studies",
+ "resource":"https://outline.fju.edu.tw/#/outlineSearch/outlineView/723733/1028"
+},
+{
+"question": "網路管理",
+    "level": "3", 
+    "keyword": [  
+      "張銀益",
+      "網管",
+      "資管系課程",
+      "下學期",
+      "選修"
+    ],
+    "related": [ 
+      "開課單位",
+      "開課老師",
+      "核心能力",
+      "關於系上選修課"
+    ],
+    "answer": "開課名稱：網路管理，開課老師：張銀益，學分數：3，培養的核心能力：資訊與電子、網路與電信，課程與專門議題之關聯性：資訊教育，教學方式：講述、個案研究、自主學習，學習評量方式：1.心得或作業撰寫(30%)，2.期中考(30%)，3.期末考(15%)，4.口頭報告(20%)，5.其他(5%)，學習規範：公假，事假須要先請假，送學校核准。病假可以事後請假，需送看病收據或藥單。",
+    "category": "courses and studies",
+ "resource":"https://outline.fju.edu.tw/#/outlineSearch/outlineView/715329/1028"
+},
+{
+"question": "新媒體科技互動應用",
+    "level": "3", 
+    "keyword": [  
+      "課程",
+      "專業課程",
+      "資管系課程",
+      "下學期",
+      "選修",
+      "全英"
+    ],
+    "related": [ 
+      "開課單位",
+      "開課老師",
+      "核心能力",
+      "關於系上選修課"
+    ],
+    "answer": "開課名稱：新媒體科技互動應用，開課老師：鄭美娟，學分數：3，培養的核心能力：網路與電信、顧客與人群服務、管理、銷售與行銷，課程與專門議題之關聯性：智慧財產權、資訊教育，教學方式：講述，'實作教學、討論、問題導向學習、專題實作，學習評量方式：1.課堂上實作演練(50%)，2.書面報告(20%)，3.口頭報告(30%)，學習規範：1. 作業請準時繳交至TronClass教學支援平台。2. 課堂中隨機點名，若累積五次點名缺席，無故未到課，即本課程成績不及格。",
+    "category": "courses and studies",
+ "resource":"https://outline.fju.edu.tw/#/outlineSearch/outlineView/715331/1028"
+
+  }
+
+
+
+
   
 ]
   

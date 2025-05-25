@@ -41,14 +41,13 @@ export default async function handler(req, res) {
     // 2. 查詢 Pinecone
     let matches = [];
     let pineconeContexts = '（無相關知識庫資料）';
+    let pineconeResources = [];  // 新增：儲存資源連結
 
-    //console.log('key', process.env.PINECONE_API_KEY);
     try {
       const pinecone = new Pinecone({
         apiKey: process.env.PINECONE_API_KEY
-        //controllerHostUrl: "https://faq-embeddings-xqnx9wx.svc.aped-4627-b74a.pinecone.io",
       });
-      
+
       const index = pinecone.index("faq-embeddings");
       
       const result = await index.query({
@@ -63,9 +62,16 @@ export default async function handler(req, res) {
       
       // 3. 組合 Pinecone 回傳內容
       if (matches.length > 0) {
+        // 收集所有資源連結
+        pineconeResources = matches
+          .map(match => match.metadata?.resource || [])
+          .flat()
+          .filter(Boolean);
+
         pineconeContexts = matches.map((match, i) => {
           const metadata = match.metadata || {};
           const fields = Object.entries(metadata)
+            .filter(([key]) => key !== 'resource') // 排除 resource 欄位，因為我們會單獨處理
             .map(([key, val]) => `${key}: ${val}`)
             .join('\n');
           return `#${i + 1}\n${fields}`;
@@ -76,12 +82,17 @@ export default async function handler(req, res) {
     }
 
     console.log('🧠 Pinecone 組合後內容:', pineconeContexts);
+    console.log('🔗 收集到的資源連結:', pineconeResources);
 
     // 從 Pinecone 直接提取答案
     let directAnswer = '⚠ 無法從知識庫獲取回答';
     if (matches.length > 0 && matches[0].metadata && matches[0].metadata.answer) {
       // 使用得分最高的匹配項的答案
       directAnswer = matches[0].metadata.answer;
+      // 如果有資源連結，添加到答案中
+      if (pineconeResources.length > 0) {
+        directAnswer += '\n\n資料來源：\n' + pineconeResources.map(r => `- ${r}`).join('\n');
+      }
       console.log('🎯 直接從 Pinecone 獲取答案:', directAnswer);
     }
 
@@ -99,15 +110,14 @@ export default async function handler(req, res) {
 
     📚 來自 Pinecone 資料庫：
     ${pineconeContexts || '（無相關知識庫資料）'}
-
-    
+    ${pineconeResources.length > 0 ? `\n\n相關資源連結：\n${pineconeResources.map(r => `- ${r}`).join('\n')}` : ''}
 
     💬 貼文與留言摘要：
     ${postsText || '（無貼文資料）'}
     `.trim();
 
-        // 6. 組合提示詞
-        const finalPrompt = `
+    // 6. 組合提示詞
+    const finalPrompt = `
     你是一個輔仁大學資訊管理學系的智能助理，根據以下資料回答問題。如果資料中沒有答案，請誠實回答不知道。
     【以下是來自 Pinecone 資料庫與討論區貼文的輔助資料，請根據它們回答使用者的問題：】
 
@@ -117,6 +127,7 @@ export default async function handler(req, res) {
     使用這些資料來回答這個問題：
     ${query}
     請以條列清楚、有邏輯、誠實回答。若無資料，請說「資料中未提及」。
+    如果資料中有提供相關資源連結（resource），請在回答最後加上「資料來源：」並以超連結的方式列出這些來源連結。
     `.trim();
 
     console.log('📤 最終提示詞 finalPrompt:', finalPrompt);
