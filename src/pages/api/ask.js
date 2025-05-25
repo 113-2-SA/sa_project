@@ -113,6 +113,7 @@ export default async function handler(req, res) {
 
     ${totalContext}
 
+
     使用這些資料來回答這個問題：
     ${query}
     請以條列清楚、有邏輯、誠實回答。若無資料，請說「資料中未提及」。
