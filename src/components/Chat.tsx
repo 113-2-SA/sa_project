@@ -67,15 +67,6 @@ const Chat = ({ selectedChatId, onNewChat, onClearChat, onChatUpdate }: ChatProp
 
   // 抓取教授資料
   useEffect(() => {
-  //   const fetchProfessorData = async () => {
-  //     try {
-  //       const response = await fetch('/api/professors');//professors.ts
-  //       const data = await response.json();
-  //       setProfessorData(data.data);
-  //     } catch (error) {
-  //       console.error('Error fetching professor data:', error);
-  //     }
-  //   };
 
     const fetchPostsData = async () => {
       try {

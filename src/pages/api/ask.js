@@ -85,17 +85,13 @@ export default async function handler(req, res) {
       console.log('🎯 直接從 Pinecone 獲取答案:', directAnswer);
     }
 
-    // 4. 處理教授與貼文資料
+    // 4. 處理貼文資料
     const postsText = Array.isArray(postsData)
       ? postsData.map((post, i) => {
           const comments = post.comments?.map(c => `- ${c.content}`).join('\n') || '';
           return `📌 [${i + 1}] ${post.title}\n${post.content}\n留言：\n${comments}`;
         }).join('\n\n')
       : '（未提供貼文資料）';
-
-    // const professorText = typeof professorData === 'string'
-    //   ? professorData
-    //   : JSON.stringify(professorData || '（未提供教授資料）');
 
     // 5. 整合所有 context
     const totalContext = `
