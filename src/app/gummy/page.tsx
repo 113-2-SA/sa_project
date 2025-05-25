@@ -119,7 +119,7 @@ export default function Home() {
         const q = query(
           chatsRef,
           where('userEmail', '==', user.email),
-          // where('source', '==', 'GummyChat') // 過濾出 source 為 GummyChat 的對話
+          where('sort', '==', 'gummyChat') // 過濾出 sort 為 GummyChat 的對話
         );
         const querySnapshot = await getDocs(q);
 

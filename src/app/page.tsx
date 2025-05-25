@@ -145,7 +145,7 @@ export default function Home() {
     if (user) {
       try {
         const chatsRef = collection(db, 'chats');
-        const q = query(chatsRef, where('userEmail', '==', user.email));
+        const q = query(chatsRef, where('userEmail', '==', user.email),where('sort', '==', 'imfaq'));
         const querySnapshot = await getDocs(q);
         
         const chats = querySnapshot.docs.map(doc => ({

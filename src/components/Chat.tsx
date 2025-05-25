@@ -353,6 +353,7 @@ ${pineconeAnswer}
         lastMessageTime: new Date().toISOString(),
         topic: topic,
         isTimeBasedTopic: isTimeBasedTopic,
+        sort : 'imfaq',
         chatId: currentChatId || ''
       };
 
@@ -406,6 +407,7 @@ ${pineconeAnswer}
           lastMessageTime: new Date().toISOString(),
           topic: fallbackTopic,
           isTimeBasedTopic: true,
+          sort: 'imfaq',
           chatId: currentChatId || ''
         };
 
