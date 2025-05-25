@@ -32,6 +32,7 @@ const gummyChat = ({ selectedChatId, onNewChat, onClearChat }: ChatProps) => {
   const [professorData, setProfessorData] = useState('');
   const [currentChatId, setCurrentChatId] = useState<string | null>(selectedChatId);
 
+
   // 當 selectedChatId 改變時更新 currentChatId 和載入對話內容
   useEffect(() => {
     setCurrentChatId(selectedChatId);
@@ -210,7 +211,8 @@ const gummyChat = ({ selectedChatId, onNewChat, onClearChat }: ChatProps) => {
             lastMessageTime: new Date().toISOString(),
             topic: topic,
             isTimeBasedTopic: isTimeBasedTopic,
-            chatId: currentChatId || '' // 新增：儲存對話 ID
+            sort: "gummyChat", // 這裡改成字串
+            chatId: currentChatId || ''
           };
 
           if (currentChatId) {
