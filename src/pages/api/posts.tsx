@@ -1,7 +1,7 @@
 // /pages/api/posts.ts
-import type { NextApiRequest, NextApiResponse } from 'next';
 import { collection, getDocs } from 'firebase/firestore';
-import { db } from '../../_firebase/Config';  // 🔥 這邊引用你已經初始化好的 db
+import type { NextApiRequest, NextApiResponse } from 'next';
+import { db } from '../../_firebase/Config'; // 🔥 這邊引用你已經初始化好的 db
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   try {
@@ -29,6 +29,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           content: postData.content || '',
           createdAt: postData.createdAt?.toDate?.().toISOString() || '',
           tags: postData.tags || [],
+          resource: postData.resource || [],
           comments: comments.map(c => ({
             content: c.content || '',
             createdAt: c.createdAt?.toDate?.().toISOString() || '',
