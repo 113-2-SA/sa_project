@@ -41,6 +41,7 @@ export default function CreatePost() {
       setTags('');
       alert('貼文發佈成功');
       setOpen(false); // 關閉 Dialog
+      window.location.reload(); // 重新整理頁面，讓新貼文顯示
     } catch (error) {
       alert('發佈失敗');
     }
