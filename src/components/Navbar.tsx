@@ -2,18 +2,16 @@
 
 import {
   AlertDialog,
-  AlertDialogAction,
   AlertDialogCancel,
   AlertDialogContent,
   AlertDialogDescription,
   AlertDialogFooter,
   AlertDialogHeader,
-  AlertDialogTitle,
-  AlertDialogTrigger,
+  AlertDialogTitle
 } from "@/components/ui/alert-dialog"
 
 
-import { useState, useEffect } from 'react'
+import HeaderSticker from '@/components/profile'
 import {
   Dialog,
   DialogPanel,
@@ -25,20 +23,15 @@ import {
   PopoverGroup,
   PopoverPanel,
 } from '@headlessui/react'
+import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid'
 import {
-  ArrowPathIcon,
   Bars3Icon,
-  ChartPieIcon,
   ChatBubbleOvalLeftEllipsisIcon,
   CursorArrowRaysIcon,
-  FingerPrintIcon,
-  SquaresPlusIcon,
-  XMarkIcon,
+  XMarkIcon
 } from '@heroicons/react/24/outline'
-import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid'
-import { useRouter } from "next/navigation";
-import Login from '@/app/login/page'
-import HeaderSticker from '@/components/profile';
+import { useRouter } from "next/navigation"
+import { useEffect, useState } from 'react'
 import { ModeToggle } from './ui/modetoggle'
 
 const products = [
