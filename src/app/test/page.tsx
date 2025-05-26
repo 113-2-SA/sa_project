@@ -226,7 +226,7 @@ export default function Test() {
                   
                   <DrawerFooter>
                     <DrawerClose asChild>
-                      <Button variant="outline">Cancel</Button>
+                      <Button variant="outline">關閉</Button>
                     </DrawerClose>
                   </DrawerFooter>
                 </DrawerContent>

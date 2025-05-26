@@ -23,6 +23,7 @@ interface ChatProps {
   onChatUpdate?: () => void;  // 新增對話更新的回調函數
 }
 
+// 添加 URL 轉換函數
 const convertUrlsToLinks = (text: string) => {
   const urlRegex = /(https?:\/\/[^\s]+)/g;
   const parts = text.split(urlRegex);
@@ -469,14 +470,35 @@ ${pineconeAnswer}
 
   return (
     <div className="flex flex-col h-[calc(100vh-200px)]">
-      <div className="chat-window mx-auto flex-1" style={{ width: '100%', maxWidth: '800px', maxHeight: '400px', overflowY: 'scroll', overflowX: 'hidden', border: '1px solid #ccc', borderRadius: '8px', padding: '20px', display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'stretch', backgroundColor: '#f8f9fa', margin: '20px auto', boxShadow: '0 2px 4px rgba(0,0,0,0.1)' }}>
+      <div className="chat-window mx-auto flex-1" style={{ 
+        width: '100%', 
+        maxWidth: '800px', 
+        maxHeight: '400px', 
+        overflowY: 'auto', 
+        overflowX: 'hidden', 
+        border: '1px solid #ccc', 
+        borderRadius: '8px', 
+        padding: '20px', 
+        display: 'flex', 
+        flexDirection: 'column', 
+        justifyContent: 'flex-start', 
+        alignItems: 'stretch', 
+        backgroundColor: '#f8f9fa', 
+        margin: '20px auto', 
+        boxShadow: '0 2px 4px rgba(0,0,0,0.1)' 
+      }}>
         {chatHistory.map((msg, idx) => (
           <div key={idx} className={`p-2 my-1 rounded-lg max-w-[70%] ${msg.user === 'me' ? 'self-end bg-blue-100 text-right' : 'self-start bg-gray-200 text-left'}`}>
             <p style={{ whiteSpace: 'pre-wrap' }}>{convertUrlsToLinks(msg.text)}</p>
           </div>
         ))}
         {isLoading && (
-          <div className="self-start bg-gray-100 text-gray-500 p-2 rounded-lg">思考中... 🤔</div>
+          <div className="self-start bg-gray-100 text-gray-500 p-2 rounded-lg" style={{
+            wordBreak: 'break-word',
+            overflowWrap: 'break-word'
+          }}>
+            思考中... 🤔
+          </div>
         )}
       </div>
       <div style={{ display: 'flex', gap: '10px', marginTop: '10px', width: '100%', maxWidth: '800px', margin: '0 auto', alignItems: 'center' }}>
