@@ -5,9 +5,9 @@ import { useRouter } from "next/navigation";
 import GummyChat from '@/components/gummyChat';
 import { auth } from "@/_firebase/Config";
 import { User } from "firebase/auth";
-import { collection, query, where, getDocs, doc, getDoc, deleteDoc } from 'firebase/firestore';
+import { collection, query, where, getDocs, doc, getDoc, deleteDoc, updateDoc  } from 'firebase/firestore';
 import { db } from '@/_firebase/Config';
-import { Trash2 } from 'lucide-react';
+import { Trash2,Pencil } from 'lucide-react';
 
 const Sidebar = ({ user, chatHistory, onChatClick, onDeleteChat }: { 
   user: User | null; 
@@ -31,6 +31,24 @@ const Sidebar = ({ user, chatHistory, onChatClick, onDeleteChat }: {
     }
   };
 
+    const handleEditTopic = async (chatId: string, e: React.MouseEvent) => {
+      e.stopPropagation();
+      
+      const newTopic = prompt('請輸入新的對話主題：');
+      if (newTopic) {
+        try {
+          const chatRef = doc(db, 'chats', chatId);
+          await updateDoc(chatRef, {
+            topic: newTopic
+          });
+          onDeleteChat(); // 使用相同的函數來刷新列表
+        } catch (error) {
+          console.error('Error updating chat topic:', error);
+          alert('更新對話主題失敗');
+        }
+      }
+    };
+
   return (
     <div className="w-64 bg-white h-full shadow-lg flex flex-col">
       {/* 歷史對話區域 */}
@@ -49,13 +67,22 @@ const Sidebar = ({ user, chatHistory, onChatClick, onDeleteChat }: {
                   onClick={() => onChatClick(chat.id)}
                 >
                   <span className="flex-1 truncate">{chat.topic}</span>
-                  <button
-                    onClick={(e) => handleDeleteChat(chat.id, e)}
-                    className="opacity-0 group-hover:opacity-100 transition-opacity p-1 hover:bg-red-100 rounded"
-                    title="Delete chat"
-                  >
-                    <Trash2 className="h-4 w-4 text-red-500" />
-                  </button>
+                  <div className="flex gap-1">
+                    <button
+                      onClick={(e) => handleEditTopic(chat.id, e)}
+                      className="opacity-0 group-hover:opacity-100 transition-opacity p-1 hover:bg-blue-100 rounded"
+                      title="Edit topic"
+                    >
+                      <Pencil className="h-4 w-4 text-blue-500" />
+                    </button>
+                    <button
+                      onClick={(e) => handleDeleteChat(chat.id, e)}
+                      className="opacity-0 group-hover:opacity-100 transition-opacity p-1 hover:bg-red-100 rounded"
+                      title="Delete chat"
+                    >
+                      <Trash2 className="h-4 w-4 text-red-500" />
+                    </button>
+                  </div>
                 </li>
               ))
             ) : (

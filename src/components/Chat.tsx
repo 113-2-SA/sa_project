@@ -23,6 +23,32 @@ interface ChatProps {
   onChatUpdate?: () => void;  // 新增對話更新的回調函數
 }
 
+const convertUrlsToLinks = (text: string) => {
+  const urlRegex = /(https?:\/\/[^\s]+)/g;
+  const parts = text.split(urlRegex);
+  
+  return parts.map((part, index) => {
+    if (part.match(urlRegex)) {
+      return (
+        <a
+          key={index}
+          href={part}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            color: '#0066cc',
+            textDecoration: 'underline',
+            wordBreak: 'break-all'
+          }}
+        >
+          {part}
+        </a>
+      );
+    }
+    return part;
+  });
+};
+
 const Chat = ({ selectedChatId, onNewChat, onClearChat, onChatUpdate }: ChatProps) => {
   // 狀態管理
   const [message, setMessage] = useState(''); // 當前輸入的訊息
@@ -446,7 +472,7 @@ ${pineconeAnswer}
       <div className="chat-window mx-auto flex-1" style={{ width: '100%', maxWidth: '800px', maxHeight: '400px', overflowY: 'scroll', overflowX: 'hidden', border: '1px solid #ccc', borderRadius: '8px', padding: '20px', display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'stretch', backgroundColor: '#f8f9fa', margin: '20px auto', boxShadow: '0 2px 4px rgba(0,0,0,0.1)' }}>
         {chatHistory.map((msg, idx) => (
           <div key={idx} className={`p-2 my-1 rounded-lg max-w-[70%] ${msg.user === 'me' ? 'self-end bg-blue-100 text-right' : 'self-start bg-gray-200 text-left'}`}>
-            <p style={{ whiteSpace: 'pre-wrap' }}>{msg.text}</p>
+            <p style={{ whiteSpace: 'pre-wrap' }}>{convertUrlsToLinks(msg.text)}</p>
           </div>
         ))}
         {isLoading && (

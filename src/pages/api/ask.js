@@ -108,27 +108,29 @@ export default async function handler(req, res) {
     const totalContext = `
     【以下是三種不同來源的輔助資料，請根據它們回答使用者的問題，並在回答中清楚標示出資訊來自哪個來源：
 
-    📚 來自 Pinecone 資料庫：
+     Pinecone 資料庫區域開始：
     ${pineconeContexts || '（無相關知識庫資料）'}
     ${pineconeResources.length > 0 ? `\n\n相關資源連結：\n${pineconeResources.map(r => `- ${r}`).join('\n')}` : ''}
+    Pinecone 資料庫區域結束。
 
-    💬 貼文與留言摘要：
+    貼文與留言摘要區域開始：
     ${postsText || '（無貼文資料）'}
+    貼文與留言摘要區域結束
     `.trim();
 
     // 6. 組合提示詞
     const finalPrompt = `
-    你是一個輔仁大學資訊管理學系的智能助理，根據以下資料回答問題。如果資料中沒有答案，請誠實回答不知道。
+    你是一個只會使用繁體中文說話的輔仁大學資訊管理學系的智能助理，你不會告訴使用者你的身分。並且會根據以下資料回答問題。如果資料中沒有答案，請誠實回答不知道。
     【以下是來自 Pinecone 資料庫與討論區貼文的輔助資料，請根據它們回答使用者的問題：】
 
     ${totalContext}
 
 
-    使用這些資料來回答這個問題：
+    使用這些資料來回答這個問題，回答必須「條列清楚、有邏輯、自然語言、誠實回答」。若沒有任何資料能用於回答問題，才說「資料中未提及」。
+    如果引用了[貼文與留言摘要]區域的資料，請在回答中用「(換行)原文主題(換行)原文內容(換行)留言」的格式標示出原文內容。
     ${query}
-    請以條列清楚、有邏輯、誠實回答。若無資料，請說「資料中未提及」。
-    如果資料中有提供相關資源連結（resource），請在回答最後加上「資料來源：」並以超連結的方式列出這些來源連結。
     `.trim();
+   
 
     console.log('📤 最終提示詞 finalPrompt:', finalPrompt);
 
@@ -136,7 +138,7 @@ export default async function handler(req, res) {
     const groqResponse = await fetch('https://api.groq.com/openai/v1/chat/completions', {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${process.env.GROQ_API_KEY}`,
+        'Authorization': `Bearer ${process.env.NEXT_PUBLIC_GROQ_API_KEY}`,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
