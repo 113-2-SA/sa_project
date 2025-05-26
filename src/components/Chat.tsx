@@ -23,6 +23,33 @@ interface ChatProps {
   onChatUpdate?: () => void;  // 新增對話更新的回調函數
 }
 
+// 添加 URL 轉換函數
+const convertUrlsToLinks = (text: string) => {
+  const urlRegex = /(https?:\/\/[^\s]+)/g;
+  const parts = text.split(urlRegex);
+  
+  return parts.map((part, index) => {
+    if (part.match(urlRegex)) {
+      return (
+        <a
+          key={index}
+          href={part}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            color: '#0066cc',
+            textDecoration: 'underline',
+            wordBreak: 'break-all'
+          }}
+        >
+          {part}
+        </a>
+      );
+    }
+    return part;
+  });
+};
+
 const Chat = ({ selectedChatId, onNewChat, onClearChat, onChatUpdate }: ChatProps) => {
   // 狀態管理
   const [message, setMessage] = useState(''); // 當前輸入的訊息
@@ -476,7 +503,7 @@ ${pineconeAnswer}
               overflowWrap: 'break-word',
               maxWidth: '100%'
             }}>
-              {msg.text}
+              {convertUrlsToLinks(msg.text)}
             </p>
           </div>
         ))}
