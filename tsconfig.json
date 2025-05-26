@@ -19,6 +19,10 @@
     "incremental": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
+    "baseUrl": "./src",  // ✅ 加這行：src 當作 baseUrl
+    "paths": {
+      "@/*": ["*"]       // ✅ 加這行：@ 指向 src 底下
+    },
     "plugins": [
       {
         "name": "next"
